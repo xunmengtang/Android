@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/gray_state_press">
+    <item android:state_pressed="true" >
+        <shape>
+            <gradient
+                android:startColor="@color/startColor_state_press"
+                android:centerColor="@color/centerColor_state_press"
+                android:endColor="@color/endColor_state_press" />
+            <corners
+                android:radius="@dimen/defBtnRadius" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <gradient
+                android:startColor="@color/startColor"
+                android:endColor="@color/endColor" />
+            <corners
+                android:radius="@dimen/defBtnRadius" />
+        </shape>
+    </item>
+</ripple>

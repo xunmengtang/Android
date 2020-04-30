@@ -3,4 +3,23 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="baseColor">#000</color>
+
+    <!--    TextView color-->
+    <color name="colorDefText">#353535</color>
+    <color name="colorEdtText">#000000</color>
+    <color name="colorBtnText">#FFFFFF</color>
+    <color name="colorBtnPositive">#01579B</color>
+    <color name="colorBtnPositivePress">#9901579B</color>
+    <color name="colorBtnNegative">#D2302C</color>
+    <color name="colorBtnNegativePress">#80D2302C</color>
+    <!--Gradient button-->
+    <color name="startColor">#6439BF</color>
+    <color name="centerColor">#B36439BF</color>
+    <color name="endColor">#D51D4D</color>
+    <color name="startColor_state_press">#996439BF</color>
+    <color name="centerColor_state_press">#99D51D4D</color>
+    <color name="endColor_state_press">#99D51D4D</color>
+    <color name="gray_state_press">#D5D5D5</color>
 </resources>

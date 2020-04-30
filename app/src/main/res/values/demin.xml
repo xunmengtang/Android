@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Text Size-->
+    <dimen name="defTextViewSize">12sp</dimen>
+    <dimen name="defEditTextSize">12sp</dimen>
+    <!--    Label Size-->
+    <dimen name="defLabelSize">14sp</dimen>
+    <dimen name="bigLabelSize">16sp</dimen>
+    <!--    Title Size-->
+    <dimen name="defTitleSize">16sp</dimen>
+    <dimen name="bigTitleSize">18sp</dimen>
+    <!--    Button Size-->
+    <dimen name="defButtonTextSize">14sp</dimen>
+    <dimen name="defButtonHeight">40dp</dimen>
+    <dimen name="bigButtonHeight">48dp</dimen>
+    <dimen name="defBtnRadius">20dp</dimen>
+    <!--    Img Button Size-->
+    <dimen name="defImgButtonSize">40dp</dimen>
+    <dimen name="ImgButtonSize">48dp</dimen>
+    <!--    Margin Size-->
+    <dimen name="lowMargin">4dp</dimen>
+    <dimen name="defMargin">8dp</dimen>
+    <dimen name="bigMargin">16dp</dimen>
+    <dimen name="largeMargin">24dp</dimen>
+    <dimen name="bigLargeMargin">32dp</dimen>
+    <!--    Recycler view-->
+    <dimen name="rvMargin">4dp</dimen>
+</resources>
