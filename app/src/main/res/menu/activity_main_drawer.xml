@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_payments"
+            android:title="@string/menu_payment"
+            android:icon="@drawable/ic_payments"/>
+        <item
+            android:id="@+id/nav_history"
+            android:title="@string/menu_history"
+            android:icon="@drawable/ic_history"/>
+        <item
+            android:id="@+id/nav_promotions"
+            android:title="@string/menu_promotions"
+            android:icon="@drawable/ic_promotion" />
+        <item
+            android:id="@+id/nav_support"
+            android:title="@string/menu_support"
+            android:icon="@drawable/ic_customer_service"/>
+        <item
+            android:id="@+id/nav_feedbacks"
+            android:title="@string/menu_feedbacks"
+            android:icon="@drawable/ic_feedback"/>
+        <item
+            android:id="@+id/nav_About"
+            android:title="@string/menu_about"
+            android:icon="@drawable/ic_about_us"/>
+    </group>
+</menu>
