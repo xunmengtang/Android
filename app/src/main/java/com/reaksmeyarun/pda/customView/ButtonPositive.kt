@@ -6,7 +6,7 @@ import android.util.TypedValue
 import androidx.core.content.res.ResourcesCompat
 import com.reaksmeyarun.pda.R
 
-class gButtonPositive : androidx.appcompat.widget.AppCompatButton {
+class ButtonPositive : androidx.appcompat.widget.AppCompatButton {
     fun init() {
 
         //set font style

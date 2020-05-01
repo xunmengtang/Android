@@ -11,7 +11,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.RelativeLayout
-import com.ig.iginnovation.superapp.igsuperapprider.R.*
+import com.reaksmeyarun.pda.R.*
 
 //Reference: https://github.com/skyfishjy/android-ripple-background
 class RippleBackground : RelativeLayout {

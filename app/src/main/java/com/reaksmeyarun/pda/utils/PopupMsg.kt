@@ -1,8 +1,8 @@
-package com.ig.iginnovation.superapp.igsuperapprider.util
+package com.reaksmeyarun.pda.utils
 
 import android.app.Dialog
 import android.content.Context
-import com.ig.iginnovation.superapp.igsuperapprider.R
+import com.reaksmeyarun.pda.R
 import kotlinx.android.synthetic.main.alert_message.*
 
 object PopupMsg {

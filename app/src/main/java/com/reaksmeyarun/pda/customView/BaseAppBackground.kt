@@ -10,11 +10,10 @@ import android.util.AttributeSet
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
-import androidx.core.content.res.ResourcesCompat
-import com.ig.iginnovation.superapp.igsuperapprider.R
+import com.reaksmeyarun.pda.R
 
 
-class SuperAppBackground : View {
+class BaseAppBackground : View {
 
     private var startAngle = 0f
     private var sweepAngle = 0f
@@ -50,7 +49,7 @@ class SuperAppBackground : View {
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 //        canvas!!.drawColor(resources.getColor(R.color.colorAccent))
-        canvas!!.drawColor(resources.getColor(R.color.colorBase))
+        canvas!!.drawColor(resources.getColor(R.color.baseColor))
         Log.e("OvalShape","height $wHeight")
         Log.e("OvalShape","width $wWidth")
         val radius = wHeight

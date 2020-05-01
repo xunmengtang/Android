@@ -7,7 +7,7 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
-import com.ig.iginnovation.superapp.igsuperapprider.R
+import com.reaksmeyarun.pda.R
 
 
 abstract class BaseActivity : AppCompatActivity(),LifecycleOwner {
