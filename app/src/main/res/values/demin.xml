@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    Text Size-->
-    <dimen name="defTextViewSize">12sp</dimen>
-    <dimen name="defEditTextSize">12sp</dimen>
+    <dimen name="defTextViewSize">14sp</dimen>
+    <dimen name="defEditTextSize">14sp</dimen>
     <!--    Label Size-->
     <dimen name="defLabelSize">14sp</dimen>
     <dimen name="bigLabelSize">16sp</dimen>
     <!--    Title Size-->
     <dimen name="defTitleSize">16sp</dimen>
     <dimen name="bigTitleSize">18sp</dimen>
+    <dimen name="largeTitleSize">24sp</dimen>
     <!--    Button Size-->
     <dimen name="defButtonTextSize">14sp</dimen>
     <dimen name="defButtonHeight">40dp</dimen>

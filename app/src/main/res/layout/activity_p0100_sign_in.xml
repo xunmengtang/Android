@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vmSignIn"
+            type="com.reaksmeyarun.pda.viewmodel.SignInViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.P0100SignInActivity">
+
+        <com.example.myapplication.customview.BaseAppBackground
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/logo"
+                android:src="@drawable/ic_pos"
+                android:layout_gravity="center"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="54dp" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                android:elevation="2dp"
+                android:layout_margin="@dimen/bigLargeMargin">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <com.post.transfer.lanpost.mycustom.MyEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress"
+                        android:layout_marginTop="54dp"
+                        android:layout_marginBottom="@dimen/bigLargeMargin"
+                        android:layout_marginStart="@dimen/bigLargeMargin"
+                        android:layout_marginEnd="@dimen/bigLargeMargin"/>
+
+                    <com.post.transfer.lanpost.mycustom.MyEditText
+                        android:id="@+id/etPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:layout_marginEnd="@dimen/bigLargeMargin"
+                        android:layout_marginStart="@dimen/bigLargeMargin"/>
+                    <com.post.transfer.lanpost.mycustom.ButtonGradientStroke
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/signIn"
+                        android:textAllCaps="false"
+                        android:onClick="@{vmSignIn::handleSignInClick}"
+                        android:layout_margin="@dimen/bigLargeMargin" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/bigMargin">
+
+                <com.post.transfer.lanpost.mycustom.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="@string/msgContactToService" />
+
+                <com.post.transfer.lanpost.mycustom.MyTextView
+                    android:layout_marginTop="@dimen/lowMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_marginStart="@dimen/lowMargin"
+                    android:text="@string/msgPhoneNumberService" />
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/progressing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:visibility="gone"
+            android:background="@color/colorProgressing">
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

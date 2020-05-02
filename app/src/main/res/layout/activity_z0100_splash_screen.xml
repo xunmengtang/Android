@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.Z100SplashScreenActivity">
+    tools:context=".view.activity.Z0100SplashScreenActivity">
     <com.example.myapplication.customview.BaseAppBackground
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
@@ -25,25 +25,28 @@
                 android:gravity="center">
                 <ImageView
                     android:layout_width="150dp"
-                    android:layout_height="150dp"/>
+                    android:layout_height="150dp"
+                    android:src="@drawable/ic_pos"/>
                 <com.post.transfer.lanpost.mycustom.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Personal Digital Assistant"
-                    android:textSize="@dimen/bigTitleSize"
+                    android:textSize="@dimen/largeTitleSize"
                     android:textAllCaps="true"
                     android:textAlignment="center"
                     android:layout_margin="@dimen/bigLargeMargin"/>
                 <ProgressBar
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:theme="@style/AppTheme.WhiteAccent"/>
             </LinearLayout>
             <com.post.transfer.lanpost.mycustom.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Power by : Orn Reaksmeyarun"
+                android:text="Power by \nThe student of Royal University of Law and Economics"
                 android:textAlignment="center"
-                android:layout_marginBottom="@dimen/defMargin"/>
+                android:layout_marginTop="@dimen/bigMargin"
+                android:layout_marginBottom="@dimen/bigLargeMargin"/>
         </LinearLayout>
     </FrameLayout>
 </RelativeLayout>

@@ -3,13 +3,13 @@ package com.reaksmeyarun.pda.utils
 import android.app.Dialog
 import android.content.Context
 import com.reaksmeyarun.pda.R
-import kotlinx.android.synthetic.main.alert_message.*
+import kotlinx.android.synthetic.main.layout_alert_message.*
 
 object PopupMsg {
     fun alert(context: Context?,msg: String){
         if(context!=null){
             val dialog = Dialog(context, R.style.Theme_AppCompat_Dialog)
-            dialog.setContentView(R.layout.alert_message)
+            dialog.setContentView(R.layout.layout_alert_message)
             dialog.txtMsg.text = msg
             dialog.popupBtnClose.setOnClickListener {
                 dialog.dismiss()
@@ -20,7 +20,7 @@ object PopupMsg {
     fun alert(context: Context?,msg: String,callBack: OnClickButtonCloseCallBack){
         if(context!=null){
             val dialog = Dialog(context, R.style.Theme_AppCompat_Dialog)
-            dialog.setContentView(R.layout.alert_message)
+            dialog.setContentView(R.layout.layout_alert_message)
             dialog.txtMsg.text = msg
             dialog.popupBtnClose.setOnClickListener {
                 callBack.onCloseCallBack()

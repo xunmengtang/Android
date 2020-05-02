@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    style="@style/Widget.AppCompat.Button.Borderless"
     android:padding="@dimen/bigMargin">
     <ImageView
         android:layout_width="100dp"
@@ -34,6 +35,7 @@
         android:layout_width="@dimen/defButtonHeight"
         android:layout_height="@dimen/defButtonHeight"
         android:scaleType="center"
+        android:layout_gravity="top"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:src="@drawable/ic_close_black"/>
 </LinearLayout>
