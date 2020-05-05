@@ -23,19 +23,19 @@
             <com.example.myapplication.customview.BaseAppBackground
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:theme="@style/ToolBarStyle"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:elevation="1dp" />
-            </LinearLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <include
+                        layout="@layout/p0210_home_main_layout"
+                        app:vmHome="@{vmHome}"/>
+                </FrameLayout>
         </RelativeLayout>
 
         <com.google.android.material.navigation.NavigationView
@@ -44,6 +44,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
+            app:itemIconTint="@drawable/drawer_item_color"
+            app:itemTextColor="@drawable/drawer_item_color"
             app:headerLayout="@layout/layout_nav_header_main"
             app:menu="@menu/activity_main_drawer" />
     </androidx.drawerlayout.widget.DrawerLayout>

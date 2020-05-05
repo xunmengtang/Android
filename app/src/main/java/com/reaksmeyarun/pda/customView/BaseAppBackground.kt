@@ -48,8 +48,8 @@ class BaseAppBackground : View {
     }
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-//        canvas!!.drawColor(resources.getColor(R.color.colorAccent))
-        canvas!!.drawColor(resources.getColor(R.color.baseColor))
+        canvas!!.drawColor(resources.getColor(R.color.white))
+//        canvas!!.drawColor(resources.getColor(R.color.baseColor))
         Log.e("OvalShape","height $wHeight")
         Log.e("OvalShape","width $wWidth")
         val radius = wHeight
@@ -58,13 +58,15 @@ class BaseAppBackground : View {
         //bottom oval left
         var paint1 = Paint()
         paint1.style = Paint.Style.FILL
-        paint1.color = Color.argb(alpha, 255, 255, 255)
+        paint1.color = Color.argb(alpha, 0, 229, 255)
+//        paint1.color = Color.argb(alpha, 255, 255, 255)
         canvas.drawCircle(wWidth / 10, (radius * 2) - wHeight / 4, radius, paint1)
 
         //bottom oval center
         var paint = Paint()
         paint.style = Paint.Style.FILL
-        paint.color = Color.argb(alpha, 255, 255, 255)
+        paint.color = Color.argb(alpha, 73, 238, 255)
+//        paint.color = Color.argb(alpha, 255, 255, 255)
         canvas.drawCircle(wWidth / 2 + wWidth / 10, (radius * 2) - (wHeight / 5), radius, paint)
         }
     companion object {
