@@ -82,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="@string/msgContactToService" />
+                    android:text="@string/msg_ContactToService" />
 
                 <com.post.transfer.lanpost.mycustom.MyTextView
                     android:layout_marginTop="@dimen/lowMargin"
@@ -91,7 +91,7 @@
                     android:textStyle="bold"
                     android:textAlignment="center"
                     android:layout_marginStart="@dimen/lowMargin"
-                    android:text="@string/msgPhoneNumberService" />
+                    android:text="@string/msg_PhoneNumberService" />
             </LinearLayout>
         </LinearLayout>
         <RelativeLayout

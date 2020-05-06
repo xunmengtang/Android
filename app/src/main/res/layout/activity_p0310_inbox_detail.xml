@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             app:title="@string/inboxDetail"
             android:layout_width="match_parent"
-            android:theme="@style/ToolbarColoredBackArrow"
+            android:theme="@style/ToolBarStyle"
             android:layout_height="?attr/actionBarSize"
             android:elevation="1dp" />
 

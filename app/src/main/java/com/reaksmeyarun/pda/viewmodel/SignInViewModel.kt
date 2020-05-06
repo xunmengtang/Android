@@ -9,7 +9,7 @@ import com.reaksmeyarun.pda.view.activity.P0200HomeActivity
 import java.util.logging.Handler
 
 class SignInViewModel(var activity : P0100SignInActivity) : ViewModel(){
-    val TAG = "SignInViewModel"
+    private val TAG = "SignInViewModel"
     private val signInRqMd =
         SignInModel()
     init {

@@ -18,7 +18,7 @@
             app:title="@string/promotionDetail"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:theme="@style/ToolbarColoredBackArrow"
+            android:theme="@style/ToolBarStyle"
             android:elevation="1dp" />
 
     </LinearLayout>

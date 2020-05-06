@@ -7,7 +7,13 @@ import com.reaksmeyarun.pda.model.ItemModel
 
 class ItemAdapter(context : Context, val layoutId : Int) : BaseAdapter<ItemModel>(context, layoutId) {
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        var onCallBackListener = object : OnCallBackListener{
+            override fun onClickListener() {
+            }
 
+        }
     }
-
+    interface OnCallBackListener{
+        fun onClickListener()
+    }
 }

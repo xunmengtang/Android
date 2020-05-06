@@ -10,10 +10,12 @@ class AppConstance {
         const val INBOX = 300
         const val SETTING = 400
         const val ABOUT_US = 500
+        const val CREATE_TRANSACTION = 600
         const val RESULT_HOME = 101
         const val RESULT_PROMOTION = 201
         const val RESULT_INBOX = 301
         const val RESULT_SETTING = 401
         const val RESULT_ABOUT_US = 501
+        const val RESULT_CREATE_TRANSACTION = 601
     }
 }

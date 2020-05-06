@@ -35,7 +35,34 @@
                     <include
                         layout="@layout/p0210_home_main_layout"
                         app:vmHome="@{vmHome}"/>
+                    <include
+                        layout="@layout/p0220_home_item_layout"
+                        app:vmHome="@{vmHome}"/>
+                    <include
+                        layout="@layout/p0230_home_item_detail_layout"
+                        app:vmHome="@{vmHome}"/>
+                    <include
+                        layout="@layout/p0240_home_cart_item_layout"
+                        app:vmHome="@{vmHome}"/>
+                    <include
+                        layout="@layout/p0250_home_payment_layout"
+                        app:vmHome="@{vmHome}"/>
+                    <include
+                        layout="@layout/p0260_home_confirmation_layout"
+                        app:vmHome="@{vmHome}"/>
                 </FrameLayout>
+            <RelativeLayout
+                android:id="@+id/progressing"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:visibility="gone"
+                android:background="@color/colorProgressing">
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
         </RelativeLayout>
 
         <com.google.android.material.navigation.NavigationView

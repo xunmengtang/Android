@@ -19,7 +19,7 @@ class MyEditText : androidx.appcompat.widget.AppCompatEditText {
         setTextColor(ResourcesCompat.getColor(resources,R.color.colorEdtText,null))
         //set text size
         val desiredSp = resources.getDimension(R.dimen.defEditTextSize)
-        val density = resources.getDisplayMetrics().density
+        val density = resources.displayMetrics.density
         setTextSize(TypedValue.COMPLEX_UNIT_SP, desiredSp / density)
         background = ResourcesCompat.getDrawable(resources,R.drawable.edt_background,null)
         setPadding(32,8,0,0)

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="vmHome"
+            type="com.reaksmeyarun.pda.viewmodel.HomeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="@{safeUnbox(vmHome.homeData.showSearchScreen)?View.VISIBLE:View.GONE}">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+                <ImageView
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:src="@drawable/ic_arrow_left_basecolor"
+                    android:onClick="@{vmHome::handleHomeMain}"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+                <com.post.transfer.lanpost.mycustom.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:gravity="center"
+                    android:text="@string/item"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/bigLabelSize"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:src="@drawable/ic_shopping_cart_basecolor"
+                    android:layout_alignParentEnd="true"
+                    android:scaleType="center"
+                    android:onClick="@{vmHome::handleHomeCart}"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <com.post.transfer.lanpost.mycustom.MyEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/defMargin"
+                    android:hint="@string/msg_search"/>
+                <ImageView
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:src="@drawable/ic_search_basecolor"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+            </LinearLayout>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rvItemSearch"/>
+    </LinearLayout>
+</layout>

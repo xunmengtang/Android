@@ -1,8 +1,8 @@
 package com.reaksmeyarun.pda.model
 
 class InboxModel(
-    var id : String = "",
-    var inbox : Inbox
+    var id : String = ""
+//    ,    var inbox : Inbox
 ) {
     class Inbox(
         var status : String = "",

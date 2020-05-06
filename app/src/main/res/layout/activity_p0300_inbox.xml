@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="vmInbox"
+            type="com.reaksmeyarun.pda.viewmodel.InboxViewModel" />
     </data>
 
     <RelativeLayout
@@ -26,10 +28,11 @@
                 app:title="@string/inbox"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:theme="@style/ToolbarColoredBackArrow"
+                android:theme="@style/ToolBarStyle"
                 android:elevation="1dp" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvInbox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>

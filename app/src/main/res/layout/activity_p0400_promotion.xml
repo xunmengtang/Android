@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="vmPromotion"
+            type="com.reaksmeyarun.pda.viewmodel.PromotionViewModel" />
     </data>
 
     <RelativeLayout
@@ -25,11 +27,11 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:theme="@style/ToolbarColoredBackArrow"
-                app:title="@string/promotion"
+                android:theme="@style/ToolBarStyle"
                 android:elevation="1dp" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPromotion"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>

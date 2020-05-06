@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Personal Digital Assistant</string>
+    <string name="app_name">Point of Sale</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -26,8 +26,9 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="email_address">Email Address</string>
-    <string name="msgContactToService">If anything wrong please contact to our service</string>
-    <string name="msgPhoneNumberService">070-723-618</string>
+    <string name="contact">Contact</string>
+    <string name="powerBy">Power by :</string>
+    <string name="powerByText">The student of Royal university of law and Economic</string>
     <string name="description">Description</string>
     <string name="selectSize">Select Size</string>
     <string name="selectSweet">Select Sweet</string>
@@ -38,10 +39,13 @@
     <string name="mediumSweet">M</string>
     <string name="sweet">S</string>
     <string name="addToCart">Add to Cart</string>
+    <string name="cart">Cart</string>
+    <string name="payment">Payment</string>
     <string name="confirmation">Confirmation</string>
-    <string name="msg_confirmation">You have successfully completed your order</string>
     <string name="backToHome">Back to Home</string>
     <string name="close">Close</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="inbox">Inbox</string>
     <string name="inboxDetail">Inbox Detail</string>
     <string name="promotion">Promotion</string>
@@ -55,6 +59,25 @@
     <string name="totalSale">Total Sale:</string>
     <string name="quantities">Quantities:</string>
     <string name="totalDiscount">Total Discount:</string>
-    <string name="total">Total</string>
+    <string name="total">Total:</string>
     <string name="codeID">Code ID:</string>
+    <string name="pay">Pay</string>
+    <string name="price">Price</string>
+    <string name="date">Date:</string>
+    <string name="subtotal">Sub-Total:</string>
+    <string name="vat">VAT:</string>
+    <string name="discount">Discount:</string>
+    <string name="serviceBy">Service by:</string>
+    <string name="amount">Amount:</string>
+    <string name="payback">Payback:</string>
+    <string name="paybackLabel">Payback</string>
+    <string name="bill">Bill</string>
+    <string name="invoice">Invoice</string>
+<!--    message-->
+    <string name="msg_search">What are looking for...</string>
+    <string name="msg_SignOut">Do you want to sign out?</string>
+    <string name="msg_ContactToService">If anything wrong please contact to our service</string>
+    <string name="msg_PhoneNumberService">070-723-618</string>
+    <string name="msg_confirmation">You have successfully completed your order</string>
+    <string name="msg_pay">Do you want to pay it now? Are you sure?</string>
 </resources>

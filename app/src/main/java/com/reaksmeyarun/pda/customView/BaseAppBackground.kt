@@ -63,11 +63,11 @@ class BaseAppBackground : View {
         canvas.drawCircle(wWidth / 10, (radius * 2) - wHeight / 4, radius, paint1)
 
         //bottom oval center
-        var paint = Paint()
-        paint.style = Paint.Style.FILL
-        paint.color = Color.argb(alpha, 73, 238, 255)
-//        paint.color = Color.argb(alpha, 255, 255, 255)
-        canvas.drawCircle(wWidth / 2 + wWidth / 10, (radius * 2) - (wHeight / 5), radius, paint)
+//        var paint = Paint()
+//        paint.style = Paint.Style.FILL
+//        paint.color = Color.argb(alpha, 73, 238, 255)
+////        paint.color = Color.argb(alpha, 255, 255, 255)
+//        canvas.drawCircle(wWidth / 2 + wWidth / 10, (radius * 2) - (wHeight / 5), radius, paint)
         }
     companion object {
         private const val DEFAULT_START_ANGLE : Float = 0f

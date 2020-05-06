@@ -22,7 +22,7 @@ class MyTextView : androidx.appcompat.widget.AppCompatTextView {
         setTextColor(ResourcesCompat.getColor(resources, R.color.colorDefText, null))
         //set text size
         val desiredSp = resources.getDimension(R.dimen.defTextViewSize)
-        val density = resources.getDisplayMetrics().density
+        val density = resources.displayMetrics.density
         setTextSize(TypedValue.COMPLEX_UNIT_SP, desiredSp / density)
 
     }

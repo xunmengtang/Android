@@ -9,8 +9,10 @@
         android:roundIcon="@drawable/ic_pos"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.Z0300AboutUsActivity"></activity>
-        <activity android:name=".view.activity.Z0200SettingActivity" />
+        <activity android:name=".view.activity.Z0300AboutUsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.activity.Z0200SettingActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.P0410PromotionDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
