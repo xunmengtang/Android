@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vmPromotion"
+            type="com.reaksmeyarun.pda.viewmodel.PromotionViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="@{safeUnbox(vmPromotion.promotionDM.showPromotionP0410)?View.VISIBLE:View.GONE}">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+            <com.post.transfer.lanpost.mycustom.MyTextView
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:text="@string/promotion"
+                android:textAlignment="center"
+                android:textSize="@dimen/bigLabelSize"
+                android:textStyle="bold"
+                android:gravity="center"/>
+            <ImageView
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:src="@drawable/ic_arrow_left_basecolor"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:onClick="@{vmPromotion::handleBackPress}"/>
+        </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rvPromotion"/>
+    </LinearLayout>
+</layout>

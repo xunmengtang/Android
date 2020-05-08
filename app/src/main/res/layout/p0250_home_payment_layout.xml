@@ -8,312 +8,499 @@
             name="vmHome"
             type="com.reaksmeyarun.pda.viewmodel.HomeViewModel" />
     </data>
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="@{safeUnbox(vmHome.homeData.showPaymentScreen)?View.VISIBLE:View.GONE}">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
-            <ImageView
-                android:layout_width="?attr/actionBarSize"
-                android:layout_height="?attr/actionBarSize"
-                android:src="@drawable/ic_arrow_left_basecolor"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:onClick="@{vmHome::handleHomeCart}"/>
-            <com.post.transfer.lanpost.mycustom.MyTextView
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:text="@string/payment"
-                android:textSize="@dimen/bigLabelSize"
-                android:textStyle="bold"/>
-        </RelativeLayout>
+        android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="1">
-            <com.post.transfer.lanpost.mycustom.MyTextView
+            android:visibility="@{safeUnbox(vmHome.homeData.showHomeP0250)?View.VISIBLE:View.GONE}">
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/bill"
-                android:textStyle="bold"
-                android:layout_marginTop="@dimen/bigMargin"
-                android:layout_marginStart="@dimen/bigMargin"
-                android:layout_marginEnd="@dimen/bigMargin"
-                android:textSize="@dimen/bigLabelSize" />
-            <androidx.cardview.widget.CardView
+                android:layout_height="?attr/actionBarSize">
+                <ImageView
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_arrow_left_basecolor"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:onClick="@{vmHome::handleHomeP0240}"/>
+                <com.post.transfer.lanpost.mycustom.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:text="@string/payment"
+                    android:textSize="@dimen/bigLabelSize"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="@dimen/cardview_default_elevation"
-                app:cardCornerRadius="8dp"
-                android:layout_marginTop="@dimen/bigMargin"
-                android:layout_marginStart="@dimen/bigMargin"
-                android:layout_marginEnd="@dimen/bigMargin">
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/bigMargin">
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/bigMargin"
+                    android:layout_marginTop="@dimen/bigMargin"
+                    android:layout_marginEnd="@dimen/bigMargin">
 
-                    <LinearLayout
+                    <com.post.transfer.lanpost.mycustom.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date" />
+
+                    <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/date"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="textEnd"
-                            android:text="10-Mar-2020 10:00:00 AM"
-                            android:layout_marginStart="4dp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/serviceBy"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="textEnd"
-                            android:text="Admin"
-                            android:layout_marginStart="4dp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/subtotal"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="10.00 $"
-                            android:textAlignment="textEnd"
-                            android:layout_marginStart="4dp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/vat"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="match_parent"
-                            android:textAlignment="textEnd"
-                            android:layout_height="wrap_content"
-                            android:text="10 %"
-                            android:layout_marginStart="4dp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/total"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="textEnd"
-                            android:text="9.00 $"
-                            android:layout_marginStart="4dp"/>
-                    </LinearLayout>
+                        android:layout_marginStart="4dp"
+                        android:text="10-Mar-2020 10:00:00 AM"
+                        android:textAlignment="textEnd" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <com.post.transfer.lanpost.mycustom.MyTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/payment"
-                android:textSize="@dimen/bigLabelSize"
-                android:textStyle="bold"
-                android:layout_marginTop="@dimen/bigMargin"
-                android:layout_marginStart="@dimen/bigMargin"
-                android:layout_marginEnd="@dimen/bigMargin"/>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="@dimen/cardview_default_elevation"
-                android:layout_marginTop="@dimen/bigMargin"
-                android:layout_marginStart="@dimen/bigMargin"
-                android:layout_marginEnd="@dimen/bigMargin"
-                app:cardCornerRadius="8dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/bigMargin"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/bigMargin"
+                    android:layout_marginEnd="@dimen/bigMargin">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                    <com.post.transfer.lanpost.mycustom.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/serviceBy" />
 
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/amount" />
-
-                        <com.post.transfer.lanpost.mycustom.MyEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:textAlignment="textEnd"
-                            android:hint="0.00 $"/>
-                    </LinearLayout>
-                    <LinearLayout
+                    <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/discount"/>
-                        <com.post.transfer.lanpost.mycustom.MyEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:textAlignment="textEnd"
-                            android:hint="0.0 %"/>
-                    </LinearLayout>
+                        android:layout_marginStart="4dp"
+                        android:text="Admin"
+                        android:textAlignment="textEnd" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <com.post.transfer.lanpost.mycustom.MyTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/paybackLabel"
-                android:textStyle="bold"
-                android:textSize="@dimen/bigLabelSize"
-                android:layout_marginTop="@dimen/bigMargin"
-                android:layout_marginStart="@dimen/bigMargin"
-                android:layout_marginEnd="@dimen/bigMargin"/>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="@dimen/cardview_default_elevation"
-                android:layout_marginTop="@dimen/bigMargin"
-                android:layout_marginStart="@dimen/bigMargin"
-                android:layout_marginEnd="@dimen/bigMargin"
-                app:cardCornerRadius="8dp">
-                <LinearLayout
+                <com.post.transfer.lanpost.mycustom.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="@dimen/bigMargin">
+                    android:layout_marginStart="@dimen/bigMargin"
+                    android:layout_marginTop="@dimen/bigMargin"
+                    android:layout_marginEnd="@dimen/bigMargin"
+                    android:text="@string/bill"
+                    android:textSize="@dimen/bigLabelSize"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/bigMargin"
+                    android:layout_marginTop="@dimen/bigMargin"
+                    android:layout_marginEnd="@dimen/bigMargin"
+                    android:elevation="@dimen/cardview_default_elevation"
+                    app:cardCornerRadius="8dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/subtotal"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                        android:layout_margin="@dimen/bigMargin"
+                        android:orientation="vertical">
+
+
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="10.00 $"
-                            android:textAlignment="textEnd"
-                            android:layout_marginStart="4dp"/>
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/subtotalDollar" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="00.00 $"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/subtotalKhmer" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="000.00 R"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="4dp">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/vat" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="10 %"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="4dp">>
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/totalDollar" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="00.00 $"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/totalKhmer" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="000.00 R"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
                     </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <com.post.transfer.lanpost.mycustom.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/bigMargin"
+                    android:layout_marginTop="@dimen/bigMargin"
+                    android:layout_marginEnd="@dimen/bigMargin"
+                    android:text="@string/payment"
+                    android:textSize="@dimen/bigLabelSize"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/bigMargin"
+                    android:layout_marginTop="@dimen/bigMargin"
+                    android:layout_marginEnd="@dimen/bigMargin"
+                    android:elevation="@dimen/cardview_default_elevation"
+                    app:cardCornerRadius="8dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/vat"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                        android:layout_margin="@dimen/bigMargin"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/amountDollar" />
+
+                            <com.post.transfer.lanpost.mycustom.MyEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:hint="@string/amountDollarHint"
+                                android:inputType="numberDecimal"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/amountKhmer" />
+
+                            <com.post.transfer.lanpost.mycustom.MyEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:hint="@string/amountKhmerHint"
+                                android:inputType="numberDecimal"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="10 %"
-                            android:textAlignment="textEnd"
-                            android:layout_marginStart="4dp"/>
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/discount" />
+
+                            <com.post.transfer.lanpost.mycustom.MyEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:hint="@string/discountHint"
+                                android:inputType="numberDecimal"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
                     </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <com.post.transfer.lanpost.mycustom.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/bigMargin"
+                    android:layout_marginTop="@dimen/bigMargin"
+                    android:layout_marginEnd="@dimen/bigMargin"
+                    android:text="@string/paybackLabel"
+                    android:textSize="@dimen/bigLabelSize"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/bigMargin"
+                    android:layout_marginTop="@dimen/bigMargin"
+                    android:layout_marginEnd="@dimen/bigMargin"
+                    android:layout_marginBottom="@dimen/bigMargin"
+                    android:elevation="@dimen/cardview_default_elevation"
+                    app:cardCornerRadius="8dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/discount"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                        android:layout_margin="@dimen/bigMargin"
+                        android:orientation="vertical">
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:text="10 %"
-                            android:textAlignment="textEnd"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/total"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/subtotalDollar" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="00.00 $"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="9.00 $"
-                            android:textAlignment="textEnd"
-                            android:layout_marginStart="4dp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/defMargin"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/amount"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/subtotalKhmer" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="000.00 R"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="100.00 $"
-                            android:textAlignment="textEnd"
-                            android:layout_marginStart="4dp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/payback"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                            android:orientation="horizontal"
+                            android:layout_marginTop="4dp">>
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/vat" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="10 %"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="80.00 $"
-                            android:textAlignment="textEnd"/>
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/discount" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="10 %"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="4dp">>
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/totalDollar" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="00.00 $"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/totalKhmer" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="000.00 R"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/amountDollar" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="@string/amountDollarHint"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/amountKhmer" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="@string/amountKhmerHint"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/paybackDollar" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/paybackDollarHint"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/paybackKhmer" />
+
+                            <com.post.transfer.lanpost.mycustom.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/paybackKhmerHint"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <com.post.transfer.lanpost.mycustom.ButtonPositive
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/defMargin"
+                android:layout_marginEnd="@dimen/defMargin"
+                android:layout_marginBottom="@dimen/defMargin"
+                android:onClick="@{vmHome::handleHomeP0260}"
+                android:text="@string/pay" />
         </LinearLayout>
-        <com.post.transfer.lanpost.mycustom.ButtonPositive
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/pay"
-            android:onClick="@{vmHome::handleHomeConfirmScreen}"
-            android:layout_margin="@dimen/defMargin"/>
-    </LinearLayout>
+    </ScrollView>
 </layout>

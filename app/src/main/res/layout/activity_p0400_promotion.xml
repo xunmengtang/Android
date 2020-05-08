@@ -22,18 +22,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:theme="@style/ToolBarStyle"
-                android:elevation="1dp" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPromotion"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+                <include
+                    layout="@layout/p0410_promotion_layout"
+                    app:vmPromotion = "@{vmPromotion}"/>
+                <include
+                    layout="@layout/p0420_promotion_detail_layout"
+                    app:vmPromotion = "@{vmPromotion}"/>
+            </FrameLayout>
         </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/progressing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:visibility="gone"
+            android:background="@color/colorProgressing">
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
     </RelativeLayout>
 </layout>

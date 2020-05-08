@@ -10,7 +10,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="@{safeUnbox(vmHome.homeData.showHomeScreen)?View.VISIBLE:View.GONE}">
+            android:visibility="@{safeUnbox(vmHome.homeData.showHomeP0210)?View.VISIBLE:View.GONE}">
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -29,7 +29,7 @@
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/category"
+                        android:text="@string/categoryLabel"
                         android:layout_margin="@dimen/defMargin"
                         android:paddingStart="@dimen/bigMargin"/>
                     <androidx.recyclerview.widget.RecyclerView
@@ -40,7 +40,7 @@
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/item"
+                        android:text="@string/itemLabel"
                         android:paddingStart="@dimen/bigMargin"
                         android:layout_margin="@dimen/defMargin"/>
                     <androidx.recyclerview.widget.RecyclerView
@@ -174,7 +174,7 @@
                 android:src="@drawable/ic_add_transaction"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:onClick="@{vmHome::handleGotoTransaction}"
+                android:onClick="@{vmHome::handleHomeP0220}"
                 android:layout_margin="@dimen/bigMargin"/>
         </RelativeLayout>
 </layout>

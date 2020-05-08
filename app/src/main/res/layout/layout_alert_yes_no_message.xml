@@ -16,7 +16,7 @@
             android:background="@color/baseColor"
             android:textSize="@dimen/defTitleSize"
             android:textColor="@color/white"
-            android:text="Information"
+            android:text="Alert"
             android:gravity="center" />
 
         <com.post.transfer.lanpost.mycustom.MyTextView

@@ -1,99 +1,98 @@
 package com.reaksmeyarun.pda.datamodel
 
-import android.util.Log
 import com.ig.iginnovation.superapp.driver.baseclass.BaseDataModel
 
 class HomeDataModel : BaseDataModel(){
     companion object{
-        const val HOME_SCREEN = 1
-        const val SEARCH_SCREEN = 2
-        const val QUANTITIES_SCREEN = 3
-        const val CART_SCREEN = 4
-        const val PAYMENT_SCREEN = 5
-        const val CONFIRM_SCREEN = 6
+        const val HOME_P0210 = 1
+        const val HOME_P0220 = 2
+        const val HOME_P0230 = 3
+        const val HOME_P0240 = 4
+        const val HOME_P0250 = 5
+        const val HOME_P0260 = 6
     }
 
-    var state : Int? = HOME_SCREEN
+    var state : Int? = HOME_P0210
     set(value) {
         field = value
         when(state){
-            HOME_SCREEN ->{
-                showHomeScreen = true
-                showSearchScreen = false
-                showQuantitiesScreen = false
-                showCartScreen = false
-                showPaymentScreen = false
-                showConfirmScreen = false
+            HOME_P0210 ->{
+                showHomeP0210 = true
+                showHomeP0220 = false
+                showHomeP0230 = false
+                showHomeP0240 = false
+                showHomeP0250 = false
+                showHomeP0260 = false
             }
-            SEARCH_SCREEN ->{
-                showHomeScreen = false
-                showSearchScreen = true
-                showQuantitiesScreen = false
-                showCartScreen = false
-                showPaymentScreen = false
-                showConfirmScreen = false
+            HOME_P0220 ->{
+                showHomeP0210 = false
+                showHomeP0220 = true
+                showHomeP0230 = false
+                showHomeP0240 = false
+                showHomeP0250 = false
+                showHomeP0260 = false
             }
-            QUANTITIES_SCREEN ->{
-                showHomeScreen = false
-                showSearchScreen = false
-                showQuantitiesScreen = true
-                showCartScreen = false
-                showPaymentScreen = false
-                showConfirmScreen = false
+            HOME_P0230 ->{
+                showHomeP0210 = false
+                showHomeP0220 = false
+                showHomeP0230 = true
+                showHomeP0240 = false
+                showHomeP0250 = false
+                showHomeP0260 = false
             }
-            CART_SCREEN ->{
-                showHomeScreen = false
-                showSearchScreen = false
-                showQuantitiesScreen = false
-                showCartScreen = true
-                showPaymentScreen = false
-                showConfirmScreen = false
+            HOME_P0240 ->{
+                showHomeP0210 = false
+                showHomeP0220 = false
+                showHomeP0230 = false
+                showHomeP0240 = true
+                showHomeP0250 = false
+                showHomeP0260 = false
             }
-            PAYMENT_SCREEN ->{
-                showHomeScreen = false
-                showSearchScreen = false
-                showQuantitiesScreen = false
-                showCartScreen = false
-                showPaymentScreen = true
-                showConfirmScreen = false
+            HOME_P0250 ->{
+                showHomeP0210 = false
+                showHomeP0220 = false
+                showHomeP0230 = false
+                showHomeP0240 = false
+                showHomeP0250 = true
+                showHomeP0260 = false
             }
-            CONFIRM_SCREEN ->{
-                showHomeScreen = false
-                showSearchScreen = false
-                showQuantitiesScreen = false
-                showCartScreen = false
-                showPaymentScreen = false
-                showConfirmScreen = true
+            HOME_P0260 ->{
+                showHomeP0210 = false
+                showHomeP0220 = false
+                showHomeP0230 = false
+                showHomeP0240 = false
+                showHomeP0250 = false
+                showHomeP0260 = true
             }
         }
         propertiesChangedCallback.onChanged()
     }
-    var showHomeScreen : Boolean? = true
+    var showHomeP0210 : Boolean? = true
     set(value){
         field = value
         propertiesChangedCallback.onChanged()
     }
-    var showSearchScreen : Boolean? = false
+    var showHomeP0220 : Boolean? = false
     set(value){
         field = value
         propertiesChangedCallback.onChanged()
     }
-    var showQuantitiesScreen : Boolean = false
+    var showHomeP0230 : Boolean = false
     set(value){
         field = value
         propertiesChangedCallback.onChanged()
     }
-    var showCartScreen : Boolean = false
+    var showHomeP0240 : Boolean = false
     set(value) {
         field = value
         propertiesChangedCallback.onChanged()
     }
-    var showPaymentScreen : Boolean = false
+    var showHomeP0250 : Boolean = false
     set(value) {
         field = value
         propertiesChangedCallback.onChanged()
     }
-    var showConfirmScreen : Boolean = false
+    var showHomeP0260 : Boolean = false
     set(value) {
         field = value
         propertiesChangedCallback.onChanged()

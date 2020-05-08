@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:visibility="@{safeUnbox(vmHome.homeData.showConfirmScreen)?View.VISIBLE:View.GONE}">
+        android:visibility="@{safeUnbox(vmHome.homeData.showHomeP0260)?View.VISIBLE:View.GONE}">
 
         <com.example.myapplication.customview.BaseAppBackground
             android:layout_width="match_parent"
@@ -79,7 +79,7 @@
             android:layout_marginTop="@dimen/defMargin"
             android:layout_marginEnd="@dimen/defMargin"
             android:layout_marginBottom="@dimen/defMargin"
-            android:onClick="@{vmHome::handleHomeMain}"
+            android:onClick="@{vmHome::handleHomeP0210}"
             android:text="@string/backToHome" />
     </RelativeLayout>
 </layout>

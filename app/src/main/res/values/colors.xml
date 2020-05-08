@@ -33,4 +33,7 @@
     <color name="rippelColor">#D5D5D5</color>
     <dimen name="rippleStrokeWidth">2dp</dimen>
     <dimen name="rippleRadius">30dp</dimen>
+<!--    Background item-->
+    <color name="defBackground">#FFFFFF</color>
+    <color name="defBackgroundPress">#E4E4E4</color>
 </resources>

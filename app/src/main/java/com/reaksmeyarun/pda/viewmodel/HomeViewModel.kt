@@ -25,15 +25,15 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
 
     init {
         homeData.setValue(homeDataModel)
-        homeDataModel.state = HomeDataModel.HOME_SCREEN
+        homeDataModel.state = HomeDataModel.HOME_P0210
     }
-    fun handleHomeConfirmScreen (view: View){
+    fun handleHomeP0260 (view: View){
         PopupMsg.alert(activity, activity.getString(R.string.msg_pay),object : PopupMsg.OnClickButtonYesNoCallBack{
             override fun onYesCallBack() {
                 activity.binding.progressing.visibility = View.VISIBLE
                 android.os.Handler().postDelayed({
                     activity.binding.progressing.visibility = View.GONE
-                    homeDataModel.state = HomeDataModel.CONFIRM_SCREEN
+                    homeDataModel.state = HomeDataModel.HOME_P0260
                 },300)
             }
 
@@ -42,45 +42,45 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
 
         })
     }
-    fun handleHomePayment(view : View){
+    fun handleHomeP0250(view : View){
         activity.binding.progressing.visibility = View.VISIBLE
         android.os.Handler().postDelayed({
             activity.binding.progressing.visibility = View.GONE
-            homeDataModel.state = HomeDataModel.PAYMENT_SCREEN
+            homeDataModel.state = HomeDataModel.HOME_P0250
         },300)
     }
-    fun handleHomeCart(view: View){
+    fun handleHomeP0240(view: View){
         activity.binding.progressing.visibility = View.VISIBLE
         android.os.Handler().postDelayed({
             activity.binding.progressing.visibility = View.GONE
-            homeDataModel.state = HomeDataModel.CART_SCREEN
+            homeDataModel.state = HomeDataModel.HOME_P0240
         },300)
     }
-    fun handleHomeMain(view : View){
+    fun handleHomeP0210(view : View){
         activity.binding.progressing.visibility = View.VISIBLE
         android.os.Handler().postDelayed({
             activity.binding.progressing.visibility = View.GONE
             activity.binding.toolbar.visibility = View.VISIBLE
-            homeDataModel.state = HomeDataModel.HOME_SCREEN
+            homeDataModel.state = HomeDataModel.HOME_P0210
         },300)
     }
-    fun handleGotoTransaction(view: View){
+    fun handleHomeP0220(view: View){
         activity.binding.progressing.visibility = View.VISIBLE
         android.os.Handler().postDelayed({
             activity.binding.progressing.visibility = View.GONE
             activity.binding.toolbar.visibility = View.GONE
-            homeDataModel.state = HomeDataModel.SEARCH_SCREEN
+            homeDataModel.state = HomeDataModel.HOME_P0220
         },300)
     }
-    fun handleGotoQuantities(view : View){
+    fun handleHomeP0230(view : View){
         activity.binding.progressing.visibility = View.VISIBLE
         android.os.Handler().postDelayed({
             activity.binding.progressing.visibility = View.GONE
-            homeDataModel.state = HomeDataModel.QUANTITIES_SCREEN
+            homeDataModel.state = HomeDataModel.HOME_P0230
         },300)
     }
-    fun bindingCategory(){
-        for(value in 1..10){
+    fun bindingCategoryP0210(){
+        for(value in 1..20){
             categoryList.add(CategoryModel(""))
         }
         var categoryAdapter = CategoryAdapter(activity, R.layout.item_category_layout)
@@ -89,8 +89,8 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
         categoryAdapter.addItem(categoryList)
     }
     var itemList = ArrayList<ItemModel>()
-    fun bindingItem(){
-        for(value in 1..10){
+    fun bindingItemP0210(){
+        for(value in 1..20){
             itemList.add(ItemModel(""))
         }
         var itemAdapter = ItemAdapter(activity, R.layout.item_item_layout)
@@ -99,8 +99,8 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
         itemAdapter.addItem(itemList)
     }
     var searchItemList = ArrayList<ItemModel>()
-    fun bindingSearchItem(){
-        for(value in 1..10){
+    fun bindingItemP0230(){
+        for(value in 1..20){
             searchItemList.add(ItemModel(""))
         }
         var searchItemAdapter = ItemAdapter(activity, R.layout.item_search_layout)
@@ -109,13 +109,19 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
         searchItemAdapter.addItem(searchItemList)
     }
     var cartList = ArrayList<CartModel>()
-    fun bindingCart(){
-        for(value in 1..10){
+    fun bindingCartP0240(){
+        for(value in 1..20){
             cartList.add(CartModel(""))
         }
         var cartAdapter = CartAdapter(activity, R.layout.item_cart)
         activity.rvCart.adapter = cartAdapter
         activity.rvCart.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         cartAdapter.addItem(cartList)
+    }
+    fun handleBtnSearchItemClickP0230(view: View){
+        activity.binding.progressing.visibility = View.VISIBLE
+        android.os.Handler().postDelayed({
+            activity.binding.progressing.visibility = View.GONE
+        },300)
     }
 }

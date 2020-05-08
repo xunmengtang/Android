@@ -2,10 +2,8 @@ package com.reaksmeyarun.pda.view.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
@@ -32,11 +30,11 @@ class P0200HomeActivity : BaseActivity(), OnNavigationItemSelectedListener {
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         nav_view.setNavigationItemSelectedListener(this)
         setUpDrawerLayout()
-        nav_view.setCheckedItem(R.id.nav_home)
-        homeViewModel.bindingCategory()
-        homeViewModel.bindingItem()
-        homeViewModel.bindingSearchItem()
-        homeViewModel.bindingCart()
+        nav_view.setCheckedItem(R.id.nav_service)
+        homeViewModel.bindingCategoryP0210()
+        homeViewModel.bindingItemP0210()
+        homeViewModel.bindingItemP0230()
+        homeViewModel.bindingCartP0240()
     }
     private fun setUpDrawerLayout() {
         nav_view.itemIconTintList = null //use for set icon to default color
@@ -57,36 +55,39 @@ class P0200HomeActivity : BaseActivity(), OnNavigationItemSelectedListener {
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.nav_home ->{
-                Toast.makeText(this, "Home",Toast.LENGTH_SHORT).show()
+            R.id.nav_dashboard ->{
+                startActivity(Intent(this, D0100DashboardActivity::class.java))
+            }
+            R.id.nav_service ->{
+                //DO NOTHING
+            }
+            R.id.nav_stock ->{
+                startActivity(Intent(this, S0100StockInventoryActivity::class.java))
             }
             R.id.nav_promotion ->{
-                startActivityForResult(Intent(this, P0400PromotionActivity::class.java), AppConstance.PROMOTION)
+                startActivityForResult(Intent(this, P0400PromotionActivity::class.java), AppConstance.P0400PROMOTION)
             }
             R.id.nav_inbox ->{
-                startActivityForResult(Intent(this, P0300InboxActivity::class.java), AppConstance.INBOX)
+                startActivityForResult(Intent(this, P0300InboxActivity::class.java), AppConstance.P0300INBOX)
             }
             R.id.nav_setting ->{
-                startActivityForResult(Intent(this, Z0200SettingActivity::class.java), AppConstance.SETTING)
+                startActivityForResult(Intent(this, Z0200SettingActivity::class.java), AppConstance.Z0200SETTING)
             }
             R.id.nav_aboutUs ->{
-                startActivityForResult(Intent(this, Z0300AboutUsActivity::class.java), AppConstance.ABOUT_US)
+                startActivityForResult(Intent(this, Z0300AboutUsActivity::class.java), AppConstance.Z0300ABOUT_US)
             }
             R.id.nav_signOut ->{
-                Toast.makeText(this, "Sign out",Toast.LENGTH_SHORT).show()
                 PopupMsg.alert(this,getString(R.string.msg_SignOut), object : PopupMsg.OnClickButtonYesNoCallBack{
                     override fun onYesCallBack() {
                         startActivity(Intent(applicationContext, P0100SignInActivity::class.java))
                         finish()
                     }
                     override fun onNoCallBack() {
-
+//                        DO NOTHING
                     }
 
                 })
             }
-//            R.id.toolbar_createTransaction ->{
-//            }
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
@@ -95,23 +96,18 @@ class P0200HomeActivity : BaseActivity(), OnNavigationItemSelectedListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when(resultCode){
-            AppConstance.RESULT_PROMOTION->{
-                nav_view.setCheckedItem(R.id.nav_home)
+            AppConstance.RESULT_P0300INBOX->{
+                nav_view.setCheckedItem(R.id.nav_service)
             }
-            AppConstance.RESULT_INBOX->{
-                nav_view.setCheckedItem(R.id.nav_home)
+            AppConstance.RESULT_P0400PROMOTION->{
+                nav_view.setCheckedItem(R.id.nav_service)
             }
-            AppConstance.RESULT_SETTING->{
-                nav_view.setCheckedItem(R.id.nav_home)
+            AppConstance.RESULT_Z0200SETTING->{
+                nav_view.setCheckedItem(R.id.nav_service)
             }
-            AppConstance.RESULT_ABOUT_US->{
-                nav_view.setCheckedItem(R.id.nav_home)
+            AppConstance.RESULT_Z0300ABOUT_US->{
+                nav_view.setCheckedItem(R.id.nav_service)
             }
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.toolbar_create_transaction, menu)
-        return super.onCreateOptionsMenu(menu)
     }
 }

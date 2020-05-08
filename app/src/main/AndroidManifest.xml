@@ -9,12 +9,16 @@
         android:roundIcon="@drawable/ic_pos"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.Z0300AboutUsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.activity.Z0200SettingActivity"
+        <activity android:name=".view.activity.D0100DashboardActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".view.activity.S0100StockInventoryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.P0410PromotionDetailActivity"
+            android:name=".view.activity.Z0300AboutUsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.activity.Z0200SettingActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.P0400PromotionActivity"
@@ -30,9 +34,6 @@
         </activity>
         <activity
             android:name=".view.activity.P0100SignInActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".view.activity.P0310InboxDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.P0300InboxActivity"

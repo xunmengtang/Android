@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:visibility="@{safeUnbox(vmHome.homeData.showSearchScreen)?View.VISIBLE:View.GONE}">
+        android:visibility="@{safeUnbox(vmHome.homeData.showHomeP0220)?View.VISIBLE:View.GONE}">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,13 +24,13 @@
                     android:layout_width="?attr/actionBarSize"
                     android:layout_height="?attr/actionBarSize"
                     android:src="@drawable/ic_arrow_left_basecolor"
-                    android:onClick="@{vmHome::handleHomeMain}"
+                    android:onClick="@{vmHome::handleHomeP0210}"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
                 <com.post.transfer.lanpost.mycustom.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:gravity="center"
-                    android:text="@string/item"
+                    android:text="@string/itemLabel"
                     android:textAlignment="center"
                     android:textSize="@dimen/bigLabelSize"
                     android:textStyle="bold"/>
@@ -40,7 +40,7 @@
                     android:src="@drawable/ic_shopping_cart_basecolor"
                     android:layout_alignParentEnd="true"
                     android:scaleType="center"
-                    android:onClick="@{vmHome::handleHomeCart}"
+                    android:onClick="@{vmHome::handleHomeP0240}"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
 
             </RelativeLayout>
@@ -59,6 +59,8 @@
                     android:layout_width="?attr/actionBarSize"
                     android:layout_height="?attr/actionBarSize"
                     android:src="@drawable/ic_search_basecolor"
+                    android:scaleType="center"
+                    android:onClick="@{vmHome::handleBtnSearchItemClickP0230}"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             </LinearLayout>
         </LinearLayout>
