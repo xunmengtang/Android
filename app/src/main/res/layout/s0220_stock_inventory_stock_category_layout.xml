@@ -11,31 +11,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="@{safeUnbox(vmStock.stockInventoryDM.showStockS0220)?View.VISIBLE:View.GONE}">
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+                <com.post.transfer.lanpost.mycustom.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:text="@string/stockCategory"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/bigLabelSize"/>
+                <ImageView
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:src="@drawable/ic_arrow_left_basecolor"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:onClick="@{vmStock::handleShowStockS0110}"/>
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:text="@string/stockCategory"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/bigLabelSize"/>
-                    <ImageView
-                        android:layout_width="?attr/actionBarSize"
-                        android:layout_height="?attr/actionBarSize"
-                        android:src="@drawable/ic_arrow_left_basecolor"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:onClick="@{vmStock::handleShowStockS0110}"/>
-                </RelativeLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
@@ -59,9 +60,9 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/rvStockItem"/>
+                    android:id="@+id/rvStockCategory"/>
             </LinearLayout>
-        </ScrollView>
+        </LinearLayout>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

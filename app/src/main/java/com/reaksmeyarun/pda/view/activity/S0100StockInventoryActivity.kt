@@ -17,5 +17,9 @@ class S0100StockInventoryActivity : BaseActivity() {
         vmStock = StockInventoryViewModel(StockInventoryDataModel(), this )
         binding.vmStock = vmStock
         binding.lifecycleOwner = this
+
+        vmStock.bindingSpinnerS0120()
+        vmStock.bindingItemS0120()
+        vmStock.bindingCategoryS0220()
     }
 }

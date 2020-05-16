@@ -2,9 +2,10 @@ package com.reaksmeyarun.pda.model
 
 class InboxModel(
     var id : String = ""
-//    ,    var inbox : Inbox
+//    var status : String ?= "",
+//    var inboxInformation : InboxInformation
 ) {
-    class Inbox(
+    class InboxInformation(
         var status : String = "",
         var title : String = "",
         var des : String = "",

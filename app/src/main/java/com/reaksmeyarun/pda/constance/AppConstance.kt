@@ -16,5 +16,8 @@ class AppConstance {
         const val RESULT_P0400PROMOTION = 301
         const val RESULT_Z0200SETTING = 401
         const val RESULT_Z0300ABOUT_US = 501
+//        Quantities
+        const val ADD_TO_CART = 1
+        const val EDIT_ON_CART = 2
     }
 }

@@ -39,6 +39,7 @@
     <string name="powerBy">Power by :</string>
     <string name="powerByText">The student of Royal university of law and Economic</string>
     <string name="description">Description :</string>
+    <string name="descriptionLabel">Description ...</string>
     <string name="selectSize">Select Size</string>
     <string name="selectSweet">Select Sweet</string>
     <string name="small">S</string>
@@ -73,6 +74,7 @@
     <string name="dailySale">Daily Sale</string>
     <string name="totalSale">Total Sale:</string>
     <string name="quantities">Quantities:</string>
+    <string name="quantitiesLabel">Quantities</string>
     <string name="totalDiscount">Total Discount:</string>
     <string name="total">Total:</string>
     <string name="totalDollar">Total Dollar:</string>
@@ -80,6 +82,7 @@
     <string name="codeID">Code ID:</string>
     <string name="pay">Pay</string>
     <string name="price">Price :</string>
+    <string name="priceLabel">Price</string>
     <string name="priceKhmer">Price Khmer :</string>
     <string name="priceDollar">Price Dollar :</string>
     <string name="date">Date:</string>
@@ -137,4 +140,5 @@
     <string name="msg_confirmation">You have successfully completed your order</string>
     <string name="msg_pay">Do you want to pay it now? Are you sure?</string>
     <string name="msg_add">Do you want to add this to list? Are you sure?</string>
+    <string name="msg_delete">Do you want to delete this from list? Are you sure?</string>
 </resources>

@@ -6,7 +6,6 @@
         <variable
             name="vmStock"
             type="com.reaksmeyarun.pda.viewmodel.StockInventoryViewModel" />
-
     </data>
 
     <LinearLayout
@@ -101,7 +100,7 @@
                                 android:checked="true"
                                 android:text="Unit"/>
                             <RadioButton
-                                android:layout_marginStart="@dimen/defMargin"
+                                android:layout_marginStart="@dimen/bigMargin"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Kilo"/>
@@ -129,7 +128,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/defMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -145,7 +145,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/defMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -161,7 +162,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/defMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -177,7 +179,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/defMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -193,7 +196,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/defMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -202,17 +206,16 @@
                     <com.post.transfer.lanpost.mycustom.MyEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/description"
+                        android:hint="@string/descriptionLabel"
                         android:layout_weight="1"
                         android:inputType="textMultiLine"
-                        android:gravity="top"
-                        android:lines="3"/>
+                        android:gravity="top"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
+                    android:layout_marginTop="@dimen/defMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -228,7 +231,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="@dimen/defMargin"
                     android:layout_marginBottom="4dp">
                     <DatePicker
                         android:layout_width="match_parent"

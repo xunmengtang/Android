@@ -31,8 +31,9 @@ class P0200HomeActivity : BaseActivity(), OnNavigationItemSelectedListener {
         nav_view.setNavigationItemSelectedListener(this)
         setUpDrawerLayout()
         nav_view.setCheckedItem(R.id.nav_service)
-        homeViewModel.bindingCategoryP0210()
-        homeViewModel.bindingItemP0210()
+//        homeViewModel.bindingCategoryP0210()
+        homeViewModel.bindingSpinnerS0210()
+//        homeViewModel.bindingItemP0210()
         homeViewModel.bindingItemP0230()
         homeViewModel.bindingCartP0240()
     }
@@ -55,21 +56,21 @@ class P0200HomeActivity : BaseActivity(), OnNavigationItemSelectedListener {
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.nav_dashboard ->{
-                startActivity(Intent(this, D0100DashboardActivity::class.java))
-            }
             R.id.nav_service ->{
                 //DO NOTHING
             }
-            R.id.nav_stock ->{
-                startActivity(Intent(this, S0100StockInventoryActivity::class.java))
-            }
-            R.id.nav_promotion ->{
-                startActivityForResult(Intent(this, P0400PromotionActivity::class.java), AppConstance.P0400PROMOTION)
-            }
-            R.id.nav_inbox ->{
-                startActivityForResult(Intent(this, P0300InboxActivity::class.java), AppConstance.P0300INBOX)
-            }
+//            R.id.nav_dashboard ->{
+//                startActivity(Intent(this, D0100DashboardActivity::class.java))
+//            }
+//            R.id.nav_stock ->{
+//                startActivity(Intent(this, S0100StockInventoryActivity::class.java))
+//            }
+//            R.id.nav_promotion ->{
+//                startActivityForResult(Intent(this, P0400PromotionActivity::class.java), AppConstance.P0400PROMOTION)
+//            }
+//            R.id.nav_inbox ->{
+//                startActivityForResult(Intent(this, P0300InboxActivity::class.java), AppConstance.P0300INBOX)
+//            }
             R.id.nav_setting ->{
                 startActivityForResult(Intent(this, Z0200SettingActivity::class.java), AppConstance.Z0200SETTING)
             }
@@ -85,7 +86,6 @@ class P0200HomeActivity : BaseActivity(), OnNavigationItemSelectedListener {
                     override fun onNoCallBack() {
 //                        DO NOTHING
                     }
-
                 })
             }
         }

@@ -20,7 +20,7 @@
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
                 android:src="@drawable/ic_arrow_left_basecolor"
-                android:onClick="@{vmHome::handleHomeP0220}"
+                android:onClick="@{vmHome::handleHomeP0210}"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
             <com.post.transfer.lanpost.mycustom.MyTextView
                 android:layout_width="match_parent"
@@ -41,6 +41,8 @@
             android:text="@string/pay"
             android:onClick="@{vmHome::handleHomeP0250}"
             android:id="@+id/btnPay"
-            android:layout_margin="@dimen/defMargin"/>
+            android:layout_marginStart="@dimen/defMargin"
+            android:layout_marginEnd="@dimen/defMargin"
+            android:layout_marginBottom="@dimen/defMargin"/>
     </LinearLayout>
 </layout>

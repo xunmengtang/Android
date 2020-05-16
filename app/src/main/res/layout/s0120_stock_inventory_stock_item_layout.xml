@@ -11,40 +11,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="@{safeUnbox(vmStock.stockInventoryDM.showStockS0120)?View.VISIBLE:View.GONE}">
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+                <com.post.transfer.lanpost.mycustom.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:text="@string/stockItem"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/bigLabelSize"/>
+                <ImageView
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:src="@drawable/ic_arrow_left_basecolor"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:onClick="@{vmStock::handleShowStockS0110}"/>
+                <Spinner
+                    android:id="@+id/spinnerOption"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"/>
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:text="@string/stockItem"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/bigLabelSize"/>
-                    <ImageView
-                        android:layout_width="?attr/actionBarSize"
-                        android:layout_height="?attr/actionBarSize"
-                        android:src="@drawable/ic_arrow_left_basecolor"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:onClick="@{vmStock::handleShowStockS0110}"/>
-                    <Spinner
-                        android:layout_width="?attr/actionBarSize"
-                        android:layout_height="?attr/actionBarSize"
-                        android:layout_alignParentEnd="true"
-                        android:gravity="center"/>
-                </RelativeLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:id="@+id/searchLayout">
 
                     <com.post.transfer.lanpost.mycustom.MyEditText
                         android:layout_width="340dp"
@@ -64,44 +67,50 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginStart="@dimen/defMargin"
-                    android:layout_marginBottom="@dimen/defMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    android:orientation="vertical"
+                    android:id="@+id/startDateEndDateLayout">
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/dateStart"
-                        android:layout_weight="1"/>
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="@dimen/defMargin"
+                        android:layout_marginBottom="@dimen/defMargin">
+                        <com.post.transfer.lanpost.mycustom.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dateStart"
+                            android:layout_weight="1"/>
+                        <com.post.transfer.lanpost.mycustom.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dateEnd"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/dateEnd"
-                        android:layout_weight="1"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <DatePicker
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/startDate"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="2dp"/>
-                    <DatePicker
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/endDate"
-                        android:layout_weight="1"
-                        android:layout_marginStart="4dp"/>
+                        android:orientation="horizontal">
+                        <DatePicker
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/startDate"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="2dp"/>
+                        <DatePicker
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/endDate"
+                            android:layout_weight="1"
+                            android:layout_marginStart="4dp"/>
+                    </LinearLayout>
                 </LinearLayout>
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/rvStockItem"/>
             </LinearLayout>
-        </ScrollView>
+        </LinearLayout>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

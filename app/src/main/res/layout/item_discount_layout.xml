@@ -5,46 +5,48 @@
     <data>
 
     </data>
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/itemViewLayout"
+        android:id="@+id/discountViewLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardCornerRadius="8dp"
         android:layout_marginStart="@dimen/defMargin"
         android:layout_marginEnd="@dimen/defMargin"
         android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        android:elevation="@dimen/cardview_default_elevation"
-        app:cardCornerRadius="8dp">
+        android:layout_marginBottom="2dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:src="@drawable/ic_pos"
-                android:layout_marginTop="@dimen/defMargin"
-                android:layout_marginBottom="@dimen/defMargin"
-                android:layout_marginStart="@dimen/defMargin"
-                android:layout_marginEnd="@dimen/defMargin"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_discount_voucher"
+                android:layout_margin="@dimen/bigMargin"/>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginStart="@dimen/defMargin"
-                android:paddingEnd="@dimen/defMargin">
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/defMargin"
+                android:layout_marginStart="@dimen/defMargin">
                 <com.post.transfer.lanpost.mycustom.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/itemLabel"
-                    android:textSize="@dimen/bigLabelSize"
-                    android:layout_marginBottom="@dimen/defMargin"/>
+                    android:text="@string/discount"
+                    android:textSize="@dimen/bigLabelSize"/>
                 <com.post.transfer.lanpost.mycustom.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/priceLabel" />
+                    android:text="@string/discountHint"/>
+                <com.post.transfer.lanpost.mycustom.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="D10231000"/>
             </LinearLayout>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>

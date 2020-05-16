@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cartViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:layout_marginStart="@dimen/defMargin"
+        android:layout_marginEnd="@dimen/defMargin"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:padding="@dimen/bigMargin"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_pos" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:padding="@dimen/defMargin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.post.transfer.lanpost.mycustom.MyTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Item name"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.post.transfer.lanpost.mycustom.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/price" />
+
+                    <com.post.transfer.lanpost.mycustom.MyTextView
+                        android:layout_marginStart="4dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/bigLabelSize"
+                        android:text="4.5$" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <com.post.transfer.lanpost.mycustom.MyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/quantities" />
+                        <com.post.transfer.lanpost.mycustom.MyTextView
+                            android:layout_marginStart="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textSize="@dimen/bigLabelSize" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end">
+                        <com.post.transfer.lanpost.mycustom.MyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/codeID" />
+
+                        <com.post.transfer.lanpost.mycustom.MyTextView
+                            android:layout_marginStart="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAllCaps="true"
+                            android:text="P2020" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnDelete"
+                android:layout_width="@dimen/defButtonHeight"
+                android:layout_height="@dimen/defButtonHeight"
+                android:scaleType="center"
+                android:layout_gravity="top"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:src="@drawable/ic_close_black"
+                android:layout_marginEnd="2dp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
