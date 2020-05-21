@@ -13,5 +13,5 @@ class JoinRoom(var roomId : String ?= "") {
     class TransactionPaymentSuccess(var id : String ?= "",
                                     var roomId : String ?= "",
                                     var userSession : UserModel.UserSession,
-                                    var cartModel: ArrayList<CartModel>)
+                                    var ticket : TicketModel)
 }

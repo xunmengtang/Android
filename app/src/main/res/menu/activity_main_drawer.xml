@@ -12,10 +12,10 @@
 <!--            android:id="@+id/nav_dashboard"-->
 <!--            android:title="Dashboard"-->
 <!--            android:icon="@drawable/ic_admin"/>-->
-<!--        <item-->
-<!--            android:id="@+id/nav_stock"-->
-<!--            android:title="Stock Inventory"-->
-<!--            android:icon="@drawable/ic_stock"/>-->
+        <item
+            android:id="@+id/nav_stock"
+            android:title="Stock Inventory"
+            android:icon="@drawable/ic_stock"/>
 <!--        <item-->
 <!--            android:id="@+id/nav_promotion"-->
 <!--            android:title="Promotion"-->

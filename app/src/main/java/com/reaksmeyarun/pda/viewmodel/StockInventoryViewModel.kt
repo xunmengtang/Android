@@ -10,6 +10,7 @@ import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.adapter.CategoryAdapter
 import com.reaksmeyarun.pda.adapter.ItemAdapter
 import com.reaksmeyarun.pda.datamodel.StockInventoryDataModel
+import com.reaksmeyarun.pda.listener.OnClickListener
 import com.reaksmeyarun.pda.model.CategoryModel
 import com.reaksmeyarun.pda.model.ItemModel
 import com.reaksmeyarun.pda.utils.PopupMsg
@@ -24,9 +25,9 @@ class StockInventoryViewModel(var stockInventoryDataModel: StockInventoryDataMod
     var stockInventoryDM = MyMutableLiveData<StockInventoryDataModel>()
     init {
         stockInventoryDM.setValue(stockInventoryDataModel)
-        stockInventoryDataModel.state = StockInventoryDataModel.STOCK_S0110
+        stockInventoryDataModel.state = StockInventoryDataModel.STOCK_S0120
     }
-    fun handleBtnPressBack(view: View){
+    fun handlePressBack(view: View){
         activity.finish()
     }
     fun handleShowStockS0110(view : View){
@@ -160,6 +161,16 @@ class StockInventoryViewModel(var stockInventoryDataModel: StockInventoryDataMod
         activity.rvStockItem.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         activity.rvStockItem.adapter = itemAdapter
         itemAdapter.addItem(itemList)
+        itemAdapter.onClickListener = object : OnClickListener{
+            override fun onClick(position: Int) {
+                activity.binding.progressing.visibility = View.VISIBLE
+                android.os.Handler().postDelayed({
+                    activity.binding.progressing.visibility = View.GONE
+                    stockInventoryDataModel.state = StockInventoryDataModel.STOCK_S0130
+                },300)
+            }
+
+        }
     }
     var categoryList = ArrayList<CategoryModel>()
     fun bindingCategoryS0220(){

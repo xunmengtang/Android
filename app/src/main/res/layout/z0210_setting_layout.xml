@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vmSetting"
+            type="com.reaksmeyarun.pda.viewmodel.SettingViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="@{safeUnbox(vmSetting.settingDM.showSettingZ0210)?View.VISIBLE:View.GONE}">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+            <ImageView
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:src="@drawable/ic_arrow_left_basecolor"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:onClick="@{vmSetting::handlePressBack}"/>
+            <com.post.transfer.lanpost.mycustom.MyTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/largeTitleSize"
+                android:text="@string/action_settings"
+                android:gravity="center"/>
+        </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvZ0210setting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</layout>

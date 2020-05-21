@@ -29,7 +29,7 @@
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
                 android:src="@drawable/ic_arrow_left_basecolor"
-                android:onClick="@{vmStock::handleBtnPressBack}"
+                android:onClick="@{vmStock::handlePressBack}"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
         </RelativeLayout>
         <ScrollView

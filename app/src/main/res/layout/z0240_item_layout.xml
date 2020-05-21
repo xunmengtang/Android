@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vmSetting"
+            type="com.reaksmeyarun.pda.viewmodel.SettingViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="@{safeUnbox(vmSetting.settingDM.showSettingZ0240)?View.VISIBLE:View.GONE}">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+            <ImageView
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:src="@drawable/ic_arrow_left_basecolor"
+                style="@style/Widget.AppCompat.Button.Borderless"/>
+            <com.post.transfer.lanpost.mycustom.MyTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/itemLabel"
+                android:textSize="@dimen/largeTitleSize"
+                android:gravity="center"
+                android:onClick="@{vmSetting::handleShowZ0220}"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add_transaction"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/defMargin"
+                android:onClick="@{vmSetting::handleShowZ0241}"/>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

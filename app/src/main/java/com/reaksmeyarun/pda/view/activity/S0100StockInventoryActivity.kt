@@ -20,6 +20,6 @@ class S0100StockInventoryActivity : BaseActivity() {
 
         vmStock.bindingSpinnerS0120()
         vmStock.bindingItemS0120()
-        vmStock.bindingCategoryS0220()
+//        vmStock.bindingCategoryS0220()
     }
 }

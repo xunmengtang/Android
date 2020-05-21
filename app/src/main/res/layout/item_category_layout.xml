@@ -15,11 +15,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="@dimen/cardview_default_elevation"
-            android:layout_marginStart="@dimen/defMargin"
-            android:layout_marginEnd="@dimen/defMargin"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            app:cardCornerRadius="8dp">
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            app:cardCornerRadius="@dimen/cardview_default_radius">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

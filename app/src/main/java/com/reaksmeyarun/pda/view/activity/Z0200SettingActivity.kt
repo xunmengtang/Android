@@ -5,16 +5,19 @@ import androidx.databinding.DataBindingUtil
 import com.post.transfer.lanpost.base.BaseActivity
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.databinding.ActivityZ0200SettingBinding
-import kotlinx.android.synthetic.main.activity_p0200_home.*
+import com.reaksmeyarun.pda.datamodel.SettingDataModel
+import com.reaksmeyarun.pda.viewmodel.SettingViewModel
 
 class Z0200SettingActivity : BaseActivity() {
+    lateinit var settingViewModel : SettingViewModel
     lateinit var binding : ActivityZ0200SettingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_z0200_setting)
-        setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayShowTitleEnabled(false)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_left_basecolor)
+        settingViewModel = SettingViewModel(SettingDataModel(), this)
+        binding.vmSetting = settingViewModel
+        binding.lifecycleOwner = this
+        settingViewModel.bindingRvZ0210()
+        settingViewModel.bindingRvZ0220()
     }
 }

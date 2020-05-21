@@ -13,8 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/drawer_layout"
-        tools:context=".view.activity.P0200HomeActivity"
-        tools:openDrawer="start">
+        tools:context=".view.activity.P0200HomeActivity">
 
         <RelativeLayout
             android:layout_width="match_parent"

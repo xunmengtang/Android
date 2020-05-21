@@ -39,7 +39,7 @@
     <string name="powerBy">Power by :</string>
     <string name="powerByText">The student of Royal university of law and Economic</string>
     <string name="description">Description :</string>
-    <string name="descriptionLabel">Description ...</string>
+    <string name="descriptionLabel">Description</string>
     <string name="selectSize">Select Size</string>
     <string name="selectSweet">Select Sweet</string>
     <string name="small">S</string>
@@ -64,11 +64,13 @@
     <string name="promotionDetail">Promotion Detail</string>
     <string name="menu">Menu</string>
     <string name="categoryLabel">Category</string>
+    <string name="categoryAndItemLabel">Category and Item</string>
     <string name="category">Category :</string>
     <string name="categoryId">Category ID :</string>
     <string name="categoryIdLabel">P0000</string>
     <string name="itemLabel">Item</string>
     <string name="item">Item :</string>
+    <string name="itemName">Item Name</string>
     <string name="topSale">Top Sales</string>
     <string name="recently">Recently</string>
     <string name="dailySale">Daily Sale</string>

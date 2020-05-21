@@ -43,7 +43,7 @@
                 android:padding="@dimen/bigMargin">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/defButtonHeight"
                     android:orientation="horizontal">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
@@ -55,13 +55,13 @@
                         android:layout_weight="1"
                         android:textAlignment="textEnd"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="match_parent"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/defButtonHeight"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/defMargin">
+                    android:layout_marginTop="@dimen/bigMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -72,14 +72,14 @@
                         android:layout_weight="1"
                         android:textAlignment="textEnd"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="match_parent"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center"
-                    android:layout_marginTop="@dimen/defMargin">
+                    android:layout_marginTop="@dimen/bigMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/defMargin">
+                    android:layout_marginTop="@dimen/bigMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/defMargin">
+                    android:layout_marginTop="@dimen/bigMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/defMargin">
+                    android:layout_marginTop="@dimen/bigMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -163,7 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/defMargin">
+                    android:layout_marginTop="@dimen/bigMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -180,7 +180,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/defMargin">
+                    android:layout_marginTop="@dimen/bigMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/defMargin">
+                    android:layout_marginTop="@dimen/bigMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -209,13 +209,14 @@
                         android:hint="@string/descriptionLabel"
                         android:layout_weight="1"
                         android:inputType="textMultiLine"
+                        android:lines="5"
                         android:gravity="top"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/defMargin">
+                    android:layout_marginTop="@dimen/bigMargin">
                     <com.post.transfer.lanpost.mycustom.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

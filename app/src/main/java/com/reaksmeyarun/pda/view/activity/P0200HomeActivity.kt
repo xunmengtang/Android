@@ -62,9 +62,9 @@ class P0200HomeActivity : BaseActivity(), OnNavigationItemSelectedListener {
 //            R.id.nav_dashboard ->{
 //                startActivity(Intent(this, D0100DashboardActivity::class.java))
 //            }
-//            R.id.nav_stock ->{
-//                startActivity(Intent(this, S0100StockInventoryActivity::class.java))
-//            }
+            R.id.nav_stock ->{
+                startActivity(Intent(this, S0100StockInventoryActivity::class.java))
+            }
 //            R.id.nav_promotion ->{
 //                startActivityForResult(Intent(this, P0400PromotionActivity::class.java), AppConstance.P0400PROMOTION)
 //            }
