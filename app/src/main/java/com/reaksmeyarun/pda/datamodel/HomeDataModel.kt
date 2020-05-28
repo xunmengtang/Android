@@ -1,6 +1,6 @@
 package com.reaksmeyarun.pda.datamodel
 
-import com.ig.iginnovation.superapp.driver.baseclass.BaseDataModel
+import com.reaksmeyarun.pda.base.BaseDataModel
 
 class HomeDataModel : BaseDataModel(){
     companion object{

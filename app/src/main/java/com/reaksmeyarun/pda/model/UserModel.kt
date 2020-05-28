@@ -1,6 +1,6 @@
 package com.reaksmeyarun.pda.model
 
-class UserModel(var id : String ?= "",
+data class UserModel(var id : String ?= "",
                 var userSession: UserSession,
                 var name : String ?= "",
                 var birthOfDate : String ?= "",
@@ -10,6 +10,6 @@ class UserModel(var id : String ?= "",
                 var address : String ?= "",
                 var rule : String ?= ""){
 
-                class UserSession(var id : String ?= "",
+                data class UserSession(var id : String ?= "",
                                   var token : String ?= "")
 }

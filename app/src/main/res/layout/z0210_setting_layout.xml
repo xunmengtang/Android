@@ -22,7 +22,7 @@
                 android:src="@drawable/ic_arrow_left_basecolor"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:onClick="@{vmSetting::handlePressBack}"/>
-            <com.post.transfer.lanpost.mycustom.MyTextView
+            <com.reaksmeyarun.pda.customView.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="@dimen/largeTitleSize"

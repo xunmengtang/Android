@@ -31,12 +31,12 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 android:paddingEnd="@dimen/defMargin">
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/itemLabel"
                     android:textSize="@dimen/bigLabelSize"/>
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/priceLabel" />

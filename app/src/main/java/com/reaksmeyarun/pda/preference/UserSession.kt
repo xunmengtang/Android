@@ -1,19 +1,19 @@
-package com.ig.iginnovation.superapp.driver.preference
+package com.reaksmeyarun.pda.preference
 
 import android.content.Context
-import com.ig.iginnovation.superapp.driver.baseclass.BasePreference
+import com.reaksmeyarun.pda.base.BasePreference
 import com.reaksmeyarun.pda.constance.AppConstance
 
 class UserSession(context: Context) : BasePreference(context) {
     override val preferenceName: String
         get() = "userSessionPreference"
     companion object {
-        private var instance:UserSession?=null
+        private var instance: UserSession?=null
 
-        fun getInstance(context: Context):UserSession{
+        fun getInstance(context: Context): UserSession {
 
-            if (instance==null)
-                instance= UserSession(context)
+            if (instance ==null)
+                instance = UserSession(context)
             return instance!!
         }
     }

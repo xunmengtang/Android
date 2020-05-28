@@ -1,8 +1,8 @@
 package com.reaksmeyarun.pda.adapter
 
 import android.content.Context
-import com.post.transfer.lanpost.base.adapter.BaseAdapter
-import com.post.transfer.lanpost.base.adapter.BaseViewHolder
+import com.reaksmeyarun.pda.base.BaseAdapter
+import com.reaksmeyarun.pda.base.BaseViewHolder
 import com.reaksmeyarun.pda.listener.OnClickListener
 import com.reaksmeyarun.pda.model.DiscountModel
 import kotlinx.android.synthetic.main.item_discount_layout.view.*

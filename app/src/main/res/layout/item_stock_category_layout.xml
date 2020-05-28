@@ -34,11 +34,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/category"/>
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:paddingStart="4sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -49,11 +49,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="@dimen/defMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/quantities"/>
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="4sp"

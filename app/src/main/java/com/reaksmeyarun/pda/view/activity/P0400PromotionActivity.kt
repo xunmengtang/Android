@@ -2,12 +2,11 @@ package com.reaksmeyarun.pda.view.activity
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.post.transfer.lanpost.base.BaseActivity
+import com.reaksmeyarun.pda.base.BaseActivity
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.databinding.ActivityP0400PromotionBinding
 import com.reaksmeyarun.pda.datamodel.PromotionDataModel
 import com.reaksmeyarun.pda.viewmodel.PromotionViewModel
-import kotlinx.android.synthetic.main.activity_p0200_home.*
 
 class P0400PromotionActivity : BaseActivity() {
     lateinit var binding : ActivityP0400PromotionBinding

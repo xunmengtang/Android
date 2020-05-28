@@ -1,11 +1,11 @@
 package com.reaksmeyarun.pda.model
 
-class InboxModel(
+data class InboxModel(
     var id : String = ""
 //    var status : String ?= "",
 //    var inboxInformation : InboxInformation
 ) {
-    class InboxInformation(
+    data class InboxInformation(
         var status : String = "",
         var title : String = "",
         var des : String = "",

@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:visibility="@{safeUnbox(vmHome.homeData.showHomeP0260)?View.VISIBLE:View.GONE}">
 
-        <com.example.myapplication.customview.BaseAppBackground
+        <com.reaksmeyarun.pda.customView.BaseAppBackground
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -35,7 +35,7 @@
                 android:layout_centerInParent="true"
                 app:cardCornerRadius="0dp">
 
-                <com.example.myapplication.customview.RippleBackground
+                <com.reaksmeyarun.pda.customView.RippleBackground
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/rippleBackground">
@@ -50,10 +50,10 @@
                             android:scaleType="fitCenter"
                             android:src="@drawable/ic_pos" />
                     </LinearLayout>
-                </com.example.myapplication.customview.RippleBackground>
+                </com.reaksmeyarun.pda.customView.RippleBackground>
             </androidx.cardview.widget.CardView>
 
-            <com.post.transfer.lanpost.mycustom.MyTextView
+            <com.reaksmeyarun.pda.customView.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/confirmation"
@@ -62,7 +62,7 @@
                 android:textAlignment="center"
                 android:layout_marginTop="@dimen/bigLargeMargin" />
 
-            <com.post.transfer.lanpost.mycustom.MyTextView
+            <com.reaksmeyarun.pda.customView.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/msg_confirmation"
@@ -71,7 +71,7 @@
                 android:layout_marginTop="@dimen/defMargin" />
         </LinearLayout>
 
-        <com.post.transfer.lanpost.mycustom.ButtonPositive
+        <com.reaksmeyarun.pda.customView.ButtonPositive
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

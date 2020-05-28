@@ -22,7 +22,7 @@
                 android:src="@drawable/ic_arrow_left_basecolor"
                 android:onClick="@{vmStock::handleShowStockS0230}"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
-            <com.post.transfer.lanpost.mycustom.MyTextView
+            <com.reaksmeyarun.pda.customView.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:textStyle="bold"
@@ -46,12 +46,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="@dimen/defMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:text="@string/categoryId"/>
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/categoryIdLabel"
@@ -63,12 +63,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="@dimen/defMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:text="@string/category"/>
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/categoryLabel"
@@ -80,12 +80,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="@dimen/defMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:text="@string/description"/>
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:paddingStart="@dimen/defMargin"
                         android:paddingEnd="@dimen/defMargin"
                         android:layout_width="match_parent"

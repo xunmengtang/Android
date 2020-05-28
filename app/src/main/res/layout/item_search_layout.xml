@@ -34,7 +34,7 @@
                     android:paddingTop="@dimen/bigMargin"
                     android:paddingBottom="@dimen/bigMargin"
                     android:gravity="center">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/largeTitleSize"
@@ -43,18 +43,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                        <com.reaksmeyarun.pda.customView.MyTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/codeID"/>
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                        <com.reaksmeyarun.pda.customView.MyTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="p0220"
                             android:textAllCaps="true"
                             android:paddingStart="4sp"/>
                     </LinearLayout>
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="32sp"

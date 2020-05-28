@@ -28,7 +28,7 @@
                     android:scaleType="centerCrop"
                     android:src="@mipmap/banner"
                     android:layout_margin="@dimen/bigMargin"/>
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/nav_header_title"
@@ -36,7 +36,7 @@
                     android:paddingStart="@dimen/bigMargin"
                     android:paddingEnd="@dimen/bigMargin"
                     android:textSize="@dimen/bigTitleSize"/>
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/description"

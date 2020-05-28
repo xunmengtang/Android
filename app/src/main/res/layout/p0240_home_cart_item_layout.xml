@@ -22,7 +22,7 @@
                 android:src="@drawable/ic_arrow_left_basecolor"
                 android:onClick="@{vmHome::handleHomeP0210}"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
-            <com.post.transfer.lanpost.mycustom.MyTextView
+            <com.reaksmeyarun.pda.customView.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:text="@string/cart"
@@ -30,12 +30,15 @@
                 android:textAlignment="center"
                 android:gravity="center"/>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></RelativeLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:id="@+id/rvCart"/>
-        <com.post.transfer.lanpost.mycustom.ButtonPositive
+        <com.reaksmeyarun.pda.customView.ButtonPositive
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pay"

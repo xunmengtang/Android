@@ -17,9 +17,9 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/ic_pos"
+                android:padding="@dimen/defMargin"
                 android:id="@+id/icon"/>
-            <com.post.transfer.lanpost.mycustom.MyTextView
+            <com.reaksmeyarun.pda.customView.MyTextView
                 android:id="@+id/label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,8 +29,8 @@
                 android:textSize="@dimen/bigLabelSize"
                 android:layout_gravity="center"/>
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_arrow_right_black"/>
         </LinearLayout>

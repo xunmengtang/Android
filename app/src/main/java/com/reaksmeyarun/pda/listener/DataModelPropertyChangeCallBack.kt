@@ -1,4 +1,4 @@
-package com.ig.iginnovation.superapp.driver.listener
+package com.reaksmeyarun.pda.listener
 
 interface DataModelPropertyChangeCallBack {
     fun onChanged()

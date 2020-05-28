@@ -22,7 +22,7 @@
                 android:src="@drawable/ic_arrow_left_basecolor"
                 android:onClick="@{vmStock::handleShowStockS0120}"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
-            <com.post.transfer.lanpost.mycustom.MyTextView
+            <com.reaksmeyarun.pda.customView.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:textStyle="bold"
@@ -39,190 +39,204 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_weight="1"
-                android:padding="@dimen/bigMargin">
+                android:weightSum="1">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/defButtonHeight"
-                    android:orientation="horizontal">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:padding="@dimen/bigMargin">
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/category"
-                        android:layout_weight="3"
-                        android:layout_gravity="center"/>
-                    <Spinner
-                        android:layout_weight="1"
-                        android:textAlignment="textEnd"
+                        android:layout_height="@dimen/defButtonHeight"
+                        android:orientation="horizontal">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/category"
+                            android:layout_weight="3"
+                            android:layout_gravity="center"/>
+                        <Spinner
+                            android:layout_weight="1"
+                            android:textAlignment="textEnd"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/defButtonHeight"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/bigMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/item"
-                        android:layout_weight="3"
-                        android:layout_gravity="center"/>
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:layout_weight="1"
-                        android:textAlignment="textEnd"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="@dimen/bigMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/option"
-                        android:layout_weight="3"/>
+                        android:layout_height="@dimen/defButtonHeight"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/bigMargin">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/item"
+                            android:layout_weight="3"
+                            android:layout_gravity="center"/>
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:layout_weight="1"
+                            android:textAlignment="textEnd"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
                         android:gravity="center"
-                        android:layout_weight="1">
-                        <RadioGroup
+                        android:layout_marginTop="@dimen/bigMargin">
+                        <com.reaksmeyarun.pda.customView.MyTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <RadioButton
-                                android:layout_width="wrap_content"
+                            android:text="@string/option"
+                            android:layout_weight="3"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_weight="1">
+                            <RadioGroup
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="true"
-                                android:text="Unit"/>
-                            <RadioButton
-                                android:layout_marginStart="@dimen/bigMargin"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Kilo"/>
-                        </RadioGroup>
+                                android:orientation="horizontal">
+                                <RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checked="true"
+                                    android:text="Unit"/>
+                                <RadioButton
+                                    android:layout_marginStart="@dimen/bigMargin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Kilo"/>
+                            </RadioGroup>
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/bigMargin">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/quantities"
+                            android:layout_weight="3"
+                            android:layout_gravity="center"/>
+                        <com.reaksmeyarun.pda.customView.MyEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAlignment="textEnd"
+                            android:hint="@string/defValueQuantities"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/bigMargin">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="@string/costDollar"/>
+                        <com.reaksmeyarun.pda.customView.MyEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/defValueDollar"
+                            android:textAlignment="textEnd"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/bigMargin">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="@string/costKhmer"/>
+                        <com.reaksmeyarun.pda.customView.MyEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/defValueKhmer"
+                            android:textAlignment="textEnd"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/bigMargin">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="@string/priceDollar"/>
+                        <com.reaksmeyarun.pda.customView.MyEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/defValueDollar"
+                            android:textAlignment="textEnd"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/bigMargin">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="@string/priceKhmer"/>
+                        <com.reaksmeyarun.pda.customView.MyEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/defValueKhmer"
+                            android:textAlignment="textEnd"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/bigMargin">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="@string/description"/>
+                        <com.reaksmeyarun.pda.customView.MyEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/descriptionLabel"
+                            android:layout_weight="1"
+                            android:inputType="textMultiLine"
+                            android:lines="5"
+                            android:gravity="top"/>
+                    </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="2">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginEnd="@dimen/bigMargin"
+                    android:layout_marginStart="@dimen/bigMargin"
                     android:layout_marginTop="@dimen/bigMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/quantities"
-                        android:layout_weight="3"
-                        android:layout_gravity="center"/>
-                    <com.post.transfer.lanpost.mycustom.MyEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textAlignment="textEnd"
-                        android:hint="@string/defValueQuantities"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/bigMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:text="@string/costDollar"/>
-                    <com.post.transfer.lanpost.mycustom.MyEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/defValueDollar"
-                        android:textAlignment="textEnd"
-                        android:layout_weight="1"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/bigMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:text="@string/costKhmer"/>
-                    <com.post.transfer.lanpost.mycustom.MyEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/defValueKhmer"
-                        android:textAlignment="textEnd"
-                        android:layout_weight="1"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/bigMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:text="@string/priceDollar"/>
-                    <com.post.transfer.lanpost.mycustom.MyEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/defValueDollar"
-                        android:textAlignment="textEnd"
-                        android:layout_weight="1"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/bigMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:text="@string/priceKhmer"/>
-                    <com.post.transfer.lanpost.mycustom.MyEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/defValueKhmer"
-                        android:textAlignment="textEnd"
-                        android:layout_weight="1"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/bigMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:text="@string/description"/>
-                    <com.post.transfer.lanpost.mycustom.MyEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/descriptionLabel"
-                        android:layout_weight="1"
-                        android:inputType="textMultiLine"
-                        android:lines="5"
-                        android:gravity="top"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/bigMargin">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/dateStart"
                         android:layout_weight="1"/>
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/dateEnd"
@@ -237,17 +251,16 @@
                     <DatePicker
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="2dp"/>
+                        android:layout_weight="1"/>
                     <DatePicker
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="2dp"/>
+                        android:layout_weight="1"/>
                 </LinearLayout>
             </LinearLayout>
+            </LinearLayout>
         </ScrollView>
-        <com.post.transfer.lanpost.mycustom.ButtonPositive
+        <com.reaksmeyarun.pda.customView.ButtonPositive
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/addToStock"

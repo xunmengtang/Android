@@ -8,18 +8,17 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
-import com.post.transfer.lanpost.base.BaseActivity
+import com.reaksmeyarun.pda.base.BaseActivity
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.constance.AppConstance
 import com.reaksmeyarun.pda.databinding.ActivityP0200HomeBinding
 import com.reaksmeyarun.pda.datamodel.HomeDataModel
-import com.reaksmeyarun.pda.utils.PopupMsg
 import com.reaksmeyarun.pda.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.activity_p0200_home.*
 
 class P0200HomeActivity : BaseActivity(), OnNavigationItemSelectedListener {
     lateinit var binding : ActivityP0200HomeBinding
-    lateinit var homeViewModel :HomeViewModel
+    lateinit var homeViewModel : HomeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_p0200_home)
@@ -78,15 +77,7 @@ class P0200HomeActivity : BaseActivity(), OnNavigationItemSelectedListener {
                 startActivityForResult(Intent(this, Z0300AboutUsActivity::class.java), AppConstance.Z0300ABOUT_US)
             }
             R.id.nav_signOut ->{
-                PopupMsg.alert(this,getString(R.string.msg_SignOut), object : PopupMsg.OnClickButtonYesNoCallBack{
-                    override fun onYesCallBack() {
-                        startActivity(Intent(applicationContext, P0100SignInActivity::class.java))
-                        finish()
-                    }
-                    override fun onNoCallBack() {
-//                        DO NOTHING
-                    }
-                })
+                homeViewModel.handleSignOut()
             }
         }
         drawer_layout.closeDrawer(GravityCompat.START)

@@ -1,10 +1,13 @@
-package com.post.transfer.lanpost.base
+package com.reaksmeyarun.pda.base
 
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
 import com.reaksmeyarun.pda.R

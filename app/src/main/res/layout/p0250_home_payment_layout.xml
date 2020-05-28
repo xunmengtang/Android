@@ -27,7 +27,7 @@
                     android:src="@drawable/ic_arrow_left_basecolor"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:onClick="@{vmHome::handleHomeP0240}"/>
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:textAlignment="center"
@@ -49,12 +49,12 @@
                     android:layout_marginTop="@dimen/bigMargin"
                     android:layout_marginEnd="@dimen/bigMargin">
 
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/date" />
 
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -69,19 +69,19 @@
                     android:layout_marginStart="@dimen/bigMargin"
                     android:layout_marginEnd="@dimen/bigMargin">
 
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/serviceBy" />
 
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:text="Admin"
                         android:textAlignment="textEnd" />
                 </LinearLayout>
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/bigMargin"
@@ -111,12 +111,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/subtotalDollar" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -128,12 +128,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/subtotalKhmer" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -147,12 +147,12 @@
                             android:orientation="horizontal"
                             android:layout_marginTop="4dp">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/vat" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -166,12 +166,12 @@
                             android:orientation="horizontal"
                             android:layout_marginTop="4dp">>
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/totalDollar" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -183,12 +183,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/totalKhmer" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -198,7 +198,7 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/bigMargin"
@@ -228,12 +228,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/subtotalDollar" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -245,12 +245,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/subtotalKhmer" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -264,12 +264,12 @@
                             android:orientation="horizontal"
                             android:layout_marginTop="4dp">>
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/vat" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -282,12 +282,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/discount" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -301,12 +301,12 @@
                             android:orientation="horizontal"
                             android:layout_marginTop="4dp">>
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/totalDollar" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -318,12 +318,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/totalKhmer" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -337,12 +337,12 @@
                             android:layout_marginTop="4dp"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/amountDollar" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -355,12 +355,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/amountKhmer" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -374,12 +374,12 @@
                             android:layout_marginTop="4dp"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/paybackDollar" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/paybackDollarHint"
@@ -391,12 +391,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/paybackKhmer" />
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/paybackKhmerHint"
@@ -404,7 +404,7 @@
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/bigMargin"
@@ -435,12 +435,12 @@
                             android:layout_height="match_parent"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/amountDollar" />
 
-                            <com.post.transfer.lanpost.mycustom.MyEditText
+                            <com.reaksmeyarun.pda.customView.MyEditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -454,12 +454,12 @@
                             android:layout_height="match_parent"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/amountKhmer" />
 
-                            <com.post.transfer.lanpost.mycustom.MyEditText
+                            <com.reaksmeyarun.pda.customView.MyEditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -473,12 +473,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/discount" />
 
-                            <com.post.transfer.lanpost.mycustom.MyEditText
+                            <com.reaksmeyarun.pda.customView.MyEditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -490,7 +490,7 @@
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
-            <com.post.transfer.lanpost.mycustom.ButtonPositive
+            <com.reaksmeyarun.pda.customView.ButtonPositive
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"

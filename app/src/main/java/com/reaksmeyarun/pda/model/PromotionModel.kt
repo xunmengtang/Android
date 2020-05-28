@@ -1,3 +1,3 @@
 package com.reaksmeyarun.pda.model
 
-class PromotionModel(var id : String = "")
+data class PromotionModel(var id : String = "")

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.post.transfer.lanpost.mycustom.MyTextView
+        <com.reaksmeyarun.pda.customView.MyTextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/title_height"
             android:background="@color/baseColor"
@@ -19,14 +19,14 @@
             android:text="Information"
             android:gravity="center" />
 
-        <com.post.transfer.lanpost.mycustom.MyTextView
+        <com.reaksmeyarun.pda.customView.MyTextView
             android:id="@+id/txtMsg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/defMargin"
             android:gravity="center" />
 
-        <com.post.transfer.lanpost.mycustom.ButtonNegative
+        <com.reaksmeyarun.pda.customView.ButtonNegative
             android:id="@+id/popupBtnClose"
             android:layout_width="200dp"
             android:layout_height="@dimen/defButtonHeight"

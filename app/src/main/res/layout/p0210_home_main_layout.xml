@@ -18,7 +18,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:gravity="center"
                         android:layout_height="?attr/actionBarSize"
@@ -26,7 +26,7 @@
                         android:textStyle="bold"
                         android:textAlignment="center"
                         android:textSize="@dimen/largeTitleSize"/>
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/categoryLabel"
@@ -37,7 +37,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/defMargin"
                         android:id="@+id/rvCategory"/>
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/itemLabel"
@@ -64,13 +64,13 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:orientation="vertical">
-                                <com.post.transfer.lanpost.mycustom.MyTextView
+                                <com.reaksmeyarun.pda.customView.MyTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/recently"
                                     android:textStyle="bold"
                                     android:textSize="@dimen/bigLabelSize"/>
-                                <com.post.transfer.lanpost.mycustom.MyTextView
+                                <com.reaksmeyarun.pda.customView.MyTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Date: 11-11-2020"/>
@@ -78,11 +78,11 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
-                                    <com.post.transfer.lanpost.mycustom.MyTextView
+                                    <com.reaksmeyarun.pda.customView.MyTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Service by:"/>
-                                    <com.post.transfer.lanpost.mycustom.MyTextView
+                                    <com.reaksmeyarun.pda.customView.MyTextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="Ron"
@@ -94,7 +94,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.5">
-                                <com.post.transfer.lanpost.mycustom.MyTextView
+                                <com.reaksmeyarun.pda.customView.MyTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:text="4.5 $"
@@ -121,7 +121,7 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:layout_weight="1">
-                                <com.post.transfer.lanpost.mycustom.MyTextView
+                                <com.reaksmeyarun.pda.customView.MyTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/dailySale"
@@ -131,11 +131,11 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
-                                    <com.post.transfer.lanpost.mycustom.MyTextView
+                                    <com.reaksmeyarun.pda.customView.MyTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/totalSale"/>
-                                    <com.post.transfer.lanpost.mycustom.MyTextView
+                                    <com.reaksmeyarun.pda.customView.MyTextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="0"
@@ -145,18 +145,18 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
-                                    <com.post.transfer.lanpost.mycustom.MyTextView
+                                    <com.reaksmeyarun.pda.customView.MyTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/totalDiscount"/>
-                                    <com.post.transfer.lanpost.mycustom.MyTextView
+                                    <com.reaksmeyarun.pda.customView.MyTextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="10 $"
                                         android:paddingStart="4dp"/>
                                 </LinearLayout>
                             </LinearLayout>
-                            <com.post.transfer.lanpost.mycustom.MyTextView
+                            <com.reaksmeyarun.pda.customView.MyTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:text="100.00 $"

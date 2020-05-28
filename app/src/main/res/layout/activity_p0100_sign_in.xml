@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         tools:context=".view.activity.P0100SignInActivity">
 
-        <com.example.myapplication.customview.BaseAppBackground
+        <com.reaksmeyarun.pda.customView.BaseAppBackground
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -28,8 +28,7 @@
                 android:id="@+id/logo"
                 android:src="@drawable/ic_pos"
                 android:layout_gravity="center"
-                android:layout_marginTop="80dp"
-                android:layout_marginBottom="54dp" />
+                android:layout_marginTop="80dp"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,7 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <com.post.transfer.lanpost.mycustom.MyEditText
+                    <com.reaksmeyarun.pda.customView.MyEditText
                         android:id="@+id/etEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -51,7 +50,7 @@
                         android:layout_marginStart="@dimen/bigLargeMargin"
                         android:layout_marginEnd="@dimen/bigLargeMargin"/>
 
-                    <com.post.transfer.lanpost.mycustom.MyEditText
+                    <com.reaksmeyarun.pda.customView.MyEditText
                         android:id="@+id/etPass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -59,7 +58,7 @@
                         android:inputType="textPassword"
                         android:layout_marginEnd="@dimen/bigLargeMargin"
                         android:layout_marginStart="@dimen/bigLargeMargin"/>
-                    <com.post.transfer.lanpost.mycustom.ButtonGradientStroke
+                    <com.reaksmeyarun.pda.customView.ButtonGradientStroke
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/signIn"
@@ -74,17 +73,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_marginTop="@dimen/bigMargin">
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                android:layout_marginBottom="@dimen/defMargin">
 
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:text="@string/msg_ContactToService" />
 
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_marginTop="@dimen/lowMargin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

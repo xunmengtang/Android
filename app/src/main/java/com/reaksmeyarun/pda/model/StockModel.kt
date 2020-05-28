@@ -1,6 +1,6 @@
 package com.reaksmeyarun.pda.model
 
-class StockModel(var id : String ?= "",
+data class StockModel(var id : String ?= "",
                  var quantities : String ?= "",
                  var timestamp : String ?= "",
                  var startDate : String ?= "",

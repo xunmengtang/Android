@@ -1,6 +1,6 @@
-package com.ig.iginnovation.superapp.driver.baseclass
+package com.reaksmeyarun.pda.base
 
-import com.ig.iginnovation.superapp.driver.listener.DataModelPropertyChangeCallBack
+import com.reaksmeyarun.pda.listener.DataModelPropertyChangeCallBack
 
 open class BaseDataModel {
     lateinit var propertiesChangedCallback: DataModelPropertyChangeCallBack

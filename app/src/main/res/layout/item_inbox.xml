@@ -40,14 +40,14 @@
                     android:orientation="vertical"
                     android:layout_margin="@dimen/bigMargin">
 
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Title"
                         android:maxLines="1"
                         android:textSize="@dimen/bigTitleSize" />
 
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLines="1"

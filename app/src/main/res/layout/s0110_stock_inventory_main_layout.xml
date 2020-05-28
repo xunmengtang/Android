@@ -17,7 +17,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
-            <com.post.transfer.lanpost.mycustom.MyTextView
+            <com.reaksmeyarun.pda.customView.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:text="@string/stockInventory"
@@ -50,7 +50,7 @@
                         android:padding="@dimen/bigMargin"
                         android:onClick="@{vmStock::handleShowStockS0220}"
                         android:orientation="vertical">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                        <com.reaksmeyarun.pda.customView.MyTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/stockCategory" />
@@ -69,12 +69,12 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
-                                    <com.post.transfer.lanpost.mycustom.MyTextView
+                                    <com.reaksmeyarun.pda.customView.MyTextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="@string/totalCategory"
                                         android:layout_weight="2"/>
-                                    <com.post.transfer.lanpost.mycustom.MyTextView
+                                    <com.reaksmeyarun.pda.customView.MyTextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="@string/defValueQuantities"
@@ -91,7 +91,7 @@
                         android:padding="@dimen/bigMargin"
                         android:onClick="@{vmStock::handleShowStockS0120}"
                         android:orientation="vertical">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                        <com.reaksmeyarun.pda.customView.MyTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/stockItem" />
@@ -110,12 +110,12 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
-                                    <com.post.transfer.lanpost.mycustom.MyTextView
+                                    <com.reaksmeyarun.pda.customView.MyTextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="@string/totalItem"
                                         android:layout_weight="2"/>
-                                    <com.post.transfer.lanpost.mycustom.MyTextView
+                                    <com.reaksmeyarun.pda.customView.MyTextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="@string/defValueQuantities"

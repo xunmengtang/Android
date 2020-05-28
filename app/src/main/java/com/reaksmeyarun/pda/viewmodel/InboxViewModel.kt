@@ -3,7 +3,7 @@ package com.reaksmeyarun.pda.viewmodel
 import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ig.iginnovation.superapp.driver.mycustomclass.MyMutableLiveData
+import com.reaksmeyarun.pda.customclass.MyMutableLiveData
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.adapter.InboxAdapter
 import com.reaksmeyarun.pda.datamodel.InboxDataModel

@@ -5,7 +5,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ig.iginnovation.superapp.driver.mycustomclass.MyMutableLiveData
+import com.reaksmeyarun.pda.customclass.MyMutableLiveData
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.adapter.CategoryAdapter
 import com.reaksmeyarun.pda.adapter.ItemAdapter
@@ -17,7 +17,6 @@ import com.reaksmeyarun.pda.utils.PopupMsg
 import com.reaksmeyarun.pda.view.activity.S0100StockInventoryActivity
 import kotlinx.android.synthetic.main.activity_s0100_stock_inventory.*
 import kotlinx.android.synthetic.main.s0120_stock_inventory_stock_item_layout.*
-import kotlinx.android.synthetic.main.s0220_stock_inventory_stock_category_layout.*
 import kotlin.collections.ArrayList
 
 class StockInventoryViewModel(var stockInventoryDataModel: StockInventoryDataModel, var activity : S0100StockInventoryActivity) : ViewModel() {
@@ -154,9 +153,6 @@ class StockInventoryViewModel(var stockInventoryDataModel: StockInventoryDataMod
     }
     var itemList = ArrayList<ItemModel>()
     fun bindingItemS0120(){
-        for(value in 1..10){
-            itemList.add(ItemModel(""))
-        }
         var itemAdapter = ItemAdapter(activity, R.layout.item_stock_item_layout)
         activity.rvStockItem.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         activity.rvStockItem.adapter = itemAdapter
@@ -171,15 +167,5 @@ class StockInventoryViewModel(var stockInventoryDataModel: StockInventoryDataMod
             }
 
         }
-    }
-    var categoryList = ArrayList<CategoryModel>()
-    fun bindingCategoryS0220(){
-        for(value in 1..10){
-            categoryList.add(CategoryModel(""))
-        }
-        var categoryAdapter = CategoryAdapter(activity, R.layout.item_stock_category_layout)
-        activity.rvStockCategory.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        activity.rvStockCategory.adapter = categoryAdapter
-        categoryAdapter.addItem(categoryList)
     }
 }

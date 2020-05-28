@@ -1,4 +1,4 @@
-package com.post.transfer.lanpost.base.adapter
+package com.reaksmeyarun.pda.base
 
 import android.view.View
 import android.view.animation.AnimationUtils

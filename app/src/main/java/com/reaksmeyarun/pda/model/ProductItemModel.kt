@@ -1,8 +1,9 @@
 package com.reaksmeyarun.pda.model
 
-class ProductItemModel(var id : String ?= "",
+data class ProductItemModel(var id : String ?= "",
                        var userSession : UserModel.UserSession,
                        var item : ItemModel,
+                       var barCode : String ?= "",
                        var quantities : String ?= "",
                        var timestamp : String ?= "",
                        var startDate : String ?= "",

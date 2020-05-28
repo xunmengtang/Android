@@ -18,7 +18,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize">
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:textAlignment="center"
@@ -42,7 +42,7 @@
                     android:layout_height="?attr/actionBarSize"
                     android:orientation="horizontal">
 
-                    <com.post.transfer.lanpost.mycustom.MyEditText
+                    <com.reaksmeyarun.pda.customView.MyEditText
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -57,10 +57,32 @@
                         android:onClick="@{vmStock::handleSearchCategory}"
                         android:scaleType="center"/>
                 </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/rvStockCategory"/>
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:gravity="center"
+                        android:id="@+id/empty_layout_P0210">
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/ic_empty_box"/>
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty"
+                            android:textStyle="bold"
+                            android:textAlignment="center"/>
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/rvStockCategory"/>
+                </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
         <com.google.android.material.floatingactionbutton.FloatingActionButton

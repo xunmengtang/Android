@@ -1,6 +1,6 @@
 package com.reaksmeyarun.pda.model
 
-class CartModel (var id : String = "")
+data class CartModel (var id : String = "")
 //class CartModel (var id : String = "",
 //                 var timestamp : String ?= "",
 //                 var userSession : UserModel.UserSession,

@@ -1,8 +1,8 @@
-package com.ig.iginnovation.superapp.driver.mycustomclass
+package com.reaksmeyarun.pda.customclass
 
 import androidx.lifecycle.MutableLiveData
-import com.ig.iginnovation.superapp.driver.baseclass.BaseDataModel
-import com.ig.iginnovation.superapp.driver.listener.DataModelPropertyChangeCallBack
+import com.reaksmeyarun.pda.base.BaseDataModel
+import com.reaksmeyarun.pda.listener.DataModelPropertyChangeCallBack
 
 
 class MyMutableLiveData<Model: BaseDataModel> : MutableLiveData<Model>(){

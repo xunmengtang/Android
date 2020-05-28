@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Item name"
@@ -51,12 +51,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/price" />
 
-                    <com.post.transfer.lanpost.mycustom.MyTextView
+                    <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_marginStart="4dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -75,11 +75,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                        <com.reaksmeyarun.pda.customView.MyTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/quantities" />
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                        <com.reaksmeyarun.pda.customView.MyTextView
                             android:layout_marginStart="4dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -91,12 +91,12 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="end">
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                        <com.reaksmeyarun.pda.customView.MyTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/codeID" />
 
-                        <com.post.transfer.lanpost.mycustom.MyTextView
+                        <com.reaksmeyarun.pda.customView.MyTextView
                             android:layout_marginStart="4dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

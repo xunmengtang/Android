@@ -2,7 +2,7 @@ package com.reaksmeyarun.pda.view.activity
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.post.transfer.lanpost.base.BaseActivity
+import com.reaksmeyarun.pda.base.BaseActivity
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.databinding.ActivityP0100SignInBinding
 import com.reaksmeyarun.pda.viewmodel.SignInViewModel

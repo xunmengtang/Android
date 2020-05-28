@@ -2,7 +2,7 @@ package com.reaksmeyarun.pda.view.activity
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.post.transfer.lanpost.base.BaseActivity
+import com.reaksmeyarun.pda.base.BaseActivity
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.databinding.ActivityZ0300AboutUsBinding
 import kotlinx.android.synthetic.main.activity_p0200_home.*

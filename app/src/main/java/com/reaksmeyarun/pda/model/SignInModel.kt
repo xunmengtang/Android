@@ -1,5 +1,5 @@
 package com.reaksmeyarun.pda.model
 
-class SignInModel (
+data class SignInModel (
     var email: String = "",
     var password : String = "")

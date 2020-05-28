@@ -26,7 +26,7 @@
                     android:src="@drawable/ic_arrow_left_basecolor"
                     android:onClick="@{vmHome::handleHomeP0210}"
                     style="@style/Widget.AppCompat.Button.Borderless"/>
-                <com.post.transfer.lanpost.mycustom.MyTextView
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:gravity="center"
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center">
-                <com.post.transfer.lanpost.mycustom.MyEditText
+                <com.reaksmeyarun.pda.customView.MyEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -64,9 +64,53 @@
                     style="@style/Widget.AppCompat.Button.Borderless"/>
             </LinearLayout>
         </LinearLayout>
-        <androidx.recyclerview.widget.RecyclerView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/rvItemSearch"/>
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:gravity="center"
+                android:id="@+id/empty_layout_Z0220">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_empty_box"/>
+                <com.reaksmeyarun.pda.customView.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/empty"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:id="@+id/empty_layout_P0220">
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_empty_box"/>
+                    <com.reaksmeyarun.pda.customView.MyTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/empty"
+                        android:textStyle="bold"
+                        android:textAlignment="center"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rvItemSearch"/>
+            </RelativeLayout>
+        </RelativeLayout>
     </LinearLayout>
 </layout>
