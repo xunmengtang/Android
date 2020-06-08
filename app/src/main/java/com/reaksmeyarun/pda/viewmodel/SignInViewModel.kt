@@ -7,10 +7,12 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
+import com.google.firebase.iid.FirebaseInstanceId
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.connection.FirebaseConnection
 import com.reaksmeyarun.pda.constance.AppConstance
 import com.reaksmeyarun.pda.model.SignInModel
+import com.reaksmeyarun.pda.preference.UserSession
 import com.reaksmeyarun.pda.view.activity.P0100SignInActivity
 import com.reaksmeyarun.pda.view.activity.P0200HomeActivity
 import kotlinx.android.synthetic.main.activity_p0100_sign_in.*
@@ -34,6 +36,11 @@ class SignInViewModel(var activity : P0100SignInActivity) : ViewModel(){
                     signInRqMd.password)
                     .addOnSuccessListener {
                         Log.e(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
+                        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener { instanceIdResult ->
+                            if (instanceIdResult != null) {
+                                UserSession.getInstance(activity).setToken(instanceIdResult.token)
+                            }
+                        }
                     }
                     .addOnCompleteListener{
                         Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $it")
@@ -78,20 +85,20 @@ class SignInViewModel(var activity : P0100SignInActivity) : ViewModel(){
     private fun validateForm(): Boolean {
         var valid = true
         if (TextUtils.isEmpty(activity.etEmail.text.toString())) {
-            activity.etEmail.setError("!")
+            activity.etEmail.error = "!"
             valid = false
         } else if (TextUtils.isEmpty(activity.etEmail.text.toString())) {
-            activity.etEmail.setError("!")
+            activity.etEmail.error = "!"
             valid = false
         } else if (!Patterns.EMAIL_ADDRESS.matcher(activity.etEmail.text.toString()).matches()) {
-            activity.etEmail.setError("@gmail.com")
+            activity.etEmail.error = "@gmail.com"
             valid = false
         } else if (activity.etPass.text.toString().length < 6) {
-            activity.etPass.setError("At least 6 characters")
+            activity.etPass.error = "At least 6 characters"
             valid = false
         } else {
-            activity.etPass.setError(null)
-            activity.etEmail.setError(null)
+            activity.etPass.error = null
+            activity.etEmail.error = null
         }
         return valid
     }

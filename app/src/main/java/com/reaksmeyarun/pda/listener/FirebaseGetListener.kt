@@ -4,6 +4,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 
 interface FirebaseGetListener {
-    fun onCompleteListener(dataSnapshot: DataSnapshot)
+    fun onDataChange(dataSnapshot: DataSnapshot)
     fun onCancelListener(databaseError: DatabaseError)
 }

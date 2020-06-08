@@ -5,52 +5,69 @@
     <data>
 
     </data>
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/itemViewLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        style="@style/Widget.AppCompat.Button.Borderless">
-        <androidx.cardview.widget.CardView
+        android:paddingTop="@dimen/defMargin"
+        android:paddingStart="@dimen/defMargin"
+        android:paddingEnd="@dimen/defMargin">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="@dimen/cardview_default_elevation"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            app:cardCornerRadius="@dimen/cardview_default_radius">
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="@dimen/defMargin"
+                android:layout_marginTop="@dimen/defMargin"
+                android:layout_marginEnd="@dimen/defMargin"
+                android:layout_marginBottom="@dimen/defMargin"
+                android:src="@drawable/ic_pos" />
             <LinearLayout
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/ic_pos"
-                    android:layout_margin="@dimen/bigMargin"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingEnd="@dimen/defMargin">
                 <com.reaksmeyarun.pda.customView.MyTextView
+                    android:id="@+id/tvCategoryName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/category"
-                    android:textStyle="bold"
-                    android:textAlignment="center"/>
-                <LinearLayout
+                    android:text="@string/categoryLabel"
+                    android:textStyle="bold"/>
+                <com.reaksmeyarun.pda.customView.MyTextView
+                    android:id="@+id/tvCategoryDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="@dimen/defMargin">
-                    <com.reaksmeyarun.pda.customView.MyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/quantities"/>
-                    <com.reaksmeyarun.pda.customView.MyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10"
-                        android:layout_marginStart="4dp"/>
-                </LinearLayout>
+                    android:text="@string/descriptionLabel" />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/btnEdit"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="30dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="4dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_edit_24dp" />
+            <ImageView
+                android:id="@+id/btnDelete"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="30dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="2dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_close_black" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/black"
+            android:layout_marginStart="@dimen/defMargin"
+            android:layout_marginEnd="@dimen/defMargin"
+            android:layout_marginBottom="1dp"/>
     </LinearLayout>
 </layout>

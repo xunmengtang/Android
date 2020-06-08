@@ -38,7 +38,6 @@
                     android:id="@+id/discountLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/bigLabelSize"
                     android:textStyle="bold"
                     android:text="1"
                     android:layout_gravity="end"/>
@@ -50,7 +49,7 @@
             android:background="@color/baseColor"/>
         <com.reaksmeyarun.pda.customView.ButtonPositive
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:text="@string/cart"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
@@ -66,7 +65,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center">
                 <Spinner
                     android:id="@+id/spinner"
                     android:layout_width="match_parent"

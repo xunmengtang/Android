@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.reaksmeyarun.pda.customView
 
 import android.app.Activity
@@ -56,7 +58,7 @@ class BaseAppBackground : View {
         val alpha = 225
 //        val alpha = 180
         //bottom oval left
-        var paint1 = Paint()
+        val paint1 = Paint()
         paint1.style = Paint.Style.FILL
         paint1.color = Color.argb(alpha, 0, 229, 255)
 //        paint1.color = Color.argb(alpha, 255, 255, 255)

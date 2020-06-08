@@ -2,7 +2,6 @@ package com.reaksmeyarun.pda.base
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 
 abstract class BasePreference(context: Context) {
     private val mShare: SharedPreferences

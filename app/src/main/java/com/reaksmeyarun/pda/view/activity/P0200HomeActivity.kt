@@ -30,11 +30,7 @@ class P0200HomeActivity : BaseActivity(), OnNavigationItemSelectedListener {
         nav_view.setNavigationItemSelectedListener(this)
         setUpDrawerLayout()
         nav_view.setCheckedItem(R.id.nav_service)
-//        homeViewModel.bindingCategoryP0210()
-        homeViewModel.bindingSpinnerS0210()
-//        homeViewModel.bindingItemP0210()
-        homeViewModel.bindingItemP0230()
-        homeViewModel.bindingCartP0240()
+//        homeViewModel.initViewPager()
     }
     private fun setUpDrawerLayout() {
         nav_view.itemIconTintList = null //use for set icon to default color

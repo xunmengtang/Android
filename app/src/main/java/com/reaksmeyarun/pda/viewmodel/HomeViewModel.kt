@@ -1,19 +1,15 @@
 package com.reaksmeyarun.pda.viewmodel
 
+//import kotlinx.android.synthetic.main.p0210_home_main_layout.rvP0210
 import android.content.Intent
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.FirebaseAuth
 import com.reaksmeyarun.pda.R
-import com.reaksmeyarun.pda.adapter.CartAdapter
-import com.reaksmeyarun.pda.adapter.DiscountAdapter
-import com.reaksmeyarun.pda.adapter.ItemAdapter
+import com.reaksmeyarun.pda.adapter.*
 import com.reaksmeyarun.pda.connection.FirebaseConnection
 import com.reaksmeyarun.pda.constance.AppConstance
 import com.reaksmeyarun.pda.customclass.MyMutableLiveData
@@ -21,14 +17,13 @@ import com.reaksmeyarun.pda.datamodel.HomeDataModel
 import com.reaksmeyarun.pda.listener.OnClickListener
 import com.reaksmeyarun.pda.listener.OnDeleteListener
 import com.reaksmeyarun.pda.model.CartModel
-import com.reaksmeyarun.pda.model.CategoryModel
 import com.reaksmeyarun.pda.model.DiscountModel
 import com.reaksmeyarun.pda.model.ItemModel
 import com.reaksmeyarun.pda.utils.PopupMsg
 import com.reaksmeyarun.pda.view.activity.P0100SignInActivity
 import com.reaksmeyarun.pda.view.activity.P0200HomeActivity
 import kotlinx.android.synthetic.main.activity_s0100_stock_inventory.*
-import kotlinx.android.synthetic.main.p0210_home_main_layout.rvP0210
+import kotlinx.android.synthetic.main.p0210_home_main_fragment.*
 import kotlinx.android.synthetic.main.p0211_home_main_layout.*
 import kotlinx.android.synthetic.main.p0220_home_item_layout.*
 import kotlinx.android.synthetic.main.p0240_home_cart_item_layout.*
@@ -36,6 +31,7 @@ import kotlinx.android.synthetic.main.p0260_home_confirmation_layout.*
 
 
 class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200HomeActivity) : ViewModel() {
+
     private val TAG = "HomeViewModel"
     var homeData = MyMutableLiveData<HomeDataModel>()
     var statusCart : Int = 1
@@ -58,6 +54,7 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
             }
 
             override fun onNoCallBack() {
+//                DO nothing
             }
 
         })
@@ -118,8 +115,8 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
         activity.rvP0210.adapter = itemAdapter
         activity.rvP0210.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         itemAdapter.addItem(itemList)
-        itemAdapter.onClickListener = object : OnClickListener{
-            override fun onClick(position: Int) {
+        itemAdapter.onClickRecyclerViewListener = object : ItemAdapter.OnClickRecyclerViewListener{
+            override fun onClickListener(pos: Int, data: ItemModel) {
                 activity.binding.progressing.visibility = View.VISIBLE
                 android.os.Handler().postDelayed({
                     activity.binding.toolbar.visibility = View.GONE
@@ -127,6 +124,14 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
                     homeDataModel.state = HomeDataModel.HOME_P0230
                     statusCart = AppConstance.ADD_TO_CART
                 },300)
+            }
+
+            override fun onEditListener(pos: Int, data: ItemModel) {
+//                TODO :
+            }
+
+            override fun onDeleteListener(pos: Int, data: ItemModel) {
+//                TODO :
             }
         }
     }
@@ -139,9 +144,7 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
     }
     var discountList = ArrayList<DiscountModel>()
     fun bindingDiscountP0210(){
-        for(value in 1..5){
-            discountList.add(DiscountModel(""))
-        }
+//        TODO : on Discount
         var discountAdapter = DiscountAdapter(activity, R.layout.item_discount_layout)
         activity.rvP0210.adapter = discountAdapter
         activity.rvP0210.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -149,9 +152,7 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
     }
     var cartList = ArrayList<CartModel>()
     fun bindingCartP0240(){
-        for(value in 1..20){
-            cartList.add(CartModel(""))
-        }
+
         var cartAdapter = CartAdapter(activity, R.layout.item_cart_layout)
         activity.rvCart.adapter = cartAdapter
         activity.rvCart.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -181,17 +182,18 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
                     override fun onNoCallBack() {
 //                        TO NOTHING
                     }
-
                 })
             }
         }
     }
+
     fun handleBtnSearchItemClickP0230(view: View){
         activity.binding.progressing.visibility = View.VISIBLE
         android.os.Handler().postDelayed({
             activity.binding.progressing.visibility = View.GONE
         },300)
     }
+
     var optionList = ArrayList<String>()
     fun bindingSpinnerS0210(){
         optionList.add("Item")
@@ -200,7 +202,7 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
         activity.spinner.adapter = adapter
         activity.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
+//                DO nothing
             }
 
             override fun onItemSelected(
@@ -215,7 +217,7 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
                         android.os.Handler().postDelayed({
                             discountList.clear()
                             activity.progressing.visibility = View.GONE
-                            bindingItemP0210()
+//                            bindingItemP0210()
                         },100)
                     }
                     1 ->{
@@ -223,13 +225,14 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
                         android.os.Handler().postDelayed({
                             itemList.clear()
                             activity.progressing.visibility = View.GONE
-                            bindingDiscountP0210()
+//                            bindingDiscountP0210()
                         },100)
                     }
                 }
             }
         }
     }
+
     fun handleAddToCart(view : View){
         PopupMsg.alert(activity,activity.getString(R.string.msg_add), callBack = object :PopupMsg.OnClickButtonYesNoCallBack{
             override fun onYesCallBack() {
@@ -246,15 +249,18 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
             }
 
             override fun onNoCallBack() {
+//                Do nothing
             }
         })
     }
+
     fun handleSearchItem(view : View){
         activity.binding.progressing.visibility = View.VISIBLE
         android.os.Handler().postDelayed({
             activity.binding.progressing.visibility = View.GONE
         },300)
     }
+
     fun handleSignOut(){
         PopupMsg.alert(activity, activity.getString(R.string.msg_SignOut), object : PopupMsg.OnClickButtonYesNoCallBack{
             override fun onYesCallBack() {
@@ -266,5 +272,41 @@ class HomeViewModel( var homeDataModel : HomeDataModel, var activity : P0200Home
 //              DO NOTHING
             }
         })
+    }
+
+    //  TODO : research about add new data to ViewPager
+//    fun initViewPager(){
+//        activity.bubbleTabBar.setupBubbleTabBar(activity.viewpager)
+//        activity.viewpager.setDurationScroll(300)
+//        activity.viewpager.adapter = ViewPagerAdapter(
+//            activity.supportFragmentManager
+//        ).apply {
+//            list = ArrayList<String>().apply {
+//                add("Home")
+//                add("Logger")
+//                add("Documents")
+//                add("Settings")
+//            }
+//        }
+//        activity.viewpager.addOnPageChangeListener(
+//            BackgroundListener(
+//                getColors(activity),
+////                activity.iv,
+//                activity.viewpager
+//            )
+//        )
+//    }
+//    private fun getColors(activity: Activity): IntArray {
+//        return intArrayOf(
+//            ContextCompat.getColor(activity, R.color.home),
+//            ContextCompat.getColor(activity, R.color.logger),
+//            ContextCompat.getColor(activity, R.color.documents),
+//            ContextCompat.getColor(activity, R.color.settings),
+//            ContextCompat.getColor(activity, R.color.home)
+//        )
+//    }
+    val tabLayoutAdapter = TabLayoutAdapter()
+    fun bindingTabLayout(){
+
     }
 }

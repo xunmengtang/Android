@@ -89,7 +89,7 @@
                     <Spinner
                         android:id="@+id/spinner"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="?attr/actionBarSize"
                         android:layout_marginTop="@dimen/defMargin"/>
                     <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
@@ -108,6 +108,15 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
         <com.reaksmeyarun.pda.customView.ButtonPositive
+            android:id="@+id/btnEditItem"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit"
+            android:onClick="@{vmSetting::handleEditItem}"
+            android:layout_margin="2dp"/>
+        <com.reaksmeyarun.pda.customView.ButtonPositive
+            android:id="@+id/btnCreateNewItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/save"

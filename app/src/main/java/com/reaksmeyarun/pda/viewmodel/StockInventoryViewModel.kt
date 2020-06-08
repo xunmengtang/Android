@@ -7,11 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reaksmeyarun.pda.customclass.MyMutableLiveData
 import com.reaksmeyarun.pda.R
-import com.reaksmeyarun.pda.adapter.CategoryAdapter
 import com.reaksmeyarun.pda.adapter.ItemAdapter
 import com.reaksmeyarun.pda.datamodel.StockInventoryDataModel
 import com.reaksmeyarun.pda.listener.OnClickListener
-import com.reaksmeyarun.pda.model.CategoryModel
 import com.reaksmeyarun.pda.model.ItemModel
 import com.reaksmeyarun.pda.utils.PopupMsg
 import com.reaksmeyarun.pda.view.activity.S0100StockInventoryActivity
@@ -157,13 +155,21 @@ class StockInventoryViewModel(var stockInventoryDataModel: StockInventoryDataMod
         activity.rvStockItem.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         activity.rvStockItem.adapter = itemAdapter
         itemAdapter.addItem(itemList)
-        itemAdapter.onClickListener = object : OnClickListener{
-            override fun onClick(position: Int) {
+        itemAdapter.onClickRecyclerViewListener = object : ItemAdapter.OnClickRecyclerViewListener{
+            override fun onClickListener(pos: Int, data: ItemModel) {
                 activity.binding.progressing.visibility = View.VISIBLE
                 android.os.Handler().postDelayed({
                     activity.binding.progressing.visibility = View.GONE
                     stockInventoryDataModel.state = StockInventoryDataModel.STOCK_S0130
                 },300)
+            }
+
+            override fun onEditListener(pos: Int, data: ItemModel) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onDeleteListener(pos: Int, data: ItemModel) {
+                TODO("Not yet implemented")
             }
 
         }

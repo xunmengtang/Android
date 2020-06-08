@@ -142,6 +142,7 @@
     <string name="totalProfitThisMonth">Total Profit this Month :</string>
     <string name="icon">Icon Item</string>
     <string name="save">Save</string>
+    <string name="edit">Edit</string>
     <string name="empty">Empty</string>
     <!--    message-->
     <string name="msg_search">What are looking for...</string>
@@ -161,7 +162,10 @@
     <string name="msg_cant_save_item">There is no category on the list</string>
     <string name="msg_cant_edit_item">Something went wrong!</string>
     <string name="msg_cant_delete_item">Something went wrong!</string>
+    <string name="msg_cant_delete_category">In this category have item/items in it, so you can not delete it</string>
     <string name="msg_cant_push_item">Something went wrong!</string>
     <string name="msg_something_wrong">Something went wrong!</string>
+    <string name="msg_complete">Operation Complete</string>
     <string name="msg_verity_email">Please verify your email</string>
+    <string name="msg_dont_have_category">There is no category in the record, do you want create new category?</string>
 </resources>

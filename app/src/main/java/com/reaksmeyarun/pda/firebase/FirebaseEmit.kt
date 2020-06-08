@@ -2,33 +2,40 @@ package com.reaksmeyarun.pda.firebase
 
 import android.app.Activity
 import android.util.Log
-import android.widget.Toast
 import com.google.firebase.database.*
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.constance.AppConstance
 import com.reaksmeyarun.pda.listener.FireBaseListener
+import com.reaksmeyarun.pda.listener.FirebaseGetChildListener
 import com.reaksmeyarun.pda.listener.FirebaseGetListener
 import com.reaksmeyarun.pda.utils.PopupMsg
 
+@Suppress("NAME_SHADOWING")
 class FirebaseEmit {
 
-    var fireBaseListener : FireBaseListener? = null
-    var firebaseGetListener : FirebaseGetListener? = null
+//    var fireBaseListener : FireBaseListener? = null
+//    var firebaseEditListener : FireBaseListener ?= null
+//    var firebaseDeleteListener : FireBaseListener ?= null
+//    var firebaseGetListener : FirebaseGetListener? = null
+//    var firebaseGetChildListener : FirebaseGetChildListener ?= null
 
-    fun get(TAG: String?="", databaseReference: DatabaseReference) {
+    fun get(
+        TAG: String?="",
+        databaseReference: DatabaseReference,
+        listener: FirebaseGetListener
+    ) {
         try{
-            databaseReference?.let { databaseReference ->
+            databaseReference.let { databaseReference ->
                 databaseReference.addListenerForSingleValueEvent(object : ValueEventListener{
                     override fun onCancelled(databaseError: DatabaseError) {
-                        firebaseGetListener?.let { firebaseGetListener ->
-                            firebaseGetListener.onCancelListener(databaseError)
-                        }
+                        Log.d(TAG, "${AppConstance.DATABASE_ERROR} : $databaseError")
+                        listener.onCancelListener(databaseError)
                     }
+
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        dataSnapshot?.let { data ->
-                            firebaseGetListener?.let { firebaseGetListener ->
-                                firebaseGetListener.onCompleteListener(data)
-                            }
+                        Log.i(TAG, "${AppConstance.ON_DATA_CHANGED} : $dataSnapshot")
+                        dataSnapshot.let { data ->
+                            listener.onDataChange(data)
                         }
                     }
                 })
@@ -39,18 +46,23 @@ class FirebaseEmit {
             Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
         }
     }
-    fun gets(TAG: String?="", databaseReference: DatabaseReference){
+
+    fun gets(
+        TAG: String?="",
+        databaseReference: DatabaseReference,
+        listener: FirebaseGetListener
+    ){
         try{
-            databaseReference?.let { databaseReference ->
+            databaseReference.let { databaseReference ->
                 databaseReference.addValueEventListener(object : ValueEventListener{
                     override fun onCancelled(databaseError: DatabaseError) {
                         Log.e(TAG, "${AppConstance.DATABASE_ERROR} : $databaseError")
+                        listener.onCancelListener(databaseError)
                     }
+
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        dataSnapshot?.let { data ->
-                            firebaseGetListener?.let { firebaseGetListener ->
-                                firebaseGetListener.onCompleteListener(data)
-                            }
+                        dataSnapshot.let { data ->
+                            listener.onDataChange(data)
                         }
                     }
                 })
@@ -62,48 +74,61 @@ class FirebaseEmit {
         }
     }
 
-    fun getChild(TAG: String?="", databaseReference: DatabaseReference){
+    fun getChild(
+        activity : Activity,
+        TAG : String?="",
+        databaseReference : DatabaseReference,
+        listener : FirebaseGetChildListener
+    ){
         try{
-            databaseReference?.let { databaseReference ->
-                databaseReference.addChildEventListener(object : ChildEventListener{
-                    override fun onCancelled(p0: DatabaseError) {
-                        Log.e(TAG, "${AppConstance.ON_CANCEL_LISTENER} : ${AppConstance.DATABASE_ERROR} : $p0")
-                    }
+            databaseReference.addChildEventListener(object : ChildEventListener{
+                override fun onCancelled(databaseError: DatabaseError) {
+                    Log.e(TAG, "${AppConstance.ON_CANCEL_LISTENER} : ${AppConstance.DATABASE_ERROR} : $databaseError")
+                    PopupMsg.alert(activity, activity.getString(R.string.msg_something_wrong))
+                    listener.onCancelledListener(databaseError)
+                }
 
-                    override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-                        Log.d(TAG, "${AppConstance.ON_CHILD_MOVED} : $p0 | $p1")
-                    }
+                override fun onChildMoved(dataSnapshot: DataSnapshot, key: String?) {
+                    Log.d(TAG, "${AppConstance.ON_CHILD_MOVED} : $key | $dataSnapshot")
+                    listener.onChildMoved(dataSnapshot)
+                }
 
-                    override fun onChildChanged(p0: DataSnapshot, p1: String?) {
-                        Log.d(TAG, "${AppConstance.ON_CHILD_CHANGED} : $p0 | $p1")
-                    }
+                override fun onChildChanged(dataSnapshot: DataSnapshot, key: String?) {
+                    Log.d(TAG, "${AppConstance.ON_CHILD_CHANGED} : $key | $dataSnapshot")
+                    listener.onChildChanged(dataSnapshot)
+                }
 
-                    override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                        Log.d(TAG, "${AppConstance.ON_CHILD_ADD} : $p0 | $p1")
-                    }
+                override fun onChildAdded(dataSnapshot: DataSnapshot, key: String?) {
+                    Log.d(TAG, "${AppConstance.ON_CHILD_ADD} : $dataSnapshot")
+                    listener.onChildAdded(dataSnapshot)
+                }
 
-                    override fun onChildRemoved(p0: DataSnapshot) {
-                        Log.d(TAG, "${AppConstance.ON_CHILD_REMOVED} : $p0")
-                    }
-                })
-            }
+                override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+                    Log.d(TAG, "${AppConstance.ON_CHILD_REMOVED} : $dataSnapshot")
+                    listener.onChildRemoved(dataSnapshot)
+                }
+            })
         }catch (ex : Exception){
             Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
         }catch (ex : ExceptionInInitializerError){
             Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
         }
     }
-    fun push(context : Activity, TAG : String? = "", msg : String? = "", databaseReference: DatabaseReference, map : MutableMap<String, Any>){
+
+    fun push(
+        context : Activity,
+        TAG : String? = "",
+        databaseReference : DatabaseReference,
+        map : MutableMap<String, Any>,
+        listener : FireBaseListener
+    ){
         try{
-            databaseReference?.let { databaseReference ->
-                map?.let { mutableMap ->
+            databaseReference.let { databaseReference ->
+                map.let { mutableMap ->
                     databaseReference.updateChildren(mutableMap)
                         .addOnCanceledListener {
                             Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
-                            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
-                            fireBaseListener?.let { fireBaseListener ->
-                                fireBaseListener.onCancelListener()
-                            }
+                            listener.onCancelListener()
                         }
                         .addOnFailureListener { exception ->
                             Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $exception")
@@ -111,22 +136,15 @@ class FirebaseEmit {
                                 context,
                                 context.getString(R.string.msg_cant_push_item)
                             )
-                            fireBaseListener?.let { fireBaseListener ->
-                                fireBaseListener.onFailureListener()
-                            }
+                            listener.onFailureListener()
                         }
                         .addOnSuccessListener { void ->
                             Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $void")
-                            fireBaseListener?.let { fireBaseListener ->
-                                fireBaseListener.onSuccessListener()
-                            }
+                            listener.onSuccessListener()
                         }
                         .addOnCompleteListener { task ->
                             Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $task")
-                            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
-                            fireBaseListener?.let { fireBaseListener ->
-                                fireBaseListener.onCompleteListener()
-                            }
+                            listener.onCompleteListener()
                         }
                 }
             }
@@ -137,58 +155,54 @@ class FirebaseEmit {
         }
     }
 
-    fun delete(context : Activity, TAG : String? = "", msg : String? = "", databaseReference: DatabaseReference, id : String ?= ""){
+    fun delete(
+        context : Activity,
+        TAG : String? = "",
+        databaseReference : DatabaseReference,
+        listener : FireBaseListener){
         try{
-            databaseReference?.let { databaseReference ->
-                id?.let { id ->
-                    databaseReference.child(id).removeValue()
-                        .addOnCanceledListener {
-                            Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
-                            fireBaseListener?.let { fireBaseListener ->
-                                fireBaseListener.onCancelListener()
-                            }
-                        }
-                        .addOnFailureListener { exception ->
-                            Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $exception")
-                            PopupMsg.alert(
-                                context,
-                                context.getString(R.string.msg_cant_delete_item)
-                            )
-                            fireBaseListener?.let { fireBaseListener ->
-                                fireBaseListener.onFailureListener()
-                            }
-                        }
-                        .addOnSuccessListener { void ->
-                            Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $void")
-                            fireBaseListener?.let { fireBaseListener ->
-                                fireBaseListener.onSuccessListener()
-                            }
-                        }
-                        .addOnCompleteListener { task ->
-                            Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $task")
-                            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
-                            fireBaseListener?.let { fireBaseListener ->
-                                fireBaseListener.onCompleteListener()
-                            }
-                        }
-                }
-            }
-        }catch (ex : Exception){
-            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
-        }catch (ex : ExceptionInInitializerError){
-            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
-        }
-    }
-
-    fun edit(context : Activity, TAG : String? = "", msg : String? = "", databaseReference: DatabaseReference, id : String?= "", node : String?= "", model : Any){
-        try{
-            databaseReference?.let { databaseReference ->
-                databaseReference.child(id!!).child(node!!).setValue(model)
+            databaseReference.let { databaseReference ->
+                databaseReference.removeValue()
                     .addOnCanceledListener {
                         Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
-                        fireBaseListener?.let { fireBaseListener ->
-                            fireBaseListener.onCancelListener()
-                        }
+                        listener.onCancelListener()
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $exception")
+                        PopupMsg.alert(
+                            context,
+                            context.getString(R.string.msg_cant_delete_item)
+                        )
+                        listener.onFailureListener()
+                    }
+                    .addOnSuccessListener { void ->
+                        Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $void")
+                        listener.onSuccessListener()
+                    }
+                    .addOnCompleteListener { task ->
+                        Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $task")
+                        listener.onCompleteListener()
+                }
+            }
+        }catch (ex : Exception){
+            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+        }catch (ex : ExceptionInInitializerError){
+            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+        }
+    }
+
+    fun edit(
+        context : Activity,
+        TAG : String? = "",
+        databaseReference: DatabaseReference,
+        model : Any,
+        listener : FireBaseListener){
+        try{
+            databaseReference.let { databaseReference ->
+                databaseReference.setValue(model)
+                    .addOnCanceledListener {
+                        Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
+                        listener.onCancelListener()
                     }
                     .addOnFailureListener {
                         Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $it")
@@ -196,22 +210,15 @@ class FirebaseEmit {
                             context,
                             context.getString(R.string.msg_cant_edit_item)
                         )
-                        fireBaseListener?.let { fireBaseListener ->
-                            fireBaseListener.onFailureListener()
-                        }
+                        listener.onFailureListener()
                     }
                     .addOnSuccessListener {
                         Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
-                        fireBaseListener?.let { fireBaseListener ->
-                            fireBaseListener.onFailureListener()
-                        }
+                        listener.onSuccessListener()
                     }
                     .addOnCompleteListener {
                         Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $it")
-                        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
-                        fireBaseListener?.let { fireBaseListener ->
-                            fireBaseListener.onCompleteListener()
-                        }
+                        listener.onCompleteListener()
                     }
             }
         }catch (ex : Exception){

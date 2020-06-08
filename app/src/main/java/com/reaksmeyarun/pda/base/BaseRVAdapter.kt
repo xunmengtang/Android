@@ -22,14 +22,25 @@ abstract class BaseAdapter<Model>(context: Context,layoutId: Int) : RecyclerView
         items.add(data)
         notifyDataSetChanged()
     }
-    fun addItem(datas : ArrayList<Model>){
-        for(data in datas){
+    fun addItem(arrayList : ArrayList<Model>){
+        for(data in arrayList){
             items.add(data)
         }
         notifyDataSetChanged()
     }
-    fun removeItem(data : Model){
-        val pos = items.indexOf(data)
+    fun addNewItem(arrayList : ArrayList<Model>){
+        items.clear()
+        items.addAll(arrayList)
+        notifyItemRangeRemoved(0,items.size)
+        notifyDataSetChanged()
+    }
+//    fun removeItem(data : Model){
+//        val pos = items.indexOf(data)
+//        items.removeAt(pos)
+//        notifyItemRemoved(pos)
+//        notifyDataSetChanged()
+//    }
+    fun removeItem(pos : Int){
         items.removeAt(pos)
         notifyItemRemoved(pos)
         notifyDataSetChanged()
@@ -38,5 +49,15 @@ abstract class BaseAdapter<Model>(context: Context,layoutId: Int) : RecyclerView
         items.clear()
         notifyItemRangeRemoved(0,items.size)
         notifyDataSetChanged()
+    }
+    fun replace(index : Int, data : Model){
+        data?.let {
+            items[index] = it
+            notifyItemChanged(index)
+        }
+    }
+    companion object{
+        val STATUS_ONCLICKLISTENER = 0
+        val STATUS_ONEDITLISTENER = 1
     }
 }

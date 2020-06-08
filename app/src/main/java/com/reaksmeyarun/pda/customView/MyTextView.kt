@@ -1,13 +1,8 @@
 package com.reaksmeyarun.pda.customView
 
 import android.content.Context
-import android.content.res.ColorStateList
-import android.text.BoringLayout
 import android.util.AttributeSet
-import android.util.Log
 import android.util.TypedValue
-import android.view.View
-import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import com.reaksmeyarun.pda.R
 

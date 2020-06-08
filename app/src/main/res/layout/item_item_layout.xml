@@ -18,29 +18,48 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:src="@drawable/ic_pos"
                 android:layout_marginTop="@dimen/defMargin"
                 android:layout_marginBottom="@dimen/defMargin"
                 android:layout_marginStart="@dimen/defMargin"
                 android:layout_marginEnd="@dimen/defMargin"/>
             <LinearLayout
+                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:paddingEnd="@dimen/defMargin">
                 <com.reaksmeyarun.pda.customView.MyTextView
+                    android:id="@+id/tvItemName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/itemLabel"
-                    android:textSize="@dimen/bigLabelSize"/>
+                    android:textStyle="bold"/>
                 <com.reaksmeyarun.pda.customView.MyTextView
+                    android:id="@+id/tvItemDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/priceLabel" />
+                    android:text="@string/descriptionLabel" />
             </LinearLayout>
+            <ImageView
+                android:id="@+id/btnEdit"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="30dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="4dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_edit_24dp" />
+            <ImageView
+                android:id="@+id/btnDelete"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="30dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="2dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_close_black" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>

@@ -8,7 +8,7 @@ import com.reaksmeyarun.pda.constance.AppConstance
 import com.reaksmeyarun.pda.view.activity.P0100SignInActivity
 import com.reaksmeyarun.pda.view.activity.P0200HomeActivity
 import com.reaksmeyarun.pda.view.activity.Z0100SplashScreenActivity
-import java.lang.Exception
+
 
 class SplashScreenViewModel (activity : Z0100SplashScreenActivity) : ViewModel(){
     private val TAG = "SplashScreenViewModel"

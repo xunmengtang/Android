@@ -46,7 +46,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:layout_margin="@dimen/bigLargeMargin"
-                        android:src="@mipmap/coffee"
+                        android:background="@mipmap/banner"
                         android:scaleType="centerCrop"/>
 
                     <com.reaksmeyarun.pda.customView.MyTextView

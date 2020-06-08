@@ -10,22 +10,22 @@
         android:roundIcon="@drawable/ic_pos"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.D0100DashboardActivity"
+        <activity android:name="com.reaksmeyarun.pda.view.activity.D0100DashboardActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".view.activity.S0100StockInventoryActivity"
+            android:name="com.reaksmeyarun.pda.view.activity.S0100StockInventoryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.Z0300AboutUsActivity"
+            android:name="com.reaksmeyarun.pda.view.activity.Z0300AboutUsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.Z0200SettingActivity"
+            android:name="com.reaksmeyarun.pda.view.activity.Z0200SettingActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.P0400PromotionActivity"
+            android:name="com.reaksmeyarun.pda.view.activity.P0400PromotionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.Z0100SplashScreenActivity"
+            android:name="com.reaksmeyarun.pda.view.activity.Z0100SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity">
@@ -36,13 +36,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.P0100SignInActivity"
+            android:name="com.reaksmeyarun.pda.view.activity.P0100SignInActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.P0300InboxActivity"
+            android:name="com.reaksmeyarun.pda.view.activity.P0300InboxActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.activity.P0200HomeActivity"
+            android:name="com.reaksmeyarun.pda.view.activity.P0200HomeActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />

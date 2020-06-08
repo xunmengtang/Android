@@ -25,18 +25,18 @@
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:theme="@style/ToolBarStyle"
-                    android:layout_width="?attr/actionBarSize"
+                    android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:elevation="1dp" />
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-<!--                    <include-->
-<!--                        layout="@layout/p0210_home_main_layout"-->
-<!--                        app:vmHome="@{vmHome}"/>-->
                     <include
-                        layout="@layout/p0211_home_main_layout"
+                        layout="@layout/p0210_home_main_fragment"
                         app:vmHome="@{vmHome}"/>
+<!--                    <include-->
+<!--                        layout="@layout/p0211_home_main_layout"-->
+<!--                        app:vmHome="@{vmHome}"/>-->
                     <include
                         layout="@layout/p0220_home_item_layout"
                         app:vmHome="@{vmHome}"/>
