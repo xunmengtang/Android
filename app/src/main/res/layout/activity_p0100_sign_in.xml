@@ -61,10 +61,12 @@
             <com.reaksmeyarun.pda.customView.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#989898"
-                android:paddingTop="-2dp"
                 android:layout_marginBottom="@dimen/fab_margin"
-                android:text="Forgot Password"/>
+                android:visibility="@{safeUnbox(vmSignIn.signInDM.showResetPassword)?View.VISIBLE:View.GONE}"
+                android:onClick="@{vmSignIn::handleResetPassword}"
+                android:paddingTop="-2dp"
+                android:text="Forgot Password"
+                android:textColor="#989898" />
         </LinearLayout>
         <RelativeLayout
             android:visibility="@{safeUnbox(vmSignIn.signInDM.showProgress)?View.VISIBLE:View.GONE}"

@@ -1,5 +1,6 @@
 package com.reaksmeyarun.pda.view.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -37,6 +38,7 @@ class P0200HomeActivity : BaseActivity(),
         PopupMsg.alert(this, getString(R.string.msg_close),
             object : PopupMsg.OnClickButtonYesNoCallBack {
                 override fun onYesCallBack() {
+                    startActivity(Intent(applicationContext, P0100SignInActivity::class.java))
                     finish()
                 }
 

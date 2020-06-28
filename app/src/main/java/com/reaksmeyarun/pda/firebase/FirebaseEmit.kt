@@ -12,9 +12,9 @@ import com.reaksmeyarun.pda.listener.FirebaseGetChildListener
 import com.reaksmeyarun.pda.listener.FirebaseGetListener
 import com.reaksmeyarun.pda.listener.StaffSignInListener
 import com.reaksmeyarun.pda.model.StaffModel
-import com.reaksmeyarun.pda.model.UserModel
 import com.reaksmeyarun.pda.utils.DataSnapShotConvertUtils
 import com.reaksmeyarun.pda.utils.MD5Converter
+import com.reaksmeyarun.pda.utils.MD5Converter.MD5
 import com.reaksmeyarun.pda.utils.PopupMsg
 
 
@@ -385,7 +385,7 @@ class FirebaseEmit {
         try {
             for (i in staffModelList){
                 return if(i.userInformation.accountLogin.email == email){
-                    i.userInformation.accountLogin.password == MD5Converter.md5(pass!!)
+                    i.userInformation.accountLogin.password == MD5(pass!!)
                 }else
                     false
             }
@@ -395,5 +395,29 @@ class FirebaseEmit {
             Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
         }
         return false
+    }
+
+    fun resetPassword(TAG : String ?= "", firebaseAuth : FirebaseAuth, email : String ?= "", listener : FireBaseListener){
+        try{
+            firebaseAuth.sendPasswordResetEmail(email!!)
+                .addOnCanceledListener {
+                    Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
+                }
+                .addOnFailureListener {
+                    Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $it")
+                    listener.onFailureListener()
+                }
+                .addOnCompleteListener {
+                    Log.i(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $it")
+                    listener.onCompleteListener(it)
+                }
+                .addOnSuccessListener {
+                    Log.i(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
+                }
+        }catch (ex : Exception){
+            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+        }catch (Ex : ExceptionInInitializerError){
+            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $Ex")
+        }
     }
 }

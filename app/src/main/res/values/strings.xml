@@ -177,9 +177,14 @@
     <string name="msg_cant_delete_default_category">This category is a default category, so you can not delete it</string>
     <string name="msg_cant_push_item">Something went wrong!</string>
     <string name="msg_something_wrong">Something went wrong!</string>
+    <string name="msg_cancel">Operation has been cancel</string>
+    <string name="msg_wrong_email">Please check your email again</string>
     <string name="msg_complete">Operation Complete</string>
     <string name="msg_verity_email">Please verify your email</string>
-    <string name="msg_send_verity_email">Verify email send, please verify you email.</string>
+    <string name="msg_send_verity_email">We send you Verification to your email, please go to your email.</string>
+    <string name="msg_send_reset_pass_email">We send you reset password request to your email, please go to your email.</string>
+    <string name="msg_to_send_verity_email">Do you want us to send you a Verification to this Email?</string>
+    <string name="msg_to_send_reset_pass_email">Do you want us to send reset password request to this Email?</string>
     <string name="msg_dont_have_category">There is no category in the record, do you want create new category?</string>
     <string name="msg_save_category">Are you sure, do you want create new category?</string>
     <string name="msg_save_item">Are you sure, do you want create new item?</string>

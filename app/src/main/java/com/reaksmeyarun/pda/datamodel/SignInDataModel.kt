@@ -4,11 +4,9 @@ import com.reaksmeyarun.pda.base.BaseDataModel
 
 class SignInDataModel : BaseDataModel(){
     companion object{
-//        Skin
         const val SIGN_IN_0100_CONTENT_EMAIL = 1
         const val SIGN_IN_0100_CONTENT_PASSWORD = 2
     }
-
     var state : Int ?= SIGN_IN_0100_CONTENT_EMAIL
     set(value) {
         field = value
@@ -29,20 +27,22 @@ class SignInDataModel : BaseDataModel(){
         field = value
         propertiesChangedCallback.onChanged()
     }
-
     var showSignInP0100ContentPassword : Boolean ?= false
     set(value) {
         field = value
         propertiesChangedCallback.onChanged()
     }
-
     var showToolBar : Boolean = false
     set(value) {
         field = value
         propertiesChangedCallback.onChanged()
     }
-
     var showProgress : Boolean = false
+    set(value) {
+        field = value
+        propertiesChangedCallback.onChanged()
+    }
+    var showResetPassword : Boolean = true
     set(value) {
         field = value
         propertiesChangedCallback.onChanged()
