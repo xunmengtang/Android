@@ -22,14 +22,14 @@ class SplashScreenViewModel (activity : Z0100SplashScreenActivity) : ViewModel()
                 } catch (ex : ExceptionInInitializerError){
                     Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
                 } finally {
-                    FirebaseConnection.firebaseAuth.addAuthStateListener {
-                        if(FirebaseConnection.firebaseAuth.currentUser == null){
+//                    FirebaseConnection.firebaseAuth.addAuthStateListener {
+//                        if(FirebaseConnection.firebaseAuth.currentUser == null){
                             activity.startActivity(Intent(activity, P0100SignInActivity::class.java))
-                        }else{
-                            activity.startActivity(Intent(activity, P0200HomeActivity::class.java))
-                        }
+//                        }else{
+//                            activity.startActivity(Intent(activity, P0200HomeActivity::class.java))
+//                        }
                     activity.finish()
-                    }
+//                    }
                 }
             }
         }

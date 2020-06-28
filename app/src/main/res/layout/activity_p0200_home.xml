@@ -18,41 +18,37 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <com.reaksmeyarun.pda.customView.BaseAppBackground
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:theme="@style/ToolBarStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:theme="@style/ToolBarStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:elevation="1dp" />
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <include
-                        layout="@layout/p0210_home_main_fragment"
-                        app:vmHome="@{vmHome}"/>
-<!--                    <include-->
-<!--                        layout="@layout/p0211_home_main_layout"-->
-<!--                        app:vmHome="@{vmHome}"/>-->
-                    <include
-                        layout="@layout/p0220_home_item_layout"
-                        app:vmHome="@{vmHome}"/>
-                    <include
-                        layout="@layout/p0230_home_item_detail_layout"
-                        app:vmHome="@{vmHome}"/>
-                    <include
-                        layout="@layout/p0240_home_cart_item_layout"
-                        app:vmHome="@{vmHome}"/>
-                    <include
-                        layout="@layout/p0250_home_payment_layout"
-                        app:vmHome="@{vmHome}"/>
-                    <include
-                        layout="@layout/p0260_home_confirmation_layout"
-                        app:vmHome="@{vmHome}"/>
-                </FrameLayout>
+                android:layout_height="wrap_content"
+                android:elevation="1dp" >
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/background_round_base_color_8dp"
+                    android:elevation="8dp"
+                    android:src="@drawable/ic_menu_black_24dp"/>
+            </androidx.appcompat.widget.Toolbar>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </FrameLayout>
+            <com.reaksmeyarun.pda.customView.BubbleTabBarLayout
+                android:layout_alignParentBottom="true"
+                android:id="@+id/bubbleTabBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="16dp"
+                android:padding="7dp"
+                app:bubbletab_menuResource="@menu/list"
+                app:bubbletab_disabled_icon_color="@color/colorPrimaryDark"
+                app:bubbletab_horizontal_padding="20dp"
+                app:bubbletab_icon_size="20dp"
+                app:bubbletab_title_size="16sp"
+                app:bubbletab_vertical_padding="10dp"/>
             <RelativeLayout
                 android:id="@+id/progressing"
                 android:layout_width="match_parent"
@@ -66,7 +62,6 @@
                     android:layout_centerInParent="true"/>
             </RelativeLayout>
         </RelativeLayout>
-
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
             android:layout_width="wrap_content"
@@ -76,6 +71,6 @@
             app:itemIconTint="@drawable/drawer_item_color"
             app:itemTextColor="@drawable/drawer_item_color"
             app:headerLayout="@layout/layout_nav_header_main"
-            app:menu="@menu/activity_main_drawer" />
+            app:menu="@menu/activity_main_owner_drawer" />
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

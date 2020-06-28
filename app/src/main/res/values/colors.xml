@@ -1,38 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00E5FF</color>
-    <color name="colorPrimaryDark">#00E5FF</color>
-    <color name="colorAccent">#00E5FF</color>
+    <color name="colorPrimary">#F3F4FA</color>
+    <color name="colorPrimaryDark">#006FC8</color>
+    <color name="colorAccent">#006FC8</color>
 
     <color name="recentlyColor">#18FFFF</color>
     <color name="recentlyColorPress">#B6E4E4</color>
     <color name="dailyColor">#FF5252</color>
     <color name="dailyColorPress">#DFAAAA</color>
 
-    <color name="baseColor">#00E5FF</color>
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000</color>
-    <color name="colorProgressing">#4D000000</color>
-    <!--    TextView color-->
-    <color name="colorDefText">#353535</color>
-    <color name="colorEdtText">#000000</color>
-    <color name="colorBtnText">#FFFFFF</color>
-    <color name="colorBtnPositive">#00D0E8</color>
-    <color name="colorBtnPositivePress">#9901579B</color>
-    <color name="colorBtnNegative">#D2302C</color>
-    <color name="colorBtnNegativePress">#80D2302C</color>
-    <!--Gradient button-->
-    <color name="startColor">#6439BF</color>
-    <color name="centerColor">#B36439BF</color>
-    <color name="endColor">#D51D4D</color>
-    <color name="startColor_state_press">#996439BF</color>
-    <color name="centerColor_state_press">#99D51D4D</color>
-    <color name="endColor_state_press">#99D51D4D</color>
-    <color name="gray_state_press">#D5D5D5</color>
-    <!--    Ripple color-->
-    <color name="rippelColor">#D5D5D5</color>
-    <dimen name="rippleStrokeWidth">2dp</dimen>
-    <dimen name="rippleRadius">30dp</dimen>
+<!--    <color name="baseColor">#00E5FF</color>-->
+    <color name="baseColor">#006FC8</color>
+    <color name="baseLightColor">#66536DFE</color>
+    <color name="space_gray">#4D000000</color>
 <!--    Background item-->
     <color name="defBackground">#FFFFFF</color>
     <color name="defBackgroundPress">#E4E4E4</color>
@@ -41,4 +21,50 @@
     <color name="logger">#673AB7</color>
     <color name="documents">#3498db</color>
     <color name="settings">#2ecc71</color>
+    <color name="actTitleColor">#6A6161</color>
+    <!--    App Color-->
+    <color name="colorWhit">#FFFFFF</color>
+    <color name="colorBase">#D2302C</color>
+    <color name="colorBlue">#01579B</color>
+    <color name="colorGray">#858585</color>
+    <!--    <color name="colorLightGray">#DCDCDC</color>-->
+    <color name="colorLightGray">#8E8E8E</color>
+    <color name="colorProgressing">#4D000000</color>
+    <!--    TextView color-->
+    <!--    <color name="colorDefText">#353535</color>-->
+    <color name="colorDefText">#585757</color>
+    <color name="colorTextGray">#858585</color>
+    <!--    Button color-->
+    <color name="colorBtnText">#FFFFFF</color>
+    <color name="colorBtnPositive">#01579B</color>
+    <color name="colorBtnPositivePress">#9901579B</color>
+    <color name="colorBtnNegative">#D2302C</color>
+    <color name="colorBtnNegativePress">#80D2302C</color>
+    <color name="colorBtnApply">#6439BF</color>
+    <color name="colorBtnApplyPress">#806439BF</color>
+    <!--Gradient button-->
+    <color name="startColor">#6439BF</color>
+    <color name="centerColor">#B36439BF</color>
+    <color name="endColor">#D51D4D</color>
+    <color name="startColor_state_press">#996439BF</color>
+    <color name="centerColor_state_press">#99D51D4D</color>
+    <color name="endColor_state_press">#99D51D4D</color>
+    <color name="gray_state_press">#D5D5D5</color>
+    <color name="light_gray">#80D5D5D5</color>
+    <color name="transparent_gray">#BFD5D5D5</color>
+    <color name="rat_yellow">#E8D705</color>
+    <!--    EditText-->
+    <color name="colorEdtCursor">#CB000000</color>
+    <!--    <color name="colorEdtText">#000000</color>-->
+    <color name="colorEdtText">#585757</color>
+    <!--    Slide view-->
+    <!--    <color name="white">#FFFFFF</color>-->
+    <color name="white">#F3F4FA</color>
+    <!--    <color name="black">#000000</color>-->
+    <color name="black">#434242</color>
+    <color name="defaultAccent">#FF4081</color>
+
+    <color name="hintTextColor">#D1D1D1</color>
+    <!--    <color name="grayTextColor">#858585</color>-->
+    <color name="grayTextColor">#8E8E8E</color>
 </resources>

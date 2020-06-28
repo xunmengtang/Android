@@ -31,15 +31,15 @@ abstract class BaseAdapter<Model>(context: Context,layoutId: Int) : RecyclerView
     fun addNewItem(arrayList : ArrayList<Model>){
         items.clear()
         items.addAll(arrayList)
-        notifyItemRangeRemoved(0,items.size)
+        notifyItemRangeRemoved(0, items.size)
         notifyDataSetChanged()
     }
-//    fun removeItem(data : Model){
-//        val pos = items.indexOf(data)
-//        items.removeAt(pos)
-//        notifyItemRemoved(pos)
-//        notifyDataSetChanged()
-//    }
+    fun removeItem(data : Model){
+        val pos = items.indexOf(data)
+        items.removeAt(pos)
+        notifyItemRemoved(pos)
+        notifyDataSetChanged()
+    }
     fun removeItem(pos : Int){
         items.removeAt(pos)
         notifyItemRemoved(pos)
@@ -47,7 +47,7 @@ abstract class BaseAdapter<Model>(context: Context,layoutId: Int) : RecyclerView
     }
     fun clearAll(){
         items.clear()
-        notifyItemRangeRemoved(0,items.size)
+        notifyItemRangeRemoved(0, items.size)
         notifyDataSetChanged()
     }
     fun replace(index : Int, data : Model){

@@ -12,7 +12,7 @@
 
         <com.reaksmeyarun.pda.customView.MyTextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/title_height"
+            android:layout_height="?attr/actionBarSize"
             android:background="@color/baseColor"
             android:textSize="@dimen/defTitleSize"
             android:textColor="@color/white"
@@ -23,8 +23,13 @@
             android:id="@+id/txtMsg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/defMargin"
-            android:gravity="center" />
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:layout_marginStart="@dimen/defMargin"
+            android:layout_marginEnd="@dimen/defMargin"
+            android:textSize="@dimen/bigLabelSize"
+            android:gravity="center"/>
 
         <com.reaksmeyarun.pda.customView.ButtonNegative
             android:id="@+id/popupBtnClose"

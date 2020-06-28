@@ -6,67 +6,10 @@
         android:icon="@drawable/ic_grid"
         android:title="Home"
         android:checked="true"
-        android:iconTint="@color/home"/>
-
+        android:iconTint="@color/settings"/>
     <item
-        android:id="@+id/log"
-        android:icon="@drawable/ic_clock"
-        android:title="Logger"
-        android:iconTint="@color/logger"/>
-    <item
-        android:id="@+id/doc"
-        android:icon="@drawable/ic_folder"
-        android:iconTint="@color/documents"
-        android:title="Documents" />
-
-    <item
-        android:id="@+id/setting"
-        android:icon="@drawable/ic_android_black_24dp_rotated"
-        android:iconTint="@color/settings"
-        android:title="Settings" />
-<item
-        android:id="@+id/home"
-        android:icon="@drawable/ic_grid"
-        android:title="Home"
-        android:iconTint="@color/home"/>
-
-    <item
-        android:id="@+id/log"
-        android:icon="@drawable/ic_clock"
-        android:title="Logger"
-        android:iconTint="@color/logger"/>
-    <item
-        android:id="@+id/doc"
-        android:icon="@drawable/ic_folder"
-        android:iconTint="@color/documents"
-        android:title="Documents" />
-
-    <item
-        android:id="@+id/setting"
-        android:icon="@drawable/ic_android_black_24dp_rotated"
-        android:iconTint="@color/settings"
-        android:title="Settings" />
-<item
-        android:id="@+id/home"
-        android:icon="@drawable/ic_grid"
-        android:title="Home"
-        android:iconTint="@color/home"/>
-
-    <item
-        android:id="@+id/log"
-        android:icon="@drawable/ic_clock"
-        android:title="Logger"
-        android:iconTint="@color/logger"/>
-    <item
-        android:id="@+id/doc"
-        android:icon="@drawable/ic_folder"
-        android:iconTint="@color/documents"
-        android:title="Documents" />
-
-    <item
-        android:id="@+id/setting"
-        android:icon="@drawable/ic_android_black_24dp_rotated"
-        android:iconTint="@color/settings"
-        android:title="Settings" />
-
+        android:id="@+id/cart"
+        android:icon="@drawable/ic_shopping_cart_basecolor"
+        android:title="Cart"
+        android:iconTint="@color/documents"/>
 </menu>

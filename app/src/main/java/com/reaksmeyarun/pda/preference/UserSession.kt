@@ -25,4 +25,8 @@ class UserSession(context: Context) : BasePreference(context) {
     fun setToken(lang:String){
         save(AppConstance.USER_TOKEN,lang)
     }
+
+    fun saveFirebaseToken(value: String){
+        save(AppConstance.FIREBASE_TOKEN,value)
+    }
 }

@@ -4,12 +4,18 @@ class AppConstance {
     companion object{
 //      User session
         const val USER_TOKEN = "userToken"
+        const val ACTIVE = "1"
+        const val UN_ACTIVE = "0"
+            const val OWNER = "1"
+            const val OWNER_TITLE = "Owner"
+            const val FIREBASE_TOKEN = "firebaseToken"
 //      RequestCode
         const val P0200HOME = 100
         const val P0300INBOX = 200
         const val P0400PROMOTION = 300
         const val Z0200SETTING = 400
         const val Z0300ABOUT_US = 500
+        const val Z0400USER = 600
 //      ResultCode
         const val RESULT_P0200HOME = 101
         const val RESULT_P0300INBOX = 201
@@ -21,11 +27,17 @@ class AppConstance {
         const val EDIT_ON_CART = 2
 //      Node firebase table
         const val USER_NODE = "user"
+        const val OWNER_NODE = "owner"
+        const val STAFF_NODE = "staff"
         const val CATEGORY_NODE = "category"
         const val CATEGORY_INFORMATION_NODE = "categoryInformation"
         const val ITEM_NODE = "item"
         const val ITEM_INFORMATION_NODE = "itemInformation"
+        const val STOCK_ITEM = "stockItem"
+            const val ACCOUNT_LOGIN ="accountLogin"
 //      Constance firebase listener
+        const val ON_GET_CHILD = "onGetChild"
+        const val ON_GET = "onGet"
         const val ON_SUCCESS_LISTENER = "OnSuccessListener"
         const val ON_FAILURE_LISTENER = "OnFailureListener"
         const val ON_CANCEL_LISTENER = "OnCancelListener"
@@ -46,9 +58,8 @@ class AppConstance {
 //      status
         const val CAN_NOT_DELETE = 0
         const val CAN_DELETE = 1
-
-            const val DELETE_LISTENER = "onDeleteListener"
-            const val EDIT_LISTENER = "onEditListener"
-            const val CLICK_LISTENER = "onClickListener"
+        const val DELETE_LISTENER = "onDeleteListener"
+        const val EDIT_LISTENER = "onEditListener"
+        const val CLICK_LISTENER = "onClickListener"
     }
 }

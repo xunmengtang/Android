@@ -2,27 +2,29 @@ package com.reaksmeyarun.pda.firebase
 
 import android.app.Activity
 import android.util.Log
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.constance.AppConstance
 import com.reaksmeyarun.pda.listener.FireBaseListener
 import com.reaksmeyarun.pda.listener.FirebaseGetChildListener
 import com.reaksmeyarun.pda.listener.FirebaseGetListener
+import com.reaksmeyarun.pda.listener.StaffSignInListener
+import com.reaksmeyarun.pda.model.StaffModel
+import com.reaksmeyarun.pda.model.UserModel
+import com.reaksmeyarun.pda.utils.DataSnapShotConvertUtils
+import com.reaksmeyarun.pda.utils.MD5Converter
 import com.reaksmeyarun.pda.utils.PopupMsg
+
 
 @Suppress("NAME_SHADOWING")
 class FirebaseEmit {
 
-//    var fireBaseListener : FireBaseListener? = null
-//    var firebaseEditListener : FireBaseListener ?= null
-//    var firebaseDeleteListener : FireBaseListener ?= null
-//    var firebaseGetListener : FirebaseGetListener? = null
-//    var firebaseGetChildListener : FirebaseGetChildListener ?= null
-
     fun get(
-        TAG: String?="",
-        databaseReference: DatabaseReference,
-        listener: FirebaseGetListener
+        TAG: String? = "",
+        databaseReference : DatabaseReference,
+        listener : FirebaseGetListener
     ) {
         try{
             databaseReference.let { databaseReference ->
@@ -128,23 +130,21 @@ class FirebaseEmit {
                     databaseReference.updateChildren(mutableMap)
                         .addOnCanceledListener {
                             Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
-                            listener.onCancelListener()
                         }
                         .addOnFailureListener { exception ->
                             Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $exception")
+                            listener.onFailureListener()
                             PopupMsg.alert(
                                 context,
                                 context.getString(R.string.msg_cant_push_item)
                             )
-                            listener.onFailureListener()
                         }
                         .addOnSuccessListener { void ->
                             Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $void")
-                            listener.onSuccessListener()
                         }
                         .addOnCompleteListener { task ->
                             Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $task")
-                            listener.onCompleteListener()
+                            listener.onCompleteListener(task)
                         }
                 }
             }
@@ -165,23 +165,21 @@ class FirebaseEmit {
                 databaseReference.removeValue()
                     .addOnCanceledListener {
                         Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
-                        listener.onCancelListener()
                     }
                     .addOnFailureListener { exception ->
                         Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $exception")
+                        listener.onFailureListener()
                         PopupMsg.alert(
                             context,
                             context.getString(R.string.msg_cant_delete_item)
                         )
-                        listener.onFailureListener()
                     }
                     .addOnSuccessListener { void ->
                         Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $void")
-                        listener.onSuccessListener()
                     }
                     .addOnCompleteListener { task ->
                         Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $task")
-                        listener.onCompleteListener()
+                        listener.onCompleteListener(task)
                 }
             }
         }catch (ex : Exception){
@@ -202,23 +200,21 @@ class FirebaseEmit {
                 databaseReference.setValue(model)
                     .addOnCanceledListener {
                         Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
-                        listener.onCancelListener()
                     }
                     .addOnFailureListener {
                         Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $it")
+                        listener.onFailureListener()
                         PopupMsg.alert(
                             context,
                             context.getString(R.string.msg_cant_edit_item)
                         )
-                        listener.onFailureListener()
                     }
                     .addOnSuccessListener {
                         Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
-                        listener.onSuccessListener()
                     }
                     .addOnCompleteListener {
                         Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $it")
-                        listener.onCompleteListener()
+                        listener.onCompleteListener(it)
                     }
             }
         }catch (ex : Exception){
@@ -226,5 +222,178 @@ class FirebaseEmit {
         }catch (ex : ExceptionInInitializerError){
             Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
         }
+    }
+
+    fun move(
+        TAG : String? = "",
+        activity: Activity,
+        mutableMap : MutableMap<String, Any>,
+        fromPath: DatabaseReference,
+        toPath: DatabaseReference,
+        listener: FireBaseListener
+    ) {
+        push(
+            activity,
+            TAG,
+            toPath,
+            mutableMap,
+            object : FireBaseListener{
+                override fun onFailureListener() {
+                    listener.onFailureListener()
+                }
+
+                override fun <TResult> onCompleteListener(task: Task<TResult>) {
+                    Log.e(TAG, AppConstance.ON_COMPLETE_LISTENER)
+                    if(task.isSuccessful){
+                        delete(
+                            activity,
+                            TAG,
+                            fromPath,
+                            object : FireBaseListener{
+                                override fun onFailureListener() {
+//                                    Do nothing
+                                }
+
+                                override fun <TResult> onCompleteListener(task: Task<TResult>) {
+                                    Log.e(TAG, AppConstance.ON_COMPLETE_LISTENER)
+                                    listener.onCompleteListener(task)
+                                }
+                            }
+                        )
+                    }
+                }
+            }
+        )
+    }
+
+    fun signUp(
+        TAG: String?= "",
+        firebaseAuth : FirebaseAuth,
+        email : String ?= "",
+        password : String ?= "",
+        listener: FireBaseListener){
+
+        try{
+            firebaseAuth
+                .createUserWithEmailAndPassword(email!!, password!!)
+                    .addOnCanceledListener {
+                        Log.e(TAG, "${AppConstance.ON_CANCEL_LISTENER}")
+                    }
+                    .addOnFailureListener {
+                        listener.onFailureListener()
+                        Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $it")
+                    }
+                    .addOnSuccessListener {
+                        Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
+                    }
+                    .addOnCompleteListener {
+                        Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $it")
+                        listener.onCompleteListener(it)
+                    }
+        }catch (ex : Exception){
+            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+        }catch (ex : ExceptionInInitializerError){
+            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+        }
+    }
+
+    fun sendEmailVerification(
+        TAG: String?= "",
+        firebaseAuth : FirebaseAuth,
+        listener: FireBaseListener
+    ){
+        firebaseAuth
+            .currentUser!!
+            .sendEmailVerification()
+                .addOnCanceledListener {
+                    Log.e(TAG, "${AppConstance.ON_CANCEL_LISTENER}")
+                }
+                .addOnFailureListener {
+                    listener.onFailureListener()
+                    Log.i(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $it")
+                }
+                .addOnSuccessListener {
+                    Log.i(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
+                }
+                .addOnCompleteListener {
+                    Log.i(TAG, "${AppConstance.CLICK_LISTENER} : $it")
+                    listener.onCompleteListener(it)
+                }
+    }
+
+    fun signIn(
+        TAG: String?="",
+        email: String?="",
+        pass: String?="",
+        firebaseAuth: FirebaseAuth,
+        listener: FireBaseListener
+    ){
+        firebaseAuth
+            .signInWithEmailAndPassword(email!!, pass!!)
+                .addOnCanceledListener {
+                    Log.e(TAG, "${AppConstance.ON_CANCEL_LISTENER}")
+                }
+                .addOnFailureListener {
+                    listener.onFailureListener()
+                    Log.d(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $it")
+                }
+                .addOnSuccessListener {
+                    Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
+                }
+                .addOnCompleteListener {
+                    Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $it")
+                    listener.onCompleteListener(it)
+                }
+
+    }
+
+    fun staffSignIn(
+        TAG : String?="",
+        email: String?,
+        pass: String?,
+        databaseReference: DatabaseReference,
+        signInListener : StaffSignInListener
+    ){
+        try{
+            get(
+                TAG,
+                databaseReference,
+                object : FirebaseGetListener{
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        if(signInStaffMethod(TAG, email, pass, DataSnapShotConvertUtils.dataSnapShotToArrayList(StaffModel::class.java, dataSnapshot))){
+                            Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER}")
+                            signInListener.onSuccess()
+                        }else {
+                            Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER}")
+                            signInListener.onFailure()
+                        }
+                    }
+
+                    override fun onCancelListener(databaseError: DatabaseError) {
+
+                    }
+                }
+            )
+        }catch (ex : Exception){
+            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+        }catch (ex : ExceptionInInitializerError){
+            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+        }
+    }
+
+    private fun signInStaffMethod(TAG : String?, email: String?, pass: String?, staffModelList : List<StaffModel>) : Boolean{
+        try {
+            for (i in staffModelList){
+                return if(i.userInformation.accountLogin.email == email){
+                    i.userInformation.accountLogin.password == MD5Converter.md5(pass!!)
+                }else
+                    false
+            }
+        }catch (ex : Exception){
+            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+        }catch (ex : ExceptionInInitializerError){
+            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+        }
+        return false
     }
 }

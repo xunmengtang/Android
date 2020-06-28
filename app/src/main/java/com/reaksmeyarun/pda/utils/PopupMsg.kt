@@ -36,6 +36,7 @@ object PopupMsg {
             val dialog = Dialog(context, R.style.Theme_AppCompat_Dialog)
             dialog.setContentView(R.layout.layout_alert_yes_no_message)
             dialog.txtMsg.text = msg
+            dialog.setCanceledOnTouchOutside(false)
             dialog.popupBtnNo.setOnClickListener {
                 callBack.onNoCallBack()
                 dialog.dismiss()

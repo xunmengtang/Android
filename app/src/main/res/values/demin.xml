@@ -3,6 +3,8 @@
     <!--    Text Size-->
     <dimen name="defTextViewSize">14sp</dimen>
     <dimen name="defEditTextSize">14sp</dimen>
+    <dimen name="smallEditTextHeight">40dp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
     <!--    Label Size-->
     <dimen name="defLabelSize">14sp</dimen>
     <dimen name="bigLabelSize">16sp</dimen>
@@ -14,7 +16,7 @@
     <dimen name="defButtonTextSize">14sp</dimen>
     <dimen name="defButtonHeight">40dp</dimen>
     <dimen name="bigButtonHeight">48dp</dimen>
-    <dimen name="defBtnRadius">20dp</dimen>
+    <dimen name="defBtnRadius">24dp</dimen>
     <!--    Img Button Size-->
     <dimen name="defImgButtonSize">40dp</dimen>
     <dimen name="ImgButtonSize">48dp</dimen>

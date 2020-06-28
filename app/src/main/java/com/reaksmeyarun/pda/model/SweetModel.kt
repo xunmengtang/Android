@@ -1,6 +1,8 @@
 package com.reaksmeyarun.pda.model
 
-data class SweetModel(var id : String ?= "",
-                 var level : String ?= "",
-                 var description : String ?= "") {
+class SweetModel {
+    var id : String ?= ""
+    var sweetLevel : String ?= ""
+    var description : String ?= ""
+    var status : String ?= ""
 }
