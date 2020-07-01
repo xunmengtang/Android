@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.p0110_sign_in_content_password.*
 
 class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P0100SignInActivity) : ViewModel(){
     private val TAG = "SignInViewModel"
+    private var msg_EmailValidate = "@gmail.com"
     private val firebaseEmit = FirebaseEmit()
     var signInDM = MyMutableLiveData<SignInDataModel>()
     init {
@@ -33,16 +34,20 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
         showP0100ContentEmail()
     }
     fun showP0100ContentEmail(){
-        hideProgress()
-        Log.d(TAG, "IsNullOrEmpty : ${!firebaseAuth.currentUser?.uid.isNullOrEmpty()}")
-        signInDataModel.showResetPassword = !firebaseAuth.currentUser?.uid.isNullOrEmpty()
+        Log.d(TAG, "IsNullOrEmpty : ${firebaseAuth.currentUser?.uid.isNullOrEmpty()}")
+        msg_EmailValidate = if(firebaseAuth.currentUser?.uid.isNullOrEmpty())
+            "@gmail.com"
+        else
+            "@pos.io"
+        signInDataModel.showResetPassword = firebaseAuth.currentUser?.uid.isNullOrEmpty()
         signInDataModel.showToolBar = false
         signInDataModel.state = SIGN_IN_0100_CONTENT_EMAIL
+        hideProgress()
     }
     private fun showP0100ContentPassword() {
-        hideProgress()
         signInDataModel.showToolBar = true
         signInDataModel.state = SIGN_IN_0100_CONTENT_PASSWORD
+        hideProgress()
     }
     fun handleBackPress(view : View){
         showP0100ContentEmail()
@@ -115,7 +120,7 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
                             })
                             return
                         }else{
-                            startActivity(P0200HomeActivity::class.java)
+                            startActivity(activity, P0200HomeActivity::class.java)
                         }
                     }
                 }
@@ -129,7 +134,7 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
                     }
 
                     override fun onSuccess() {
-                        startActivity(P0200HomeActivity::class.java)
+                        startActivity(activity, P0200HomeActivity::class.java)
                     }
                 })
         }
@@ -164,7 +169,7 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
     var isClick = 0
     fun handleSignOutFirebaseUid(view : View){
         isClick++
-        if(isClick == 5) {
+        if(isClick == 20) {
             if(firebaseAuth.currentUser?.uid.isNullOrEmpty())
                 return
             else{
@@ -195,7 +200,7 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
                 isEmailVerify
         }
     }
-    private fun <T> startActivity(classModel : Class<T>){
+    private fun <T> startActivity(activity : P0100SignInActivity, classModel : Class<T>){
         activity.startActivity(Intent(activity.applicationContext, classModel))
         activity.finish()
     }

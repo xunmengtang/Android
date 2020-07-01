@@ -11,7 +11,7 @@
 
 <!--    <color name="baseColor">#00E5FF</color>-->
     <color name="baseColor">#006FC8</color>
-    <color name="baseLightColor">#66536DFE</color>
+    <color name="baseLightColor">#40536DFE</color>
     <color name="space_gray">#4D000000</color>
 <!--    Background item-->
     <color name="defBackground">#FFFFFF</color>
