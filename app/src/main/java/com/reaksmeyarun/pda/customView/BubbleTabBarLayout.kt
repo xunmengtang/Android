@@ -129,8 +129,6 @@ import com.reaksmeyarun.pda.customView.BubbleTabBar.parser.MenuParser
             } finally {
                 attributes.recycle()
             }
-
-
         }
     }
 

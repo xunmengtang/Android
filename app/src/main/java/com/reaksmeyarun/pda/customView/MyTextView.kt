@@ -10,7 +10,7 @@ import com.reaksmeyarun.pda.R
 
 class MyTextView : androidx.appcompat.widget.AppCompatTextView {
     fun init(attrs: AttributeSet) {
-        val density = resources.getDisplayMetrics().density
+        val density = resources.displayMetrics.density
         val DEFAULT_TEXT_SIZE = resources.getDimension(R.dimen.defTextViewSize)
         val DEFAULT_TEXT_COLOR = ResourcesCompat.getColor(resources,R.color.colorDefText,null)
         val typeArray: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.MyTextView)

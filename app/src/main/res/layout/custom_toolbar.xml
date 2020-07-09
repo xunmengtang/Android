@@ -13,24 +13,29 @@
     app:contentInsetRight="0dp"
     app:contentInsetEnd="0dp"
     android:background="@android:color/transparent">
-    <ImageButton
-        android:layout_marginStart="@dimen/defMargin"
-        android:id="@+id/btnBack"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:elevation="6dp"
-        android:layout_gravity="center_vertical"
-        android:src="@drawable/ic_arrow_left_basecolor"
-        android:background="@drawable/background_round_white_8dp" />
-    <com.reaksmeyarun.pda.customView.MyTextView
-        android:id="@+id/actTitle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="16dp"
-        android:textSize="@dimen/largeTitleSize"
-        android:textColor="@color/actTitleColor"
-        android:textStyle="bold"
-        android:text=""/>
-
+        android:orientation="horizontal">
+        <ImageButton
+            android:layout_marginStart="@dimen/defMargin"
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:elevation="6dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_arrow_left_basecolor"
+            android:background="@drawable/background_round_white_8dp" />
+        <com.reaksmeyarun.pda.customView.MyTextView
+            android:id="@+id/actTitle"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:textSize="@dimen/largeTitleSize"
+            android:textColor="@color/actTitleColor"
+            android:textStyle="bold"
+            android:text=""/>
+    </LinearLayout>
 </androidx.appcompat.widget.Toolbar>

@@ -9,7 +9,7 @@ import com.reaksmeyarun.pda.R
 class ButtonPositive : BaseButton {
     init {
         //set background
-        background = ResourcesCompat.getDrawable(getResources(), R.drawable.btn_positive_background, null)
+        background = ResourcesCompat.getDrawable(resources, R.drawable.btn_positive_background, null)
         setTextColor(ResourcesCompat.getColor(resources,R.color.colorBtnText,null))
     }
     constructor(context: Context?) : super(context)

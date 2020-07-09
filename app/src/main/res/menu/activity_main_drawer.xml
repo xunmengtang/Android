@@ -3,30 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group>
         <item
             android:id="@+id/nav_service"
-            android:title="Service"
-            android:icon="@drawable/ic_service"/>
-        <item
-            android:id="@+id/nav_stock"
-            android:title="Stock Inventory"
-            android:icon="@drawable/ic_stock"/>
-        <item
-            android:id="@+id/nav_user"
-            android:title="Staff"
-            android:icon="@drawable/ic_relationship"/>
-        <item
-            android:id="@+id/nav_setting"
-            android:title="Setting"
-            android:icon="@drawable/ic_setting"/>
+            android:title="Service"/>
+    </group>
+    <group>
         <item
             android:id="@+id/nav_aboutUs"
-            android:title="@string/aboutUs"
-            android:icon="@drawable/ic_about_us"/>
+            android:title="@string/aboutUs"/>
+        <item
+            android:id="@+id/nav_setting"
+            android:title="Setting"/>
+    </group>
+    <group>
         <item
             android:id="@+id/nav_signOut"
-            android:title="@string/signOut"
-            android:icon="@drawable/ic_signout"/>
+            android:title="@string/signOut"/>
     </group>
 </menu>

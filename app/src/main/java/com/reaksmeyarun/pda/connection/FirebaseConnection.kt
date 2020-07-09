@@ -13,5 +13,4 @@ class FirebaseConnection {
             return firebaseDatabase.getReference(node!!)
         }
     }
-
 }

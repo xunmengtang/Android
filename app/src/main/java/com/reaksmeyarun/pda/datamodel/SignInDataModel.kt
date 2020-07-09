@@ -42,7 +42,7 @@ class SignInDataModel : BaseDataModel(){
         field = value
         propertiesChangedCallback.onChanged()
     }
-    var showResetPassword : Boolean = true
+    var showRegisterAndForgetPassword : Boolean = true
     set(value) {
         field = value
         propertiesChangedCallback.onChanged()

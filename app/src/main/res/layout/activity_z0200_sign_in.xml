@@ -52,21 +52,40 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1.8">
                 <include
-                    layout="@layout/p0100_sign_in_content_email"
+                    layout="@layout/z0200_sign_in_content_email"
                     app:vmSignIn = "@{vmSignIn}"/>
                 <include
-                    layout="@layout/p0110_sign_in_content_password"
+                    layout="@layout/z0210_sign_in_content_password"
                     app:vmSignIn = "@{vmSignIn}"/>
             </FrameLayout>
-            <com.reaksmeyarun.pda.customView.MyTextView
+            <LinearLayout
+                android:visibility="@{safeUnbox(vmSignIn.signInDM.showRegisterAndForgetPassword)?View.VISIBLE:View.GONE}"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/defButtonHeight"
+                android:orientation="horizontal"
                 android:layout_marginBottom="@dimen/fab_margin"
-                android:visibility="@{safeUnbox(vmSignIn.signInDM.showResetPassword)?View.VISIBLE:View.GONE}"
-                android:onClick="@{vmSignIn::handleResetPassword}"
-                android:paddingTop="-2dp"
-                android:text="Forgot Password"
-                android:textColor="#989898" />
+                android:gravity="center">
+                <com.reaksmeyarun.pda.customView.MyTextView
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{vmSignIn::handleResetPassword}"
+                    android:text="Forgot Password"
+                    android:textColor="#989898" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:background="@color/baseColor"/>
+                <com.reaksmeyarun.pda.customView.MyTextView
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:onClick="@{vmSignIn::handleSignUp}"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Register"
+                    android:textColor="#989898" />
+            </LinearLayout>
         </LinearLayout>
         <RelativeLayout
             android:visibility="@{safeUnbox(vmSignIn.signInDM.showProgress)?View.VISIBLE:View.GONE}"

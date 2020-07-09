@@ -10,7 +10,7 @@ import com.reaksmeyarun.pda.R
 open class BaseButton: androidx.appcompat.widget.AppCompatButton {
     fun init(attrs: AttributeSet) {
         val desiredSp = resources.getDimension(R.dimen.defButtonTextSize)
-        val density = resources.getDisplayMetrics().density
+        val density = resources.displayMetrics.density
         val DEFAULT_TEXT_COLOR = ResourcesCompat.getColor(resources,R.color.colorBtnText,null)
         val typeArray: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.BaseButton)
         val textsize = typeArray.getDimension(R.styleable.BaseButton_android_textSize, desiredSp)

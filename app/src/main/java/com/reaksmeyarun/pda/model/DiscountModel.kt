@@ -1,4 +1,3 @@
 package com.reaksmeyarun.pda.model
 
-data class DiscountModel(var id : String) {
-}
+data class DiscountModel(var id : String)

@@ -1,6 +1,6 @@
 package com.reaksmeyarun.pda.model
 
-class ProductCategoryModel(){
+class ProductCategoryModel {
     var id : String? = ""
     var categoryModel = CategoryModel()
     var quantities : String ?= ""

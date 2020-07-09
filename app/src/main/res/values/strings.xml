@@ -188,4 +188,6 @@
     <string name="msg_dont_have_category">There is no category in the record, do you want create new category?</string>
     <string name="msg_save_category">Are you sure, do you want create new category?</string>
     <string name="msg_save_item">Are you sure, do you want create new item?</string>
+    <string name="msg_email_exiting">This email already register.</string>
+    <string name="msg_cant_send_email_verification">Currently, we can\'t send you verification to your Email.</string>
 </resources>

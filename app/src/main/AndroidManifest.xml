@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.reaksmeyarun.pda">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_logo"
@@ -10,8 +12,14 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.activity.Z0300SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".view.activity.A0210UserInformationActivity"/>
+        <activity android:name=".view.activity.A0200UserActivity" />
+        <activity android:name=".view.activity.A0100DashboardActivity" />
+        <activity android:name=".view.activity.C0100CategoryActivity" />
         <activity
-            android:name="com.reaksmeyarun.pda.view.activity.Z0100SplashScreenActivity"
+            android:name=".view.activity.Z0100SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
@@ -21,12 +29,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.reaksmeyarun.pda.view.activity.P0100SignInActivity"
+            android:name=".view.activity.Z0200SignInActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.reaksmeyarun.pda.view.activity.P0200HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".view.activity.P0200HomeActivity"
             android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
     </application>
 

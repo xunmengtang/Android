@@ -1,6 +1,8 @@
 package com.reaksmeyarun.pda.base
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +10,13 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import com.google.firebase.iid.FirebaseInstanceId
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.customView.LoadingView
 import com.reaksmeyarun.pda.preference.UserSession
+import com.reaksmeyarun.pda.view.activity.Z0200SignInActivity
 import kotlinx.android.synthetic.main.custom_toolbar.*
 
 
@@ -21,13 +25,15 @@ abstract class BaseActivity : AppCompatActivity(), LifecycleOwner {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
-        supportActionBar?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar?.setCustomView(R.layout.custom_toolbar)
         supportActionBar?.elevation = 0f
         btnBack?.setOnClickListener { onBackPressed() }
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         window.setBackgroundDrawable(getDrawable(R.drawable.def_activity_bg))
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
 
     fun setActTitle(title : String){
@@ -75,4 +81,18 @@ abstract class BaseActivity : AppCompatActivity(), LifecycleOwner {
         hideSoftKeyboard()
     }
 
+    open fun <T> startActivity(activity : Activity, classModel : Class<T>){
+        activity.startActivity(Intent(activity.applicationContext, classModel))
+        activity.finish()
+    }
+    open fun <T> startActivityForResult(activity : Activity, classModel : Class<T>, requestCode : Int){
+        activity.startActivityForResult(Intent(activity.applicationContext, classModel), requestCode)
+    }
+    open fun <T> startActivityBundle(activity : Activity, classModel : Class<T>, bundle: Bundle){
+        activity.startActivity(Intent(activity.applicationContext, classModel).putExtra(BUNDLE, bundle))
+        activity.finish()
+    }
+    companion object{
+        val BUNDLE = "putExtra"
+    }
 }

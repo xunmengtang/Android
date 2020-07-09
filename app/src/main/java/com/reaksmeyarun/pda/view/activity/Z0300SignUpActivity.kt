@@ -6,19 +6,19 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.base.BaseActivity
-import com.reaksmeyarun.pda.databinding.ActivityZ0100SplashScreenBinding
-import com.reaksmeyarun.pda.viewmodel.SplashScreenViewModel
+import com.reaksmeyarun.pda.databinding.ActivityZ0300SignUpBinding
+import com.reaksmeyarun.pda.viewmodel.SignUpViewModel
 
-class Z0100SplashScreenActivity : BaseActivity() {
-    lateinit var binding : ActivityZ0100SplashScreenBinding
-    lateinit var splashScreenViewModel: SplashScreenViewModel
+class Z0300SignUpActivity : BaseActivity() {
+    lateinit var binding : ActivityZ0300SignUpBinding
+    lateinit var vmSignUp : SignUpViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_z0100_splash_screen)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_z0300_sign_up)
         window.statusBarColor = ContextCompat.getColor(this, R.color.baseColor)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        splashScreenViewModel = SplashScreenViewModel(this)
-        binding.vmSplashScreen = splashScreenViewModel
+        vmSignUp = SignUpViewModel(this)
+        binding.vmSignUp = vmSignUp
         binding.lifecycleOwner = this
     }
 }

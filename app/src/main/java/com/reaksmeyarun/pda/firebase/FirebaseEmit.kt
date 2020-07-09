@@ -6,14 +6,25 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.reaksmeyarun.pda.R
-import com.reaksmeyarun.pda.constance.AppConstance
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.CLICK_LISTENER
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.DATABASE_ERROR
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.EXCEPTION
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.EXCEPTION_IN_INITIALIZER_ERROR
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.ON_CANCEL_LISTENER
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.ON_CHILD_ADD
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.ON_CHILD_CHANGED
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.ON_CHILD_MOVED
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.ON_CHILD_REMOVED
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.ON_COMPLETE_LISTENER
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.ON_DATA_CHANGED
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.ON_FAILURE_LISTENER
+import com.reaksmeyarun.pda.constance.FirebaseConstance.Companion.ON_SUCCESS_LISTENER
 import com.reaksmeyarun.pda.listener.FireBaseListener
 import com.reaksmeyarun.pda.listener.FirebaseGetChildListener
 import com.reaksmeyarun.pda.listener.FirebaseGetListener
 import com.reaksmeyarun.pda.listener.StaffSignInListener
 import com.reaksmeyarun.pda.model.StaffModel
 import com.reaksmeyarun.pda.utils.DataSnapShotConvertUtils
-import com.reaksmeyarun.pda.utils.MD5Converter
 import com.reaksmeyarun.pda.utils.MD5Converter.MD5
 import com.reaksmeyarun.pda.utils.PopupMsg
 
@@ -30,12 +41,12 @@ class FirebaseEmit {
             databaseReference.let { databaseReference ->
                 databaseReference.addListenerForSingleValueEvent(object : ValueEventListener{
                     override fun onCancelled(databaseError: DatabaseError) {
-                        Log.d(TAG, "${AppConstance.DATABASE_ERROR} : $databaseError")
+                        Log.d(TAG, "$DATABASE_ERROR : $databaseError")
                         listener.onCancelListener(databaseError)
                     }
 
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        Log.i(TAG, "${AppConstance.ON_DATA_CHANGED} : $dataSnapshot")
+                        Log.i(TAG, "$ON_DATA_CHANGED : $dataSnapshot")
                         dataSnapshot.let { data ->
                             listener.onDataChange(data)
                         }
@@ -43,9 +54,9 @@ class FirebaseEmit {
                 })
             }
         }catch (ex : Exception){
-            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+            Log.e(TAG, "$EXCEPTION : $ex")
         }catch (ex : ExceptionInInitializerError){
-            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $ex")
         }
     }
 
@@ -58,7 +69,7 @@ class FirebaseEmit {
             databaseReference.let { databaseReference ->
                 databaseReference.addValueEventListener(object : ValueEventListener{
                     override fun onCancelled(databaseError: DatabaseError) {
-                        Log.e(TAG, "${AppConstance.DATABASE_ERROR} : $databaseError")
+                        Log.e(TAG, "$DATABASE_ERROR : $databaseError")
                         listener.onCancelListener(databaseError)
                     }
 
@@ -70,9 +81,9 @@ class FirebaseEmit {
                 })
             }
         }catch (ex : Exception){
-            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+            Log.e(TAG, "$EXCEPTION : $ex")
         }catch (ex : ExceptionInInitializerError){
-            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $ex")
         }
     }
 
@@ -85,35 +96,35 @@ class FirebaseEmit {
         try{
             databaseReference.addChildEventListener(object : ChildEventListener{
                 override fun onCancelled(databaseError: DatabaseError) {
-                    Log.e(TAG, "${AppConstance.ON_CANCEL_LISTENER} : ${AppConstance.DATABASE_ERROR} : $databaseError")
+                    Log.e(TAG, "$ON_CANCEL_LISTENER : $DATABASE_ERROR : $databaseError")
                     PopupMsg.alert(activity, activity.getString(R.string.msg_something_wrong))
                     listener.onCancelledListener(databaseError)
                 }
 
                 override fun onChildMoved(dataSnapshot: DataSnapshot, key: String?) {
-                    Log.d(TAG, "${AppConstance.ON_CHILD_MOVED} : $key | $dataSnapshot")
+                    Log.d(TAG, "$ON_CHILD_MOVED : $key | $dataSnapshot")
                     listener.onChildMoved(dataSnapshot)
                 }
 
                 override fun onChildChanged(dataSnapshot: DataSnapshot, key: String?) {
-                    Log.d(TAG, "${AppConstance.ON_CHILD_CHANGED} : $key | $dataSnapshot")
+                    Log.d(TAG, "$ON_CHILD_CHANGED : $key | $dataSnapshot")
                     listener.onChildChanged(dataSnapshot)
                 }
 
                 override fun onChildAdded(dataSnapshot: DataSnapshot, key: String?) {
-                    Log.d(TAG, "${AppConstance.ON_CHILD_ADD} : $dataSnapshot")
+                    Log.d(TAG, "$ON_CHILD_ADD : $dataSnapshot")
                     listener.onChildAdded(dataSnapshot)
                 }
 
                 override fun onChildRemoved(dataSnapshot: DataSnapshot) {
-                    Log.d(TAG, "${AppConstance.ON_CHILD_REMOVED} : $dataSnapshot")
+                    Log.d(TAG, "$ON_CHILD_REMOVED : $dataSnapshot")
                     listener.onChildRemoved(dataSnapshot)
                 }
             })
         }catch (ex : Exception){
-            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+            Log.e(TAG, "$EXCEPTION : $ex")
         }catch (ex : ExceptionInInitializerError){
-            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $ex")
         }
     }
 
@@ -129,29 +140,26 @@ class FirebaseEmit {
                 map.let { mutableMap ->
                     databaseReference.updateChildren(mutableMap)
                         .addOnCanceledListener {
-                            Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
+                            Log.e(TAG, ON_CANCEL_LISTENER)
                         }
                         .addOnFailureListener { exception ->
-                            Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $exception")
+                            Log.e(TAG, "$ON_FAILURE_LISTENER : $exception")
                             listener.onFailureListener()
-                            PopupMsg.alert(
-                                context,
-                                context.getString(R.string.msg_cant_push_item)
-                            )
+                            PopupMsg.alert(context, context.getString(R.string.msg_cant_push_item))
                         }
                         .addOnSuccessListener { void ->
-                            Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $void")
+                            Log.d(TAG, "$ON_SUCCESS_LISTENER : $void")
                         }
                         .addOnCompleteListener { task ->
-                            Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $task")
+                            Log.d(TAG, "$ON_COMPLETE_LISTENER : $task")
                             listener.onCompleteListener(task)
                         }
                 }
             }
         }catch (ex : Exception){
-            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+            Log.e(TAG, "$EXCEPTION : $ex")
         }catch (ex : ExceptionInInitializerError){
-            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $ex")
         }
     }
 
@@ -164,28 +172,25 @@ class FirebaseEmit {
             databaseReference.let { databaseReference ->
                 databaseReference.removeValue()
                     .addOnCanceledListener {
-                        Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
+                        Log.e(TAG, ON_CANCEL_LISTENER)
                     }
                     .addOnFailureListener { exception ->
-                        Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $exception")
+                        Log.e(TAG, "$ON_FAILURE_LISTENER : $exception")
                         listener.onFailureListener()
-                        PopupMsg.alert(
-                            context,
-                            context.getString(R.string.msg_cant_delete_item)
-                        )
+                        PopupMsg.alert(context, context.getString(R.string.msg_cant_delete_item))
                     }
                     .addOnSuccessListener { void ->
-                        Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $void")
+                        Log.d(TAG, "$ON_SUCCESS_LISTENER : $void")
                     }
                     .addOnCompleteListener { task ->
-                        Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $task")
+                        Log.d(TAG, "$ON_COMPLETE_LISTENER : $task")
                         listener.onCompleteListener(task)
                 }
             }
         }catch (ex : Exception){
-            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+            Log.e(TAG, "$EXCEPTION : $ex")
         }catch (ex : ExceptionInInitializerError){
-            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $ex")
         }
     }
 
@@ -199,28 +204,25 @@ class FirebaseEmit {
             databaseReference.let { databaseReference ->
                 databaseReference.setValue(model)
                     .addOnCanceledListener {
-                        Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
+                        Log.e(TAG, ON_CANCEL_LISTENER)
                     }
                     .addOnFailureListener {
-                        Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $it")
+                        Log.e(TAG, "$ON_FAILURE_LISTENER : $it")
                         listener.onFailureListener()
-                        PopupMsg.alert(
-                            context,
-                            context.getString(R.string.msg_cant_edit_item)
-                        )
+                        PopupMsg.alert(context, context.getString(R.string.msg_cant_edit_item))
                     }
                     .addOnSuccessListener {
-                        Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
+                        Log.d(TAG, "$ON_SUCCESS_LISTENER : $it")
                     }
                     .addOnCompleteListener {
-                        Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $it")
+                        Log.d(TAG, "$ON_COMPLETE_LISTENER : $it")
                         listener.onCompleteListener(it)
                     }
             }
         }catch (ex : Exception){
-            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+            Log.e(TAG, "$EXCEPTION : $ex")
         }catch (ex : ExceptionInInitializerError){
-            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $ex")
         }
     }
 
@@ -232,38 +234,35 @@ class FirebaseEmit {
         toPath: DatabaseReference,
         listener: FireBaseListener
     ) {
-        push(
-            activity,
-            TAG,
-            toPath,
-            mutableMap,
-            object : FireBaseListener{
-                override fun onFailureListener() {
-                    listener.onFailureListener()
-                }
-
-                override fun <TResult> onCompleteListener(task: Task<TResult>) {
-                    Log.e(TAG, AppConstance.ON_COMPLETE_LISTENER)
-                    if(task.isSuccessful){
-                        delete(
-                            activity,
-                            TAG,
-                            fromPath,
-                            object : FireBaseListener{
-                                override fun onFailureListener() {
-//                                    Do nothing
-                                }
-
-                                override fun <TResult> onCompleteListener(task: Task<TResult>) {
-                                    Log.e(TAG, AppConstance.ON_COMPLETE_LISTENER)
-                                    listener.onCompleteListener(task)
-                                }
-                            }
-                        )
+        try{
+            push(activity, TAG, toPath, mutableMap, object : FireBaseListener{
+                    override fun onFailureListener() {
+                        listener.onFailureListener()
                     }
-                }
-            }
-        )
+                    override fun <TResult> onCompleteListener(task: Task<TResult>) {
+                        Log.e(TAG, ON_COMPLETE_LISTENER)
+                        if(task.isSuccessful){
+                            delete(
+                                activity,
+                                TAG,
+                                fromPath,
+                                object : FireBaseListener{
+                                    override fun onFailureListener() { /*  Do nothing */ }
+
+                                    override fun <TResult> onCompleteListener(task: Task<TResult>) {
+                                        Log.e(TAG, ON_COMPLETE_LISTENER)
+                                        listener.onCompleteListener(task)
+                                    }
+                                }
+                            )
+                        }
+                    }
+                })
+        }catch (ex : Exception){
+            Log.e(TAG, "$EXCEPTION : $ex")
+        }catch (ex : ExceptionInInitializerError){
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $ex")
+        }
     }
 
     fun signUp(
@@ -272,28 +271,27 @@ class FirebaseEmit {
         email : String ?= "",
         password : String ?= "",
         listener: FireBaseListener){
-
         try{
             firebaseAuth
                 .createUserWithEmailAndPassword(email!!, password!!)
                     .addOnCanceledListener {
-                        Log.e(TAG, "${AppConstance.ON_CANCEL_LISTENER}")
+                        Log.e(TAG, ON_CANCEL_LISTENER)
                     }
                     .addOnFailureListener {
                         listener.onFailureListener()
-                        Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $it")
+                        Log.e(TAG, "$ON_FAILURE_LISTENER : $it")
                     }
                     .addOnSuccessListener {
-                        Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
+                        Log.d(TAG, "$ON_SUCCESS_LISTENER : $it")
                     }
                     .addOnCompleteListener {
-                        Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $it")
+                        Log.d(TAG, "$ON_COMPLETE_LISTENER : $it")
                         listener.onCompleteListener(it)
                     }
         }catch (ex : Exception){
-            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+            Log.e(TAG, "$EXCEPTION : $ex")
         }catch (ex : ExceptionInInitializerError){
-            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $ex")
         }
     }
 
@@ -302,23 +300,29 @@ class FirebaseEmit {
         firebaseAuth : FirebaseAuth,
         listener: FireBaseListener
     ){
-        firebaseAuth
-            .currentUser!!
-            .sendEmailVerification()
+        try{
+            firebaseAuth
+                .currentUser!!
+                .sendEmailVerification()
                 .addOnCanceledListener {
-                    Log.e(TAG, "${AppConstance.ON_CANCEL_LISTENER}")
+                    Log.e(TAG, ON_CANCEL_LISTENER)
                 }
                 .addOnFailureListener {
                     listener.onFailureListener()
-                    Log.i(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $it")
+                    Log.i(TAG, "$ON_FAILURE_LISTENER : $it")
                 }
                 .addOnSuccessListener {
-                    Log.i(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
+                    Log.i(TAG, "$ON_SUCCESS_LISTENER : $it")
                 }
                 .addOnCompleteListener {
-                    Log.i(TAG, "${AppConstance.CLICK_LISTENER} : $it")
+                    Log.i(TAG, "$CLICK_LISTENER : $it")
                     listener.onCompleteListener(it)
                 }
+        }catch (ex : Exception){
+            Log.e(TAG, "$EXCEPTION : $ex")
+        }catch (ex : ExceptionInInitializerError){
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $ex")
+        }
     }
 
     fun signIn(
@@ -331,17 +335,17 @@ class FirebaseEmit {
         firebaseAuth
             .signInWithEmailAndPassword(email!!, pass!!)
                 .addOnCanceledListener {
-                    Log.e(TAG, "${AppConstance.ON_CANCEL_LISTENER}")
+                    Log.e(TAG, ON_CANCEL_LISTENER)
                 }
                 .addOnFailureListener {
                     listener.onFailureListener()
-                    Log.d(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $it")
+                    Log.d(TAG, "$ON_FAILURE_LISTENER : $it")
                 }
                 .addOnSuccessListener {
-                    Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
+                    Log.d(TAG, "$ON_SUCCESS_LISTENER : $it")
                 }
                 .addOnCompleteListener {
-                    Log.d(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $it")
+                    Log.d(TAG, "$ON_COMPLETE_LISTENER : $it")
                     listener.onCompleteListener(it)
                 }
 
@@ -361,10 +365,10 @@ class FirebaseEmit {
                 object : FirebaseGetListener{
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         if(signInStaffMethod(TAG, email, pass, DataSnapShotConvertUtils.dataSnapShotToArrayList(StaffModel::class.java, dataSnapshot))){
-                            Log.d(TAG, "${AppConstance.ON_SUCCESS_LISTENER}")
+                            Log.d(TAG, ON_SUCCESS_LISTENER)
                             signInListener.onSuccess()
                         }else {
-                            Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER}")
+                            Log.e(TAG, ON_FAILURE_LISTENER)
                             signInListener.onFailure()
                         }
                     }
@@ -375,9 +379,9 @@ class FirebaseEmit {
                 }
             )
         }catch (ex : Exception){
-            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+            Log.e(TAG, "$EXCEPTION : $ex")
         }catch (ex : ExceptionInInitializerError){
-            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $ex")
         }
     }
 
@@ -390,9 +394,9 @@ class FirebaseEmit {
                     false
             }
         }catch (ex : Exception){
-            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+            Log.e(TAG, "$EXCEPTION : $ex")
         }catch (ex : ExceptionInInitializerError){
-            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $ex")
         }
         return false
     }
@@ -401,23 +405,23 @@ class FirebaseEmit {
         try{
             firebaseAuth.sendPasswordResetEmail(email!!)
                 .addOnCanceledListener {
-                    Log.e(TAG, AppConstance.ON_CANCEL_LISTENER)
+                    Log.e(TAG, ON_CANCEL_LISTENER)
                 }
                 .addOnFailureListener {
-                    Log.e(TAG, "${AppConstance.ON_FAILURE_LISTENER} : $it")
+                    Log.e(TAG, "$ON_FAILURE_LISTENER : $it")
                     listener.onFailureListener()
                 }
                 .addOnCompleteListener {
-                    Log.i(TAG, "${AppConstance.ON_COMPLETE_LISTENER} : $it")
+                    Log.i(TAG, "$ON_COMPLETE_LISTENER : $it")
                     listener.onCompleteListener(it)
                 }
                 .addOnSuccessListener {
-                    Log.i(TAG, "${AppConstance.ON_SUCCESS_LISTENER} : $it")
+                    Log.i(TAG, "$ON_SUCCESS_LISTENER : $it")
                 }
         }catch (ex : Exception){
-            Log.e(TAG, "${AppConstance.EXCEPTION} : $ex")
+            Log.e(TAG, "$EXCEPTION : $ex")
         }catch (Ex : ExceptionInInitializerError){
-            Log.e(TAG, "${AppConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $Ex")
+            Log.e(TAG, "$EXCEPTION_IN_INITIALIZER_ERROR : $Ex")
         }
     }
 }

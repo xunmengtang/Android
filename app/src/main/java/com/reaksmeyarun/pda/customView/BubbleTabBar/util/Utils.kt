@@ -49,7 +49,6 @@ internal fun ImageView.setColorStateListAnimator(
     }
 
     stateListAnimator = stateList
-
     // Refresh the drawable state to avoid the unselected animation on view creation
     refreshDrawableState()
 }
@@ -61,7 +60,6 @@ internal fun TextView.expand(container: LinearLayout, iconColor: Int) {
     val bounds = Rect()
     container.setCustomBackground(iconColor, ALPHA)
     paint.apply {
-
         getTextBounds(text.toString(), 0, text.length, bounds)
         ValueAnimator.ofInt(0, bounds.width() + paddingLeft + 10).apply {
             addUpdateListener {

@@ -1,6 +1,6 @@
 package com.reaksmeyarun.pda.model
 
-class ProductItemModel() {
+class ProductItemModel {
     var id : String ?= ""
     var userSession = UserModel.UserSession()
     var stockItemInformationModel = StockItemModel.StockItemInformationModel()

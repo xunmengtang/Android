@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/drawer_layout"
+        android:background="@color/white"
         tools:context=".view.activity.P0200HomeActivity">
 
         <RelativeLayout
@@ -25,6 +26,8 @@
                 android:layout_height="wrap_content"
                 android:elevation="1dp" >
                 <ImageButton
+                    android:clickable="true"
+                    android:onClick="@{vmHome::handleDrawerLayout}"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/background_round_base_color_8dp"
@@ -70,7 +73,6 @@
             android:fitsSystemWindows="true"
             app:itemIconTint="@drawable/drawer_item_color"
             app:itemTextColor="@drawable/drawer_item_color"
-            app:headerLayout="@layout/layout_nav_header_main"
-            app:menu="@menu/activity_main_owner_drawer" />
+            app:headerLayout="@layout/layout_nav_header_main" />
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

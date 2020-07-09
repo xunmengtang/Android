@@ -1,7 +1,5 @@
 package com.reaksmeyarun.pda.viewmodel
 
-import android.content.Intent
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.Task
@@ -9,6 +7,7 @@ import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.connection.FirebaseConnection.Companion.databaseReference
 import com.reaksmeyarun.pda.connection.FirebaseConnection.Companion.firebaseAuth
 import com.reaksmeyarun.pda.constance.AppConstance
+import com.reaksmeyarun.pda.constance.CodeConstance
 import com.reaksmeyarun.pda.customclass.MyMutableLiveData
 import com.reaksmeyarun.pda.datamodel.SignInDataModel
 import com.reaksmeyarun.pda.datamodel.SignInDataModel.Companion.SIGN_IN_0100_CONTENT_EMAIL
@@ -17,16 +16,18 @@ import com.reaksmeyarun.pda.firebase.FirebaseEmit
 import com.reaksmeyarun.pda.listener.FireBaseListener
 import com.reaksmeyarun.pda.listener.StaffSignInListener
 import com.reaksmeyarun.pda.utils.EmailValidator
+import com.reaksmeyarun.pda.utils.PopupMsg
 import com.reaksmeyarun.pda.utils.PopupMsg.OnClickButtonYesNoCallBack
 import com.reaksmeyarun.pda.utils.PopupMsg.alert
-import com.reaksmeyarun.pda.view.activity.P0100SignInActivity
+import com.reaksmeyarun.pda.view.activity.Z0200SignInActivity
 import com.reaksmeyarun.pda.view.activity.P0200HomeActivity
-import kotlinx.android.synthetic.main.p0100_sign_in_content_email.*
-import kotlinx.android.synthetic.main.p0110_sign_in_content_password.*
+import com.reaksmeyarun.pda.view.activity.Z0300SignUpActivity
+import kotlinx.android.synthetic.main.z0200_sign_in_content_email.*
+import kotlinx.android.synthetic.main.z0210_sign_in_content_password.*
 
-class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P0100SignInActivity) : ViewModel(){
+class SignInViewModel (var signInDataModel: SignInDataModel, var activity : Z0200SignInActivity) : ViewModel(){
     private val TAG = "SignInViewModel"
-    private var msg_EmailValidate = "@gmail.com"
+    private var msgEmailvalidate = "@gmail.com"
     private val firebaseEmit = FirebaseEmit()
     var signInDM = MyMutableLiveData<SignInDataModel>()
     init {
@@ -34,12 +35,11 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
         showP0100ContentEmail()
     }
     fun showP0100ContentEmail(){
-        Log.d(TAG, "IsNullOrEmpty : ${firebaseAuth.currentUser?.uid.isNullOrEmpty()}")
-        msg_EmailValidate = if(firebaseAuth.currentUser?.uid.isNullOrEmpty())
+        msgEmailvalidate = if(firebaseAuth.currentUser?.uid.isNullOrEmpty())
             "@gmail.com"
         else
             "@pos.io"
-        signInDataModel.showResetPassword = firebaseAuth.currentUser?.uid.isNullOrEmpty()
+        signInDataModel.showRegisterAndForgetPassword = firebaseAuth.currentUser?.uid.isNullOrEmpty()
         signInDataModel.showToolBar = false
         signInDataModel.state = SIGN_IN_0100_CONTENT_EMAIL
         hideProgress()
@@ -59,6 +59,8 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
         showP0100ContentPassword()
     }
     fun handleResetPassword(view : View){
+        if(!validateFormEmail())
+            return
         alert(activity, activity.getString(R.string.msg_to_send_reset_pass_email),
         object : OnClickButtonYesNoCallBack{
             override fun onYesCallBack() {
@@ -75,7 +77,7 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
                         }
                     })
             }
-            override fun onNoCallBack() {/* DO nothing*/}
+            override fun onNoCallBack() {/* Do nothing*/}
         })
     }
     private fun showProgress(){
@@ -95,7 +97,6 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
                 object : FireBaseListener{
                 override fun onFailureListener() {
                     alert(activity, activity.getString(R.string.msg_toast_login_fail))
-                    hideProgress()
                 }
                 override fun <TResult> onCompleteListener(task: Task<TResult>) {
                     if(task.isSuccessful){
@@ -109,18 +110,25 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
                                                 alert(activity, activity.getString(R.string.msg_something_wrong))
                                             }
                                             override fun <TResult> onCompleteListener(task: Task<TResult>) {
-                                                if(task.isSuccessful)
-                                                    alert(activity, activity.getString(R.string.msg_send_verity_email))
-                                                else if (task.isCanceled)
-                                                    alert(activity, activity.getString(R.string.msg_cancel))
+                                                when {
+                                                    task.isSuccessful -> alert(activity, activity.getString(R.string.msg_send_verity_email),
+                                                        object : PopupMsg.OnClickButtonCloseCallBack{
+                                                            override fun onCloseCallBack() {
+                                                                firebaseAuth.signOut().let {
+                                                                    textClear()
+                                                                    showP0100ContentEmail()
+                                                                }
+                                                            }
+                                                        })
+                                                    task.isCanceled -> alert(activity, activity.getString(R.string.msg_cancel))
+                                                }
                                             }
                                         })
                                 }
                                 override fun onNoCallBack() {    /* Do nothing*/   }
                             })
-                            return
                         }else{
-                            startActivity(activity, P0200HomeActivity::class.java)
+                            activity.startActivity(activity, P0200HomeActivity::class.java)
                         }
                     }
                 }
@@ -134,20 +142,20 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
                     }
 
                     override fun onSuccess() {
-                        startActivity(activity, P0200HomeActivity::class.java)
+                        activity.startActivity(activity, P0200HomeActivity::class.java)
                     }
                 })
         }
+        hideProgress()
     }
     private fun validateFormEmail() : Boolean{
-        val isValidate = false
         return when{
             activity.etEmail.text!!.isBlank() -> {
                 activity.etEmail.error = "Fill Your Email Here"
-                isValidate
+                false
             }!EmailValidator.isEmailValid(activity.etEmail.text.toString()) -> {
                 activity.etEmail.error = "******@gmail.com"
-                isValidate
+                false
             }else -> {
                 activity.etEmail.error = null
                 true
@@ -155,11 +163,10 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
         }
     }
     private fun validateFormPassword() : Boolean{
-        val isValidate = false
         return when{
             activity.etPassword.text!!.length < 6 -> {
                 activity.etPassword.error = "At Least 6 Characters"
-                isValidate
+                false
             }else -> {
                 activity.etPassword.error = null
                 true
@@ -169,7 +176,7 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
     var isClick = 0
     fun handleSignOutFirebaseUid(view : View){
         isClick++
-        if(isClick == 20) {
+        if(isClick == 10) {
             if(firebaseAuth.currentUser?.uid.isNullOrEmpty())
                 return
             else{
@@ -192,16 +199,12 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : P010
         activity.etPassword.text?.clear()
     }
     private fun isEmailVerify() : Boolean{
-        val isEmailVerify = false
         return when{
-            firebaseAuth.currentUser!!.isEmailVerified ->
-                true
-            else ->
-                isEmailVerify
+            firebaseAuth.currentUser!!.isEmailVerified -> true
+            else -> false
         }
     }
-    private fun <T> startActivity(activity : P0100SignInActivity, classModel : Class<T>){
-        activity.startActivity(Intent(activity.applicationContext, classModel))
-        activity.finish()
+    fun handleSignUp(view : View){
+        activity.startActivityForResult(activity, Z0300SignUpActivity::class.java, CodeConstance.SIGN_UP_REQUEST_CODE)
     }
 }

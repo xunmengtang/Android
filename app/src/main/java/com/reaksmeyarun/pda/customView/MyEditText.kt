@@ -11,7 +11,7 @@ import com.reaksmeyarun.pda.R
 class MyEditText : androidx.appcompat.widget.AppCompatEditText {
     fun init(attrs: AttributeSet) {
         val desiredSp = resources.getDimension(R.dimen.defEditTextSize)
-        val density = resources.getDisplayMetrics().density
+        val density = resources.displayMetrics.density
         val typeArray: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.MyEditText)
         val textsize = typeArray.getDimension(R.styleable.MyEditText_android_textSize, desiredSp)
         val textcolor = typeArray.getColor(R.styleable.MyEditText_android_textColor,
