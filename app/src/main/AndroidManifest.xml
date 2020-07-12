@@ -12,10 +12,13 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.Z0300SignUpActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".view.activity.A0210UserInformationActivity"/>
-        <activity android:name=".view.activity.A0200UserActivity" />
+        <activity android:name=".view.activity.Z0300VerificationActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.activity.C0200CategoryInformationActivity" />
+        <activity
+            android:name=".view.activity.Z0400SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.activity.A0200UserInformationActivity" />
         <activity android:name=".view.activity.A0100DashboardActivity" />
         <activity android:name=".view.activity.C0100CategoryActivity" />
         <activity

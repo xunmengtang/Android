@@ -31,9 +31,7 @@ class Z0200SignInActivity : BaseActivity() {
         else {
             PopupMsg.alert(this, getString(R.string.close),
                 object : PopupMsg.OnClickButtonYesNoCallBack {
-                    override fun onYesCallBack() {
-                        finish()
-                    }
+                    override fun onYesCallBack() { finish() }
                     override fun onNoCallBack() {}
                 }
             )

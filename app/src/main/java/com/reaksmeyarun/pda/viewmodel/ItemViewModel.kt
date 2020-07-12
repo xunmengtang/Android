@@ -7,7 +7,7 @@ import com.reaksmeyarun.pda.datamodel.ItemViewDataModel
 import com.reaksmeyarun.pda.datamodel.ItemViewDataModel.Companion.ITEM_I0200
 import com.reaksmeyarun.pda.datamodel.ItemViewDataModel.Companion.ITEM_I0300
 import com.reaksmeyarun.pda.datamodel.ItemViewDataModel.Companion.ITEM_I0310
-import com.reaksmeyarun.pda.firebase.FirebaseEmit
+import com.reaksmeyarun.pda.base.BaseFirebaseEvenListener
 import com.reaksmeyarun.pda.view.activity.I0100ItemActivity
 
 class ItemViewModel (var itemViewDataModel : ItemViewDataModel, var activity : I0100ItemActivity) : ViewModel() {
@@ -15,7 +15,8 @@ class ItemViewModel (var itemViewDataModel : ItemViewDataModel, var activity : I
 //    live data
     var itemData = MyMutableLiveData<ItemViewDataModel>()
 //  firebase
-    private val firebaseEmit = FirebaseEmit()
+    private val firebaseEmit =
+    BaseFirebaseEvenListener()
     init {
         itemData.setValue(itemViewDataModel)
         itemViewDataModel.state = ItemViewDataModel.ITEM_I0110

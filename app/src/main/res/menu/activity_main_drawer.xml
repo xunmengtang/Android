@@ -2,21 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
-    <group>
+    <group >
         <item
-            android:id="@+id/nav_service"
-            android:title="Service"/>
-    </group>
-    <group>
+            android:id="@+id/nav_home"
+            android:title="Home"/>
+        <item
+            android:id="@+id/nav_category"
+            android:title="Category"/>
+        <item
+            android:id="@+id/nav_item"
+            android:title="Item"/>
+        <item
+            android:id="@+id/nav_language"
+            android:title="Setting"/>
         <item
             android:id="@+id/nav_aboutUs"
             android:title="@string/aboutUs"/>
-        <item
-            android:id="@+id/nav_setting"
-            android:title="Setting"/>
-    </group>
-    <group>
         <item
             android:id="@+id/nav_signOut"
             android:title="@string/signOut"/>

@@ -15,7 +15,6 @@
         android:id="@+id/drawer_layout"
         android:background="@color/white"
         tools:context=".view.activity.P0200HomeActivity">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -71,6 +70,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
+            app:menu="@menu/activity_main_drawer"
             app:itemIconTint="@drawable/drawer_item_color"
             app:itemTextColor="@drawable/drawer_item_color"
             app:headerLayout="@layout/layout_nav_header_main" />

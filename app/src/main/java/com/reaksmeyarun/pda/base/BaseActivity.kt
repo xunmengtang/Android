@@ -14,9 +14,9 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import com.google.firebase.iid.FirebaseInstanceId
 import com.reaksmeyarun.pda.R
+import com.reaksmeyarun.pda.constance.KeyConstance
 import com.reaksmeyarun.pda.customView.LoadingView
 import com.reaksmeyarun.pda.preference.UserSession
-import com.reaksmeyarun.pda.view.activity.Z0200SignInActivity
 import kotlinx.android.synthetic.main.custom_toolbar.*
 
 
@@ -80,7 +80,6 @@ abstract class BaseActivity : AppCompatActivity(), LifecycleOwner {
         super.onResume()
         hideSoftKeyboard()
     }
-
     open fun <T> startActivity(activity : Activity, classModel : Class<T>){
         activity.startActivity(Intent(activity.applicationContext, classModel))
         activity.finish()
@@ -92,7 +91,11 @@ abstract class BaseActivity : AppCompatActivity(), LifecycleOwner {
         activity.startActivity(Intent(activity.applicationContext, classModel).putExtra(BUNDLE, bundle))
         activity.finish()
     }
+    open fun <T> startActivitySinglePutExtra(activity : Activity, classModel : Class<T>, key :String, value : String){
+        activity.startActivity(Intent(activity.applicationContext, classModel).putExtra(key, value))
+        activity.finish()
+    }
     companion object{
-        val BUNDLE = "putExtra"
+        const val BUNDLE = "putExtra"
     }
 }

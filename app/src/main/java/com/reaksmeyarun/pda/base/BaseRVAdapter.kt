@@ -4,11 +4,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.reaksmeyarun.pda.listener.RVItemClickCallback
+import com.reaksmeyarun.pda.listener.RVItemDeleteCallback
 
 abstract class BaseAdapter<Model>(context: Context,layoutId: Int) : RecyclerView.Adapter<BaseViewHolder>(){
     var context = context
     private val layoutId = layoutId
     var items = ArrayList<Model>()
+    private var itemClickCallback : RVItemClickCallback<Model>? = null
+    private var itemDeleteCallback : RVItemDeleteCallback<Model>? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return BaseViewHolder(LayoutInflater.from(context).inflate(layoutId,parent,false))
     }
@@ -17,6 +21,12 @@ abstract class BaseAdapter<Model>(context: Context,layoutId: Int) : RecyclerView
     }
     override fun getItemCount(): Int {
         return items.size
+    }
+    fun setItemClickCallBack(callback: RVItemClickCallback<Model>){
+        itemClickCallback = callback
+    }
+    fun setItemDeleteCallBack(callback: RVItemDeleteCallback<Model>){
+        itemDeleteCallback = callback
     }
     fun addItem(data : Model){
         items.add(data)
@@ -55,9 +65,5 @@ abstract class BaseAdapter<Model>(context: Context,layoutId: Int) : RecyclerView
             items[index] = it
             notifyItemChanged(index)
         }
-    }
-    companion object{
-        val STATUS_ONCLICKLISTENER = 0
-        val STATUS_ONEDITLISTENER = 1
     }
 }

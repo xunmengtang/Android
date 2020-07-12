@@ -1,25 +1,39 @@
 package com.reaksmeyarun.pda.model
 
-class CategoryModel{
+import android.os.Parcel
+import android.os.Parcelable
+
+class CategoryModel() : Parcelable {
     var userSession = UserModel.UserSession()
-    var categoryInformation = CategoryInformation()
-//    var itemInformation = ArrayList<ItemModel.ItemInformation>()
+    var categoryInformation = CategoryInformationModel()
+    var categorySize : Int ?= 0
     var timestamp : String ?= ""
     var status : Int ?= 0
 
-     class CategoryInformation {
-         var id: String? = ""
-         var categoryName: String? = ""
-         var categoryDescription: String? = ""
-
-         override fun toString(): String {
-             return "CategoryInformation(id=$id, categoryName=$categoryName, categoryDescription=$categoryDescription)"
-         }
-
-     }
-
-    override fun toString(): String {
-        return "CategoryModel(userSession=$userSession, categoryInformation=$categoryInformation, timestamp=$timestamp)"
+    constructor(parcel: Parcel) : this() {
+        categorySize = parcel.readValue(Int::class.java.classLoader) as? Int
+        timestamp = parcel.readString()
+        status = parcel.readValue(Int::class.java.classLoader) as? Int
     }
 
+    override fun toString(): String = "CategoryModel(userSession=$userSession, categoryInformation=$categoryInformation, categorySize=$categorySize, timestamp=$timestamp, status=$status)"
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeValue(categorySize)
+        parcel.writeString(timestamp)
+        parcel.writeValue(status)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<CategoryModel> {
+        override fun createFromParcel(parcel: Parcel): CategoryModel {
+            return CategoryModel(parcel)
+        }
+
+        override fun newArray(size: Int): Array<CategoryModel?> {
+            return arrayOfNulls(size)
+        }
+    }
 }

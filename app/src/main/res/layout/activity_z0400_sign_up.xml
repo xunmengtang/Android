@@ -60,7 +60,7 @@
                     android:textColor="@color/baseColor"
                     android:textSize="@dimen/largeTitleSize"/>
                 <com.reaksmeyarun.pda.customView.MyEditText
-                    android:id="@+id/etEmail"
+                    android:id="@+id/etPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/email"

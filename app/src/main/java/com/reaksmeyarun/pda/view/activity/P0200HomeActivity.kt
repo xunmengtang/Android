@@ -27,13 +27,11 @@ class P0200HomeActivity : BaseActivity(),
         binding.lifecycleOwner = this
         setSupportActionBar(binding.toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
-        nav_view.inflateMenu(R.menu.activity_main_owner_drawer)
         homeViewModel.handleBubbleTabBar()
         homeViewModel.handleUserInformation()
+        nav_view.setNavigationItemSelectedListener(this)
     }
-    override fun onBackPressed() {
-        homeViewModel.handleBackPress()
-    }
+    override fun onBackPressed() = homeViewModel.handleBackPress()
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         homeViewModel.handleNavigationItemSelected(item)
         drawer_layout.closeDrawer(GravityCompat.START)

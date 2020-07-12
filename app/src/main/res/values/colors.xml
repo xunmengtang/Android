@@ -62,6 +62,7 @@
     <color name="white">#F3F4FA</color>
     <!--    <color name="black">#000000</color>-->
     <color name="black">#434242</color>
+    <color name="dark_black">#000</color>
     <color name="defaultAccent">#FF4081</color>
 
     <color name="hintTextColor">#D1D1D1</color>

@@ -25,7 +25,7 @@
             android:elevation="6dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_arrow_left_basecolor"
-            android:background="@drawable/background_round_white_8dp" />
+            android:background="@drawable/btn_background_round_white_8dp" />
         <com.reaksmeyarun.pda.customView.MyTextView
             android:id="@+id/actTitle"
             android:layout_weight="1"
@@ -33,7 +33,7 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_marginLeft="16dp"
-            android:textSize="@dimen/largeTitleSize"
+            android:textSize="@dimen/defTitleSize"
             android:textColor="@color/actTitleColor"
             android:textStyle="bold"
             android:text=""/>

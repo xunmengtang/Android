@@ -13,6 +13,7 @@
     <!--    User Information-->
     <string name="firstName">First name</string>
     <string name="lastName">Last name</string>
+    <string name="position">Position</string>
     <string name="fullName">Full name</string>
     <string name="sex">Sex</string>
     <string name="rule">Rule</string>
@@ -34,16 +35,21 @@
     <string name="option">Option :</string>
     <string name="optionLabel">Option</string>
     <string name="signIn">Sign In</string>
+    <string name="verifyOTP">Phone Verification</string>
     <string name="signInSubUser">Sign In with Sub-User</string>
     <string name="signUp">Sign Up</string>
     <string name="signOut">Sign Out</string>
     <string name="aboutUs">About Us</string>
     <string name="username">Username</string>
+    <string name="information">Information</string>
     <string name="user">User</string>
+    <string name="staff">Staff</string>
     <string name="password">Password</string>
     <string name="subUserPassword">Sub-User Password</string>
     <string name="conPassword">Con-Password</string>
     <string name="next">Next</string>
+    <string name="send">Send</string>
+    <string name="verify">Verify Now</string>
     <string name="email">*****@gmail.com</string>
     <string name="emailSubUser">Sub-User Email</string>
     <string name="email_address">Email Address</string>
@@ -80,6 +86,7 @@
     <string name="category">Category :</string>
     <string name="categoryId">Category ID :</string>
     <string name="categoryIdLabel">P0000</string>
+    <string name="categoryInformation">Category Information</string>
     <string name="itemLabel">Item</string>
     <string name="item">Item :</string>
     <string name="itemName">Item Name</string>
@@ -153,7 +160,7 @@
     <string name="icon">Icon Item</string>
     <string name="save">Save</string>
     <string name="edit">Edit</string>
-    <string name="empty">No Items in Stock</string>
+    <string name="empty">Empty</string>
     <!--    message-->
     <string name="msg_search">What are looking for...</string>
     <string name="msg_SignOut">Do you want to sign out?</string>

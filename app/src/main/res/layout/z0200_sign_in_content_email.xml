@@ -24,11 +24,11 @@
             android:textColor="@color/baseColor"
             android:textSize="@dimen/largeTitleSize"/>
         <com.reaksmeyarun.pda.customView.MyEditText
-            android:id="@+id/etEmail"
+            android:id="@+id/etPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
+            android:hint="@string/phoneNumber"
+            android:inputType="phone"
             android:layout_marginTop="@dimen/fab_margin_medium"
             android:layout_marginStart="@dimen/fab_margin_very_ultra"
             android:layout_marginEnd="@dimen/fab_margin_very_ultra"/>

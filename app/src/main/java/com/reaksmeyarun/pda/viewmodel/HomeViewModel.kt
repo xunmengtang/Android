@@ -6,13 +6,18 @@ import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModel
 import com.reaksmeyarun.pda.R
+import com.reaksmeyarun.pda.R.id.*
+import com.reaksmeyarun.pda.connection.FirebaseConnection
+import com.reaksmeyarun.pda.connection.FirebaseConnection.Companion.InstanceAuth
+import com.reaksmeyarun.pda.constance.KeyConstance
 import com.reaksmeyarun.pda.customView.BubbleTabBar.listener.OnBubbleClickListener
 import com.reaksmeyarun.pda.customclass.MyMutableLiveData
 import com.reaksmeyarun.pda.datamodel.HomeDataModel
 import com.reaksmeyarun.pda.model.*
 import com.reaksmeyarun.pda.utils.PopupMsg
-import com.reaksmeyarun.pda.view.activity.A0200UserActivity
+import com.reaksmeyarun.pda.view.activity.C0100CategoryActivity
 import com.reaksmeyarun.pda.view.activity.P0200HomeActivity
+import com.reaksmeyarun.pda.view.activity.Z0200SignInActivity
 import kotlinx.android.synthetic.main.activity_p0200_home.*
 import kotlinx.android.synthetic.main.activity_p0200_home.toolbar
 
@@ -25,6 +30,10 @@ class HomeViewModel(var homeDataModel : HomeDataModel, var activity : P0200HomeA
     var categoryModelList = ArrayList<CategoryModel>()
     init {
         homeData.setValue(homeDataModel)
+        showHomeScreen()
+    }
+
+    fun showHomeScreen(){
         homeDataModel.state = HomeDataModel.HOME_P0210
     }
     fun handleBubbleTabBar(){
@@ -59,13 +68,13 @@ class HomeViewModel(var homeDataModel : HomeDataModel, var activity : P0200HomeA
         activity.drawer_layout.openDrawer(GravityCompat.START)
     }
     fun handleUserInformation(){
-
+//        TODO :
     }
     fun handleNavigationItemSelected(item : MenuItem){
         when(item.itemId){
-            R.id.nav_user->{
-                activity.startActivity(activity, A0200UserActivity::class.java)
-            }
+            nav_home -> showHomeScreen()
+            nav_category -> activity.startActivity(Intent(activity, C0100CategoryActivity::class.java))
+            nav_signOut -> InstanceAuth.signOut().run { activity.startActivity(activity, Z0200SignInActivity::class.java) }
         }
     }
 }
