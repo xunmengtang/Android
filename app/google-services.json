@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "46501940361",
+    "firebase_url": "https://point-on-sale.firebaseio.com",
+    "project_id": "point-on-sale",
+    "storage_bucket": "point-on-sale.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46501940361:android:9679a69c78949c930dca58",
+        "android_client_info": {
+          "package_name": "com.reaksmeyarun.pda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46501940361-o3u9vsarmf6cjumru7dv5dftg41o1dfr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reaksmeyarun.pda",
+            "certificate_hash": "10b627f63a229251db80c9c79ca43c5099101a95"
+          }
+        },
+        {
+          "client_id": "46501940361-ngo8c1ph5gf18fuf7nldonbasu0b16i4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY9K4opYSXs-xNnhoOUOaF7fZ6OppNThw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46501940361-ngo8c1ph5gf18fuf7nldonbasu0b16i4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
