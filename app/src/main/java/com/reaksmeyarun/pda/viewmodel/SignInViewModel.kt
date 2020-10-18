@@ -16,8 +16,8 @@ import com.reaksmeyarun.pda.datamodel.CodeSentDataModel
 import com.reaksmeyarun.pda.datamodel.SignInDataModel
 import com.reaksmeyarun.pda.datamodel.SignInDataModel.Companion.SIGN_IN_0100_CONTENT_EMAIL
 import com.reaksmeyarun.pda.datamodel.SignInDataModel.Companion.SIGN_IN_0100_CONTENT_PASSWORD
-import com.reaksmeyarun.pda.firebase.email.ResetPassword
-import com.reaksmeyarun.pda.firebase.phone_number.SendVerificationCode
+import com.reaksmeyarun.pda.firebaseRepo.email.ResetPassword
+import com.reaksmeyarun.pda.firebaseRepo.phone_number.SendVerificationCode
 import com.reaksmeyarun.pda.listener.FireBaseListener
 import com.reaksmeyarun.pda.utils.EmailValidator
 import com.reaksmeyarun.pda.utils.PhoneFormat

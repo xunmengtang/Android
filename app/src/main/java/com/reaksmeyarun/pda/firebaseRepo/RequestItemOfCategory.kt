@@ -1,4 +1,4 @@
-package com.reaksmeyarun.pda.firebase
+package com.reaksmeyarun.pda.firebaseRepo
 
 import android.app.Activity
 import com.google.firebase.database.DataSnapshot
@@ -8,14 +8,14 @@ import com.reaksmeyarun.pda.base.BaseFirebase
 import com.reaksmeyarun.pda.constance.FirebaseConstance
 import com.reaksmeyarun.pda.listener.FirebaseGetChildListener
 
-class RequestCategory(var activity : Activity) : BaseFirebase() {
+class RequestItemOfCategory(var activity : Activity) : BaseFirebase(){
     private val TAG = "RequestCategory"
     private var firebaseGetChildListener : FirebaseGetChildListener ?= null
     fun onChildListener(listener: FirebaseGetChildListener){
-        this.firebaseGetChildListener = listener
+        firebaseGetChildListener = listener
     }
     fun execute(){
-        getChild(activity, TAG, categoryQueryRequest(),
+        getChild(activity, TAG, itemOfCategoryRequest(),
             object : FirebaseGetChildListener{
                 override fun onCancelledListener(databaseError: DatabaseError) { firebaseGetChildListener?.onCancelledListener(databaseError) }
                 override fun onChildMoved(dataSnapshot: DataSnapshot) { firebaseGetChildListener?.onChildMoved(dataSnapshot) }
@@ -26,7 +26,7 @@ class RequestCategory(var activity : Activity) : BaseFirebase() {
         )
     }
 
-    private fun categoryQueryRequest() : DatabaseReference{
-        return databaseReference(FirebaseConstance.CATEGORY_NODE)
+    private fun itemOfCategoryRequest() : DatabaseReference{
+        return databaseReference(FirebaseConstance.CATEGORY_NODE).child(FirebaseConstance.ITEM_INFORMATION_NODE)
     }
 }

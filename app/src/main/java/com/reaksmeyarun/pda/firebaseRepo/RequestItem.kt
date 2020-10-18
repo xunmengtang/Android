@@ -1,9 +1,10 @@
-package com.reaksmeyarun.pda.firebase
+package com.reaksmeyarun.pda.firebaseRepo
 
 import android.app.Activity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.firestore.CollectionReference
 import com.reaksmeyarun.pda.base.BaseFirebase
 import com.reaksmeyarun.pda.constance.FirebaseConstance
 import com.reaksmeyarun.pda.listener.FirebaseGetChildListener
@@ -26,7 +27,19 @@ class RequestItem(var activity : Activity) : BaseFirebase(){
         )
     }
 
-    private fun itemRequest() : DatabaseReference{
+    private fun itemRequest() : DatabaseReference {
         return databaseReference(FirebaseConstance.ITEM_NODE)
     }
+
+    class ResponseItem(
+        var categoryID : String?= "",
+        var cost : Double?= 0.0,
+        var createBy : String ?= "",
+        var id : String ?= "",
+        var desc : String?= "",
+        var itemCode : String?= "",
+        var itemName : String?= "",
+        var price : Double?= 0.0,
+        var image : RequestCategory.Image ?= null
+    )
 }

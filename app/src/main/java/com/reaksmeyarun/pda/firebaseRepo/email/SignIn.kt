@@ -1,4 +1,4 @@
-package com.reaksmeyarun.pda.firebase.email
+package com.reaksmeyarun.pda.firebaseRepo.email
 
 import android.util.Log
 import com.reaksmeyarun.pda.base.BaseFirebase

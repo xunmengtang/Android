@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/fab_margin"
+    android:elevation="8dp"
+    android:background="@drawable/btn_white_round_background"
+    android:layout_margin="@dimen/defMargin">
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="75dp"
+        android:layout_height="100dp"/>
+    <com.reaksmeyarun.pda.customView.MyTextView
+        android:layout_marginTop="@dimen/defMargin"
+        android:id="@+id/title"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:text="PIRASO Analogue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.reaksmeyarun.pda.customView.MyTextView
+        android:layout_marginTop="@dimen/defMargin"
+        android:id="@+id/price"
+        android:text="$ 259.00"
+        android:textAlignment="textEnd"
+        android:textColor="@color/endColor"
+        android:textSize="@dimen/bigLabelSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

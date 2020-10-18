@@ -1,23 +1,23 @@
-package com.reaksmeyarun.pda.firebase.email
+package com.reaksmeyarun.pda.firebaseRepo.email
 
 import android.util.Log
 import com.reaksmeyarun.pda.base.BaseFirebase
 import com.reaksmeyarun.pda.constance.FirebaseConstance
 import com.reaksmeyarun.pda.listener.FireBaseListener
 
-class SendEmailVerification(val TAG : String ?= "", val listener : FireBaseListener) : BaseFirebase() {
+class SignUp(val TAG: String, val email: String, val pass: String, val listener: FireBaseListener) : BaseFirebase() {
     fun execute(){
         try{
-            instanceAuth.currentUser!!.sendEmailVerification()
+            instanceAuth.createUserWithEmailAndPassword(email, pass)
                 .addOnCanceledListener {
                     Log.e(TAG, FirebaseConstance.ON_CANCEL_LISTENER)
                 }.addOnFailureListener {
                     listener.onFailureListener()
-                    Log.i(TAG, "${FirebaseConstance.ON_FAILURE_LISTENER} : $it")
+                    Log.e(TAG, "${FirebaseConstance.ON_FAILURE_LISTENER} : $it")
                 }.addOnSuccessListener {
-                    Log.i(TAG, "${FirebaseConstance.ON_SUCCESS_LISTENER} : $it")
+                    Log.d(TAG, "${FirebaseConstance.ON_SUCCESS_LISTENER} : $it")
                 }.addOnCompleteListener {
-                    Log.i(TAG, "${FirebaseConstance.ON_COMPLETE_LISTENER} : $it")
+                    Log.d(TAG, "${FirebaseConstance.ON_COMPLETE_LISTENER} : $it")
                     listener.onCompleteListener(it)
                 }
         }catch (ex : Exception){
