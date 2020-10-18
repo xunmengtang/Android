@@ -11,8 +11,7 @@
     android:contentInsetRight="0dp"
     android:contentInsetEnd="0dp"
     app:contentInsetRight="0dp"
-    app:contentInsetEnd="0dp"
-    android:background="@android:color/transparent">
+    app:contentInsetEnd="0dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

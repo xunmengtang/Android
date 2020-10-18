@@ -162,7 +162,7 @@
     <string name="edit">Edit</string>
     <string name="empty">Empty</string>
     <!--    message-->
-    <string name="msg_search">What are looking for...</string>
+    <string name="msg_search">Search here...</string>
     <string name="msg_SignOut">Do you want to sign out?</string>
     <string name="msg_ContactToService">If anything wrong please contact to our service</string>
     <string name="msg_PhoneNumberService">070-723-618</string>

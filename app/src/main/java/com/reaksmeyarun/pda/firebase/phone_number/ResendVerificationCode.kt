@@ -2,13 +2,13 @@ package com.reaksmeyarun.pda.firebase.phone_number
 
 import android.util.Log
 import com.google.firebase.auth.PhoneAuthProvider
-import com.reaksmeyarun.pda.connection.FirebaseConnection
+import com.reaksmeyarun.pda.base.BaseFirebase
 import com.reaksmeyarun.pda.datamodel.CodeSentDataModel
 import com.reaksmeyarun.pda.view.activity.Z0300VerificationActivity
 import java.lang.Exception
 import java.util.concurrent.TimeUnit
 
-class ResendVerificationCode (var phoneNumber : String, val activity : Z0300VerificationActivity){
+class ResendVerificationCode (var phoneNumber : String, val activity : Z0300VerificationActivity) : BaseFirebase(){
     private val TAG = "ResendVerificationCode"
     private lateinit var onVerificationStateChangedCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
@@ -18,7 +18,7 @@ class ResendVerificationCode (var phoneNumber : String, val activity : Z0300Veri
 
     fun execute(){
         try{
-            FirebaseConnection.InstancePhoneAuth.verifyPhoneNumber(
+            instancePhoneAuth.verifyPhoneNumber(
                 phoneNumber, // Phone number to verify
                 120, // Timeout duration
                 TimeUnit.SECONDS, // Unit of timeout

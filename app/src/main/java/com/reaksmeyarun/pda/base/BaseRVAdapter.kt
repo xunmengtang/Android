@@ -2,16 +2,18 @@ package com.reaksmeyarun.pda.base
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.listener.RVItemClickCallback
 import com.reaksmeyarun.pda.listener.RVItemDeleteCallback
 
-abstract class BaseAdapter<Model>(context: Context,layoutId: Int) : RecyclerView.Adapter<BaseViewHolder>(){
-    var context = context
-    private val layoutId = layoutId
+abstract class BaseAdapter<Model>(var context: Context, private val layoutId: Int) : RecyclerView.Adapter<BaseViewHolder>(){
+    private var viewSelected: View? = null
     var items = ArrayList<Model>()
-    private var itemClickCallback : RVItemClickCallback<Model>? = null
+    var enableAnimation = true
+    var itemClickCallback : RVItemClickCallback<Model>? = null
     private var itemDeleteCallback : RVItemDeleteCallback<Model>? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return BaseViewHolder(LayoutInflater.from(context).inflate(layoutId,parent,false))
@@ -66,4 +68,16 @@ abstract class BaseAdapter<Model>(context: Context,layoutId: Int) : RecyclerView
             notifyItemChanged(index)
         }
     }
+    override fun onViewAttachedToWindow(holder: BaseViewHolder) {
+        super.onViewAttachedToWindow(holder)
+        if(enableAnimation)
+            holder.setAnim()
+    }
+    override fun onViewDetachedFromWindow(holder: BaseViewHolder) {
+        super.onViewDetachedFromWindow(holder)
+        if(enableAnimation)
+            holder.removeAnim()
+    }
+
+
 }

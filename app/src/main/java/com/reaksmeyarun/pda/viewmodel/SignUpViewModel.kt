@@ -3,8 +3,9 @@ package com.reaksmeyarun.pda.viewmodel
 import android.view.View
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
 import com.reaksmeyarun.pda.R
-import com.reaksmeyarun.pda.connection.FirebaseConnection
+import com.reaksmeyarun.pda.base.BaseFirebase
 import com.reaksmeyarun.pda.firebase.email.SendEmailVerification
 import com.reaksmeyarun.pda.firebase.email.SignUp
 import com.reaksmeyarun.pda.listener.FireBaseListener
@@ -51,7 +52,7 @@ class SignUpViewModel(val activity : Z0400SignUpActivity) : ViewModel() {
                                                     activity.getString(R.string.msg_send_verity_email),
                                                     object : PopupMsg.OnClickButtonCloseCallBack {
                                                         override fun onCloseCallBack() {
-                                                            FirebaseConnection.InstanceAuth.signOut()
+                                                            FirebaseAuth.getInstance().signOut()
                                                                 .run { activity.finish() }
                                                         }
                                                     })

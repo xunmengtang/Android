@@ -3,18 +3,19 @@ package com.reaksmeyarun.pda.firebase
 import android.app.Activity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.reaksmeyarun.pda.base.BaseFirebaseEvenListener
-import com.reaksmeyarun.pda.constance.FirebaseQueryConstance
+import com.google.firebase.database.DatabaseReference
+import com.reaksmeyarun.pda.base.BaseFirebase
+import com.reaksmeyarun.pda.constance.FirebaseConstance
 import com.reaksmeyarun.pda.listener.FirebaseGetChildListener
 
-class RequestItemOfCategory(var activity : Activity) : BaseFirebaseEvenListener(){
+class RequestItemOfCategory(var activity : Activity) : BaseFirebase(){
     private val TAG = "RequestCategory"
     private var firebaseGetChildListener : FirebaseGetChildListener ?= null
     fun onChildListener(listener: FirebaseGetChildListener){
         firebaseGetChildListener = listener
     }
     fun execute(){
-        getChild(activity, TAG, FirebaseQueryConstance.ITEM_OF_CATEGORY_QUERY,
+        getChild(activity, TAG, itemOfCategoryRequest(),
             object : FirebaseGetChildListener{
                 override fun onCancelledListener(databaseError: DatabaseError) { firebaseGetChildListener?.onCancelledListener(databaseError) }
                 override fun onChildMoved(dataSnapshot: DataSnapshot) { firebaseGetChildListener?.onChildMoved(dataSnapshot) }
@@ -23,5 +24,9 @@ class RequestItemOfCategory(var activity : Activity) : BaseFirebaseEvenListener(
                 override fun onChildRemoved(dataSnapshot: DataSnapshot) {  firebaseGetChildListener?.onChildRemoved(dataSnapshot) }
             }
         )
+    }
+
+    private fun itemOfCategoryRequest() : DatabaseReference{
+        return databaseReference(FirebaseConstance.CATEGORY_NODE).child(FirebaseConstance.ITEM_INFORMATION_NODE)
     }
 }

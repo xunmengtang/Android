@@ -1,14 +1,14 @@
 package com.reaksmeyarun.pda.firebase.email
 
 import android.util.Log
-import com.reaksmeyarun.pda.connection.FirebaseConnection.Companion.InstanceAuth
+import com.reaksmeyarun.pda.base.BaseFirebase
 import com.reaksmeyarun.pda.constance.FirebaseConstance
 import com.reaksmeyarun.pda.listener.FireBaseListener
 
-class ResetPassword(val TAG : String ?= "", val email : String ?= "", val listener : FireBaseListener) {
+class ResetPassword(val TAG : String ?= "", val email : String ?= "", val listener : FireBaseListener) : BaseFirebase(){
     fun execute(){
         try{
-            InstanceAuth.sendPasswordResetEmail(email!!)
+            instanceAuth.sendPasswordResetEmail(email!!)
                 .addOnCanceledListener {
                     Log.e(TAG, FirebaseConstance.ON_CANCEL_LISTENER)
                 }.addOnFailureListener {

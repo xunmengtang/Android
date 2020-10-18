@@ -10,7 +10,7 @@
     <color name="dailyColorPress">#DFAAAA</color>
 
 <!--    <color name="baseColor">#00E5FF</color>-->
-    <color name="baseColor">#006FC8</color>
+    <color name="baseColor">#F6F6F6</color>
     <color name="baseLightColor">#40536DFE</color>
     <color name="space_gray">#4D000000</color>
 <!--    Background item-->
@@ -59,13 +59,13 @@
     <color name="colorEdtText">#585757</color>
     <!--    Slide view-->
     <!--    <color name="white">#FFFFFF</color>-->
-    <color name="white">#F3F4FA</color>
+    <color name="white">#FFFFFF</color>
     <!--    <color name="black">#000000</color>-->
     <color name="black">#434242</color>
     <color name="dark_black">#000</color>
     <color name="defaultAccent">#FF4081</color>
 
-    <color name="hintTextColor">#D1D1D1</color>
+    <color name="hintTextColor">#929292</color>
     <!--    <color name="grayTextColor">#858585</color>-->
     <color name="grayTextColor">#8E8E8E</color>
 </resources>

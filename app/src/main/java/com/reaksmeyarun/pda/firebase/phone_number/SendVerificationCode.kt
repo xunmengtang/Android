@@ -3,11 +3,11 @@ package com.reaksmeyarun.pda.firebase.phone_number
 import android.util.Log
 import com.google.android.gms.tasks.TaskExecutors
 import com.google.firebase.auth.PhoneAuthProvider
-import com.reaksmeyarun.pda.connection.FirebaseConnection
+import com.reaksmeyarun.pda.base.BaseFirebase
 import java.lang.Exception
 import java.util.concurrent.TimeUnit
 
-class SendVerificationCode(var phoneNumber : String) {
+class SendVerificationCode(var phoneNumber : String) : BaseFirebase() {
     private val TAG = "SendVerificationCode"
     private lateinit var onVerificationStateChangedCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
     fun verificationStateChangedCallbacks(onVerificationStateChangedCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks){
@@ -15,7 +15,7 @@ class SendVerificationCode(var phoneNumber : String) {
     }
     fun execute(){
         try {
-            FirebaseConnection.InstancePhoneAuth
+            instancePhoneAuth
                 .verifyPhoneNumber(
                     phoneNumber,
                     120,

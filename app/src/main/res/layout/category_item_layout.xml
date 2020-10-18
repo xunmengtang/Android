@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/fab_margin_medium"
+    android:paddingBottom="@dimen/fab_margin_medium"
+    android:paddingStart="@dimen/fab_margin_medium"
+    android:paddingEnd="@dimen/fab_margin_medium"
+    android:orientation="vertical">
+    <com.reaksmeyarun.pda.customView.MyTextView
+        android:id="@+id/categoryName"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All"
+        android:textColor="@color/hintTextColor"/>
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/dot"
+        android:layout_gravity="center"
+        android:layout_width="16dp"
+        android:layout_height="8dp"
+        android:background="@drawable/background_recycler_round_dot"/>
+</LinearLayout>

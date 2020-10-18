@@ -8,7 +8,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.adapter.CategoryAdapter
-import com.reaksmeyarun.pda.constance.CodeConstance
 import com.reaksmeyarun.pda.constance.KeyConstance
 import com.reaksmeyarun.pda.firebase.RequestCategory
 import com.reaksmeyarun.pda.listener.FirebaseGetChildListener
@@ -26,20 +25,20 @@ class CategoryViewModel(val activity : C0100CategoryActivity) : ViewModel() {
 
     }
     fun bindingRcyCategory(){
-        val categoryAdapter = CategoryAdapter(activity, R.layout.layout_category_item)
+        val categoryAdapter = CategoryAdapter(activity, R.layout.category_item_a0200_layout)
         activity.rvCategory.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         activity.rvCategory.adapter = categoryAdapter
         categoryAdapter.apply {
             setItemClickCallBack(object : RVItemClickCallback<CategoryModel>{
                 override fun onClick(item: CategoryModel, pos: Int) {
-                    activity.startActivity(Intent(activity, C0200CategoryInformationActivity::class.java).putExtra(KeyConstance.EDIT_CATEGORY, item))
+
                 }
             })
             setItemDeleteCallBack(object : RVItemDeleteCallback<CategoryModel>{
                 override fun onDelete(item: CategoryModel, pos: Int) { /*TODO : */ }
             })
         }
-        requestCategory(categoryAdapter)
+//        requestCategory(categoryAdapter)
     }
     private fun requestCategory(categoryAdapter: CategoryAdapter){
         RequestCategory(activity).apply {

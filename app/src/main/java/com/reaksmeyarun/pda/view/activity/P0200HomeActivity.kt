@@ -1,6 +1,5 @@
 package com.reaksmeyarun.pda.view.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
@@ -10,10 +9,8 @@ import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.base.BaseActivity
 import com.reaksmeyarun.pda.databinding.ActivityP0200HomeBinding
 import com.reaksmeyarun.pda.datamodel.HomeDataModel
-import com.reaksmeyarun.pda.utils.PopupMsg
 import com.reaksmeyarun.pda.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.activity_p0200_home.*
-import kotlinx.android.synthetic.main.layout_nav_header_main.*
 
 class P0200HomeActivity : BaseActivity(),
     OnNavigationItemSelectedListener {
@@ -25,10 +22,13 @@ class P0200HomeActivity : BaseActivity(),
         homeViewModel = HomeViewModel(HomeDataModel(),this)
         binding.vmHome = homeViewModel
         binding.lifecycleOwner = this
+        window.setBackgroundDrawable(getDrawable(R.drawable.def_activity_bg))
         setSupportActionBar(binding.toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         homeViewModel.handleBubbleTabBar()
         homeViewModel.handleUserInformation()
+        homeViewModel.initCategory()
+        homeViewModel.initItem()
         nav_view.setNavigationItemSelectedListener(this)
     }
     override fun onBackPressed() = homeViewModel.handleBackPress()

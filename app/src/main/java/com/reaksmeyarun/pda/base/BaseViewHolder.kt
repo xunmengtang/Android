@@ -8,10 +8,17 @@ import com.reaksmeyarun.pda.R
 class BaseViewHolder(itemView: View) :
     RecyclerView.ViewHolder(itemView) {
     init {
+
+    }
+
+    fun setAnim(){
         val anim = AnimationUtils.loadAnimation(
             itemView.context,
             R.anim.item_animation_fall_down
         )
         itemView.animation = anim
+    }
+    fun removeAnim(){
+        itemView.animation = null
     }
 }

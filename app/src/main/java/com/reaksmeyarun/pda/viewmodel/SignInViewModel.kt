@@ -1,16 +1,15 @@
 package com.reaksmeyarun.pda.viewmodel
 
 import android.content.Intent
-import android.telephony.PhoneNumberUtils
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.Task
 import com.google.firebase.FirebaseException
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.reaksmeyarun.pda.R
-import com.reaksmeyarun.pda.connection.FirebaseConnection.Companion.InstanceAuth
 import com.reaksmeyarun.pda.constance.CodeConstance
 import com.reaksmeyarun.pda.customclass.MyMutableLiveData
 import com.reaksmeyarun.pda.datamodel.CodeSentDataModel
@@ -160,16 +159,15 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : Z020
                 PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                 override fun onVerificationCompleted(p0: PhoneAuthCredential) {
                     Log.d(TAG, "onVerificationCompleted")
+                    activity.startActivity(Intent(activity, Z0300VerificationActivity::class.java))
                 }
                 override fun onVerificationFailed(p0: FirebaseException) {
                     Log.d(TAG, "onVerificationFailed : $p0")
                 }
                 override fun onCodeSent(p0: String, p1: PhoneAuthProvider.ForceResendingToken) {
                     super.onCodeSent(p0, p1)
-                    activity.startActivity(Intent(activity, Z0300VerificationActivity::class.java)).run {
-                        CodeSentDataModel.verificationId = p0
-                        CodeSentDataModel.token = p1
-                    }
+                    CodeSentDataModel.verificationId = p0
+                    CodeSentDataModel.token = p1
                 }
             })
         }.execute()
@@ -200,8 +198,8 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : Z020
 //        activity.etPassword.text?.clear()
 //    }
     private fun isEmailVerify() : Boolean = when{
-            InstanceAuth.currentUser!!.isEmailVerified -> true
-            else -> false
+        FirebaseAuth.getInstance().currentUser!!.isEmailVerified -> true
+        else -> false
     }
     fun handleSignUp(view : View){
         activity.startActivityForResult(activity, Z0400SignUpActivity::class.java, CodeConstance.SIGN_UP_REQUEST_CODE)

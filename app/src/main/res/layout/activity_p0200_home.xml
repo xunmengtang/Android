@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/drawer_layout"
-        android:background="@color/white"
         tools:context=".view.activity.P0200HomeActivity">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -22,35 +21,128 @@
                 android:id="@+id/toolbar"
                 android:theme="@style/ToolBarStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="1dp" >
-                <ImageButton
-                    android:clickable="true"
-                    android:onClick="@{vmHome::handleDrawerLayout}"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/background_round_base_color_8dp"
-                    android:elevation="8dp"
-                    android:src="@drawable/ic_menu_black_24dp"/>
+                android:layout_height="?attr/actionBarSize"
+                android:elevation="1dp">
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageButton
+                        android:layout_marginStart="@dimen/defMargin"
+                        android:clickable="true"
+                        android:onClick="@{vmHome::handleDrawerLayout}"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/background_round_base_color_8dp"
+                        android:elevation="8dp"
+                        android:src="@drawable/ic_menu_black_24dp"/>
+                    <ImageButton
+                        android:layout_alignParentEnd="true"
+                        android:clickable="true"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/background_round_base_color_8dp"
+                        android:elevation="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_shop"
+                        android:layout_marginEnd="@dimen/fab_margin_medium"/>
+                </RelativeLayout>
             </androidx.appcompat.widget.Toolbar>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </FrameLayout>
-            <com.reaksmeyarun.pda.customView.BubbleTabBarLayout
-                android:layout_alignParentBottom="true"
-                android:id="@+id/bubbleTabBar"
+            <LinearLayout
+                android:id="@+id/content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_marginStart="46dp"
+                android:layout_below="@id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="16dp"
-                android:padding="7dp"
-                app:bubbletab_menuResource="@menu/list"
-                app:bubbletab_disabled_icon_color="@color/colorPrimaryDark"
-                app:bubbletab_horizontal_padding="20dp"
-                app:bubbletab_icon_size="20dp"
-                app:bubbletab_title_size="16sp"
-                app:bubbletab_vertical_padding="10dp"/>
+                android:orientation="vertical">
+                <com.reaksmeyarun.pda.customView.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome back"
+                    android:textSize="32sp"/>
+                <com.reaksmeyarun.pda.customView.MyTextView
+                    android:layout_marginTop="-4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ron"
+                    android:textColor="@color/black"
+                    android:textSize="26sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_below="@id/content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="54dp"
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <com.reaksmeyarun.pda.customView.MyEditText
+                    android:drawableRight="@drawable/ic_search_basecolor"
+                    android:layout_marginBottom="6dp"
+                    android:id="@+id/etSearch"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textAlignment="textStart"
+                    android:hint="@string/msg_search"/>
+                <View
+                    android:id="@+id/lineBreak"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/baseColor"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/category"
+                android:layout_below="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:onClick="@{vmHome::handleAllCategory}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/fab_margin_medium"
+                    android:paddingBottom="@dimen/fab_margin_medium"
+                    android:paddingStart="@dimen/fab_margin_medium"
+                    android:paddingEnd="@dimen/fab_margin_medium">
+                    <com.reaksmeyarun.pda.customView.MyTextView
+                        android:id="@+id/categoryName"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="All"
+                        android:textColor="@color/black"/>
+                    <LinearLayout
+                        android:id="@+id/dot"
+                        android:layout_gravity="center"
+                        android:layout_width="16dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/background_recycler_round_dot"/>
+                </LinearLayout>
+                <View
+                    android:visibility="gone"
+                    android:alpha=".5"
+                    android:layout_marginBottom="4dp"
+                    android:layout_gravity="center"
+                    android:layout_width="1dp"
+                    android:layout_height="32dp"
+                    android:background="@color/black"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_weight="1"
+                    android:id="@+id/rvCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_below="@id/category"
+                android:id="@+id/rvItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
             <RelativeLayout
                 android:id="@+id/progressing"
                 android:layout_width="match_parent"

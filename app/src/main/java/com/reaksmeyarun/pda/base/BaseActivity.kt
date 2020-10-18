@@ -28,14 +28,19 @@ abstract class BaseActivity : AppCompatActivity(), LifecycleOwner {
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar?.setCustomView(R.layout.custom_toolbar)
         supportActionBar?.elevation = 0f
+        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.def_activity_bg))
         btnBack?.setOnClickListener { onBackPressed() }
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         window.setBackgroundDrawable(getDrawable(R.drawable.def_activity_bg))
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+        statusBarWhite()
+        initFirebaseInstanceId()
+    }
+
+    fun statusBarWhite(){
         window.statusBarColor = ContextCompat.getColor(this, R.color.white)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
-
     fun setActTitle(title : String){
         actTitle?.text = title
     }
@@ -45,9 +50,7 @@ abstract class BaseActivity : AppCompatActivity(), LifecycleOwner {
             UserSession.getInstance(applicationContext).saveFirebaseToken(instanceIdResult.token)
         }
     }
-    fun registerFirebaseToken(token :String){
-//        TODO :
-    }
+
     private val mLoadingViewParent: ViewGroup? = null
     private var loadingView: LoadingView? = null
     open fun showLoading(alpha: Float? = 0.3f) {
