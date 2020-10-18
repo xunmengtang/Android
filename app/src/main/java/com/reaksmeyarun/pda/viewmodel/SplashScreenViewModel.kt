@@ -25,31 +25,15 @@ class SplashScreenViewModel (var activity : Z0100SplashScreenActivity) : ViewMod
         val requestCategory = RequestCategory(activity)
         requestCategory.onSingleValueListener(object : FirebaseGetListener{
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val arrayOfCategory =
+                Category.category =
                     DataSnapShotConvertUtils.dataSnapShotToArrayList(
                         RequestCategory.ResponseCategory().javaClass,
                         dataSnapshot
                     )
-                for (i in arrayOfCategory) {
-                    when (i.id) {
-                        FirebaseConstance.ID_CLOTHES -> {
-                            Category.category.add(i)
-                        }
-                        FirebaseConstance.ID_PANTS -> {
-                            Category.pants.add(i)
-                        }
-                        FirebaseConstance.ID_SHOES -> {
-                            Category.shoes.add(i)
-                        }
-                        FirebaseConstance.ID_WATCH -> {
-                            Category.watches.add(i)
-                        }
-                    }
-                }
                 FirebaseAuth.getInstance().addAuthStateListener {
                     if (FirebaseAuth.getInstance().currentUser == null) {
                         activity.startActivity(Intent(activity, Z0200SignInActivity::class.java))
-                    } else {
+                    }else {
                         activity.startActivity(Intent(activity, P0200HomeActivity::class.java))
                     }
                 }
