@@ -24,6 +24,7 @@ class CartActivity : BaseActivity() {
         vmCart = CartViewModel(this)
         binding.vmCart = vmCart
         binding.lifecycleOwner = this
+        initRVCart()
     }
 
     fun initRVCart(){

@@ -18,7 +18,6 @@ class Z0400SignUpActivity : BaseActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.baseColor)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         vmSignUp = SignUpViewModel(this)
-        binding.vmSignUp = vmSignUp
         binding.lifecycleOwner = this
     }
 }

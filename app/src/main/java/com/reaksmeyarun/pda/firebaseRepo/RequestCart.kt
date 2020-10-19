@@ -27,7 +27,6 @@ class RequestCart(var activity : Activity) : BaseFirebase() {
     class ResponseCart(
         var item : RequestItem.ResponseItem ?= null,
         var quanities : Int ?= 0,
-        var timestamp : String ?= "",
-        var subTotal : Float ?= 0f
+        var timestamp : String ?= ""
     )
 }

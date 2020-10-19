@@ -32,7 +32,7 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
                 val data = dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)
                 if(data != null){
                     if(data.categoryID == FirebaseConstance.ID_CLOTHES){
-                        rvAdaper.addItems(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
+                        rvAdaper.addItem(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
                     }
                 }
             }
@@ -63,7 +63,7 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
                 val data = dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)
                 if(data != null){
                     if(data.categoryID == FirebaseConstance.ID_SHOES){
-                        rvAdaper.addItems(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
+                        rvAdaper.addItem(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
                     }
                 }
             }

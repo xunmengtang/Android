@@ -1,7 +1,6 @@
-package com.reaksmeyarun.pda.firebaseRepo
+package com.reaksmeyarun.pda.firebaseRepo.order
 
 import android.app.Activity
-import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DatabaseReference
 import com.reaksmeyarun.pda.base.BaseFirebase
 import com.reaksmeyarun.pda.constance.FirebaseConstance
@@ -18,12 +17,12 @@ class RequestClearAllCarts(var activity : Activity) : BaseFirebase() {
 
     fun execute(){
         fireBaseListener?.let {
-            delete(activity, TAG, deleteCartQueryRequest(rqClearCartModel.orderId ?: ""), it)
+            delete(activity, TAG, deleteCartQueryRequest(), it)
         }
     }
 
-    private fun deleteCartQueryRequest(orderID : String) : DatabaseReference{
-        return databaseReference(FirebaseConstance.CART).child(orderID)
+    private fun deleteCartQueryRequest() : DatabaseReference{
+        return databaseReference(FirebaseConstance.CART).child(rqClearCartModel.orderId!!)
     }
 
     class RequestClearCartModel(var orderId : String?= "")

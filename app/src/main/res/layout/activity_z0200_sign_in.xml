@@ -3,10 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="android.view.View"/>
-        <variable
-            name="vmSignIn"
-            type="com.reaksmeyarun.pda.viewmodel.SignInViewModel" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -121,7 +117,6 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:text="@string/next"
-                    android:onClick="@{vmSignIn::handleSendVerification}"
                     android:drawableRight="@drawable/ic_arrow_forward_24dp"/>
             </LinearLayout>
         </LinearLayout>

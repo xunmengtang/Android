@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="vmSignUp"
-            type="com.reaksmeyarun.pda.viewmodel.SignUpViewModel" />
     </data>
 
     <RelativeLayout
@@ -28,7 +25,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageButton
-                        android:onClick="@{vmSignUp::handleBackPress}"
                         android:background="@drawable/background_round_base_color_8dp"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
@@ -135,7 +131,6 @@
                         android:text="English"/>
                 </LinearLayout>
                 <Button
-                    android:onClick="@{vmSignUp::handleSignUp}"
                     android:elevation="8dp"
                     android:background="@drawable/background_round_base_color_16dp"
                     android:layout_gravity="center_horizontal"

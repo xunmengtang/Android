@@ -1,23 +1,35 @@
 package com.reaksmeyarun.pda.adapter
 
 import android.content.Context
-import android.view.View
-import android.widget.TextView
-import androidx.core.content.ContextCompat
-import com.bumptech.glide.Glide
-import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.base.BaseAdapter
 import com.reaksmeyarun.pda.base.BaseViewHolder
-import com.reaksmeyarun.pda.customView.MyTextView
 import com.reaksmeyarun.pda.firebaseRepo.RequestCart
-import com.reaksmeyarun.pda.firebaseRepo.RequestItem
-import com.reaksmeyarun.pda.model.CategoryModel
-import kotlinx.android.synthetic.main.item_layout.view.*
+import kotlinx.android.synthetic.main.cart_layout.view.*
 
 class CartAdapter(context : Context, val layoutId : Int) : BaseAdapter<RequestCart.ResponseCart>(context, layoutId){
-
+    var itemSelected = RequestCart.ResponseCart()
+    var itemSelectedPos : Int ?= 0
+    var addRemoveCallBack : AddRemoveCallBack ?= null
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-
+        holder.itemView.setOnClickListener {
+            itemSelected = items[position]
+            itemSelectedPos = position
+            itemClickCallback?.onClick(items[position], position)
+        }
+        holder.itemView.btnAdd.setOnClickListener {
+            items[position].quanities = itemSelected.quanities?:1.plus(1)
+            holder.itemView.quanitites.text = items[position].quanities.toString()
+            addRemoveCallBack?.add(items[position])
+        }
+        holder.itemView.btnRemove.setOnClickListener {
+            items[position].quanities = itemSelected.quanities?:1.minus(1)
+            holder.itemView.quanitites.text = items[position].quanities.toString()
+            addRemoveCallBack?.remove(items[position])
+        }
     }
 
+    interface AddRemoveCallBack{
+        fun add(item : RequestCart.ResponseCart)
+        fun remove(item : RequestCart.ResponseCart)
+    }
 }
