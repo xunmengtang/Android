@@ -169,6 +169,7 @@
                         android:text="Shoes"
                         android:id="@+id/more_shoes"/>
                     <com.reaksmeyarun.pda.customView.MyTextView
+                        android:id="@+id/more"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"

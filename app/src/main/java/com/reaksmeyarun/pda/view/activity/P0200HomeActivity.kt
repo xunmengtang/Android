@@ -1,5 +1,6 @@
 package com.reaksmeyarun.pda.view.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -41,7 +42,7 @@ class P0200HomeActivity : BaseActivity(),
         initShoesRV()
         initWatch()
         initPants()
-
+        onClickMoreItem()
 
     }
 
@@ -49,8 +50,25 @@ class P0200HomeActivity : BaseActivity(),
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+    private fun onClickMoreItem(){
+        more_search.setOnClickListener {
+            startActivity(Intent(this,Z0600MoreItemsActivity::class.java))
+        }
+        more_watch.setOnClickListener {
+            startActivity(Intent(this,Z0600MoreItemsActivity::class.java))
+        }
+        more_clothes.setOnClickListener {
+            startActivity(Intent(this,Z0600MoreItemsActivity::class.java))
+        }
+        more_pants.setOnClickListener {
+            startActivity(Intent(this,Z0600MoreItemsActivity::class.java))
+        }
+        more.setOnClickListener {
+            startActivity(Intent(this,Z0600MoreItemsActivity::class.java))
+        }
 
-    fun initCategory(){
+    }
+     fun initCategory(){
         val category = CategoryAdapter(this, R.layout.category_layout)
         binding.rvRecentlySearch.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvRecentlySearch.adapter = category
@@ -64,7 +82,7 @@ class P0200HomeActivity : BaseActivity(),
         homeViewModel.initCategory()
     }
 
-    fun initClothesRV(){
+     fun initClothesRV(){
         val itemsAdapter = ItemsAdapter(this, R.layout.item_layout)
         binding.rvClothes.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvClothes.adapter = itemsAdapter
@@ -76,7 +94,7 @@ class P0200HomeActivity : BaseActivity(),
         })
         homeViewModel.requestClothes(itemsAdapter)
     }
-    fun initShoesRV(){
+     fun initShoesRV(){
         val itemsAdapter = ItemsAdapter(this, R.layout.item_layout)
         binding.rvShoes.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvShoes.adapter = itemsAdapter
@@ -88,7 +106,7 @@ class P0200HomeActivity : BaseActivity(),
         })
         homeViewModel.requestShoes(itemsAdapter)
     }
-    fun initWatch(){
+    private fun initWatch(){
         val itemAdater = ItemsAdapter(this,R.layout.item_layout)
         binding.rvWatch.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         binding.rvWatch.adapter = itemAdater
@@ -101,7 +119,7 @@ class P0200HomeActivity : BaseActivity(),
         })
         homeViewModel.requestWatch(itemAdater)
     }
-    fun initPants(){
+    private fun initPants(){
         val itemAdater = ItemsAdapter(this,R.layout.item_layout)
         binding.rvPants.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         binding.rvPants.adapter = itemAdater
