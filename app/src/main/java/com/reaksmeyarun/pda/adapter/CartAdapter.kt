@@ -22,9 +22,11 @@ class CartAdapter(context : Context, val layoutId : Int) : BaseAdapter<RequestCa
             addRemoveCallBack?.add(items[position])
         }
         holder.itemView.btnRemove.setOnClickListener {
-            items[position].quanities = itemSelected.quanities?:1.minus(1)
-            holder.itemView.quanitites.text = items[position].quanities.toString()
-            addRemoveCallBack?.remove(items[position])
+            if(items[position].quanities?:1 > 1){
+                items[position].quanities = itemSelected.quanities?:1.minus(1)
+                holder.itemView.quanitites.text = items[position].quanities.toString()
+                addRemoveCallBack?.remove(items[position])
+            }
         }
     }
 

@@ -88,12 +88,15 @@
                         android:layout_weight="1"
                         android:orientation="horizontal">
                         <ImageView
+                            android:onClick="@{vmDetail::handleRemoveQuanitties}"
+                            android:id="@+id/btnRemove"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:background="@drawable/btn_white_round_background"
                             android:elevation="2dp"
                             android:src="@drawable/ic_baseline_remove_24"/>
                         <com.reaksmeyarun.pda.customView.MyTextView
+                            android:id="@+id/quanitites"
                             android:layout_marginStart="@dimen/defMargin"
                             android:layout_marginEnd="@dimen/defMargin"
                             android:layout_width="wrap_content"
@@ -103,6 +106,8 @@
                             android:layout_gravity="center_vertical"
                             android:textSize="32dp"/>
                         <ImageView
+                            android:onClick="@{vmDetail::handleAddQuanitties}"
+                            android:id="@+id/btnAdd"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:background="@drawable/btn_white_round_background"
@@ -133,12 +138,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/fab_margin_medium"
                     android:orientation="horizontal">
                     <com.reaksmeyarun.pda.customView.BaseButton
+                        android:onClick="@{vmDetail::handleAddToCart}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Add to Cart"
+                        android:layout_marginStart="@dimen/fab_margin_medium"
+                        android:layout_marginBottom="@dimen/fab_margin_medium"
+                        android:layout_marginTop="@dimen/fab_margin_medium"
                         android:layout_marginEnd="@dimen/defMargin"
                         android:textAllCaps="false"
                         android:elevation="4dp"
@@ -146,6 +154,9 @@
                         android:layout_weight="1"/>
                     <com.reaksmeyarun.pda.customView.ButtonNegative
                         android:layout_marginStart="@dimen/defMargin"
+                        android:layout_marginEnd="@dimen/fab_margin_medium"
+                        android:layout_marginBottom="@dimen/fab_margin_medium"
+                        android:layout_marginTop="@dimen/fab_margin_medium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Favorite"

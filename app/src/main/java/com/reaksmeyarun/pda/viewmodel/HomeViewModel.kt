@@ -1,14 +1,19 @@
 package com.reaksmeyarun.pda.viewmodel
 
+import android.content.Intent
+import android.view.View
 import androidx.annotation.RequiresPermission
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.reaksmeyarun.pda.adapter.ItemsAdapter
+import com.reaksmeyarun.pda.constance.AppConstance
 import com.reaksmeyarun.pda.constance.FirebaseConstance
 import com.reaksmeyarun.pda.firebaseRepo.RequestItem
 import com.reaksmeyarun.pda.listener.FirebaseGetChildListener
+import com.reaksmeyarun.pda.view.activity.DetailActivity
 import com.reaksmeyarun.pda.view.activity.P0200HomeActivity
+import com.reaksmeyarun.pda.view.activity.SeeMoreActivity
 
 class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
 
@@ -41,7 +46,7 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
                 val data = dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)
                 if(data != null){
                     if(data.categoryID == FirebaseConstance.ID_CLOTHES){
-                        rvAdaper.addItem(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
+                        rvAdaper.addItem(data)
                     }
                 }
             }
@@ -72,7 +77,7 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
                 val data = dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)
                 if(data != null){
                     if(data.categoryID == FirebaseConstance.ID_SHOES){
-                        rvAdaper.addItem(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
+                        rvAdaper.addItem(data)
                     }
                 }
             }
@@ -88,18 +93,21 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
         val requestRecentlyItem = RequestItem(activity)
         requestRecentlyItem.onChildListener(object :FirebaseGetChildListener{
             override fun onCancelledListener(databaseError: DatabaseError) {
+
             }
 
             override fun onChildMoved(dataSnapshot: DataSnapshot) {
+
             }
 
             override fun onChildChanged(dataSnapshot: DataSnapshot) {
+
             }
 
             override fun onChildAdded(dataSnapshot: DataSnapshot) {
                 val data = dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)
                 if(data!!.categoryID == FirebaseConstance.ID_WATCH){
-                    rvAdaper.addItem(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
+                    rvAdaper.addItem(data)
                 }
             }
 
@@ -124,7 +132,7 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
             override fun onChildAdded(dataSnapshot: DataSnapshot) {
                 val data = dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)
                 if(data!!.categoryID == FirebaseConstance.ID_PANTS){
-                    rvAdaper.addItem(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
+                    rvAdaper.addItem(data)
                 }
             }
 
@@ -135,4 +143,26 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
         requestRecentlyItem.execute()
     }
 
+    fun handleSeeMoreWatches(view : View){
+        intentTo(AppConstance.WATCHES, FirebaseConstance.ID_WATCH)
+    }
+    fun handleSeeMoreShoes(view : View){
+        intentTo(AppConstance.SHOES, FirebaseConstance.ID_SHOES)
+    }
+    fun handleSeeMorePants(view : View){
+        intentTo(AppConstance.PANTS, FirebaseConstance.ID_PANTS)
+    }
+    fun handleSeeMoreClothes(view : View){
+        intentTo(AppConstance.CLOTHES, FirebaseConstance.ID_CLOTHES)
+    }
+
+    fun intentTo(node : String?, data : String?){
+        if(data != null && node != null){
+            val intent = Intent(activity, DetailActivity::class.java)
+            intent.putExtra(AppConstance.CATEGORY_NODE, node)
+            intent.putExtra(AppConstance.SEE_MORE, data)
+            intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+            activity.startActivity(intent)
+        }
+    }
 }

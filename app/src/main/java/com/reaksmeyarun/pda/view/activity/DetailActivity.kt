@@ -1,6 +1,5 @@
 package com.reaksmeyarun.pda.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.reaksmeyarun.pda.R

@@ -11,7 +11,7 @@ class CategoryAdapter(context : Context, val layoutId : Int) : BaseAdapter<Reque
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         holder.itemView.categoryName.text = items[position].categoryName
         holder.itemView.setOnClickListener{
-            Toast.makeText(context,"Item", Toast.LENGTH_SHORT).show()
+            itemClickCallback?.onClick(items[position], position)
         }
     }
 }

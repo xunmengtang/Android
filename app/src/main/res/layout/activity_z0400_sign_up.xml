@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="vmSignUp"
+            type="com.reaksmeyarun.pda.viewmodel.SignUpViewModel" />
     </data>
 
     <RelativeLayout
@@ -25,6 +28,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageButton
+                        android:onClick="@{vmSignUp::handleBackPress}"
                         android:id="@+id/back_login"
                         android:background="@drawable/background_round_base_color_8dp"
                         android:layout_width="40dp"
@@ -38,7 +42,6 @@
                     android:layout_height="100dp"
                     android:src="@drawable/logoo"
                     android:elevation="8dp"
-                    android:background="@drawable/background_round_base_color_16dp"
                     android:scaleType="centerCrop"/>
             </RelativeLayout>
             <LinearLayout
@@ -101,25 +104,8 @@
                     android:layout_marginStart="@dimen/fab_margin_very_ultra"
                     android:layout_marginEnd="@dimen/fab_margin_very_ultra"
                     android:background="@color/baseColor"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="@dimen/fab_margin"
-                    android:layout_marginStart="@dimen/fab_margin_high"
-                    android:layout_marginEnd="@dimen/fab_margin_high">
-
-                    <LinearLayout
-                        android:id="@+id/goToHomeScreen"
-                        android:layout_width="8dp"
-                        android:layout_height="8dp"
-                        android:background="@drawable/ic_lens_24dp"
-                        android:layout_gravity="center_vertical"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-                </LinearLayout>
                 <Button
+                    android:onClick="@{vmSignUp::handleSignUp}"
                     android:elevation="8dp"
                     android:background="@drawable/background_round_base_color_16dp"
                     android:layout_gravity="center_horizontal"

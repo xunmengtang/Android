@@ -27,6 +27,10 @@ class RequestAddToCart(var activity : Activity) : BaseFirebase() {
         return databaseReference(FirebaseConstance.CART).child(model.orderId!!)
     }
 
+    fun key() : String {
+        return addToCartQueryRequest().push().key ?: "N/A"
+    }
+
     class RequestClearCartModel(
         var orderId : String?= "",
         var mutable : MutableMap<String, RequestCart.ResponseCart>?= null
