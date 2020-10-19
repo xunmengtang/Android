@@ -16,7 +16,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.Z0400SignUpActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity
             android:name=".view.activity.Z0100SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar"

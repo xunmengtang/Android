@@ -40,9 +40,9 @@ class FirebaseConstance {
         const val EDIT_LISTENER = "onEditListener"
         const val CLICK_LISTENER = "onClickListener"
 
-        const val ID_CLOTHES = ""
-        const val ID_WATCH = "-Lycx8xc8Wq-f5fYy5vT"
-        const val ID_SHOES = "-LvzZxqajla_6ymZvwml"
-        const val ID_PANTS = "-Lver-dVVKP8COmCMETM"
+        const val ID_CLOTHES = "-LvivTeb-hJ-c_5WMfNJ"
+        const val ID_WATCH = "-LvivTeb-hJ-c_5WMfNJ"
+        const val ID_SHOES = "-LvivTeb-hJ-c_5WMfNJ"
+        const val ID_PANTS = "-LvivTeb-hJ-c_5WMfNJ"
     }
 }

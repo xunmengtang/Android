@@ -17,17 +17,23 @@ import com.reaksmeyarun.pda.datamodel.SignInDataModel
 import com.reaksmeyarun.pda.datamodel.SignInDataModel.Companion.SIGN_IN_0100_CONTENT_EMAIL
 import com.reaksmeyarun.pda.datamodel.SignInDataModel.Companion.SIGN_IN_0100_CONTENT_PASSWORD
 import com.reaksmeyarun.pda.firebaseRepo.email.ResetPassword
+import com.reaksmeyarun.pda.firebaseRepo.email.SendEmailVerification
+import com.reaksmeyarun.pda.firebaseRepo.email.SignIn
 import com.reaksmeyarun.pda.firebaseRepo.phone_number.SendVerificationCode
 import com.reaksmeyarun.pda.listener.FireBaseListener
+import com.reaksmeyarun.pda.utils.AuthListener
 import com.reaksmeyarun.pda.utils.EmailValidator
 import com.reaksmeyarun.pda.utils.PhoneFormat
 import com.reaksmeyarun.pda.utils.PopupMsg.OnClickButtonYesNoCallBack
 import com.reaksmeyarun.pda.utils.PopupMsg.alert
+import com.reaksmeyarun.pda.view.activity.P0200HomeActivity
 import com.reaksmeyarun.pda.view.activity.Z0200SignInActivity
 import com.reaksmeyarun.pda.view.activity.Z0300VerificationActivity
 import com.reaksmeyarun.pda.view.activity.Z0400SignUpActivity
 import kotlinx.android.synthetic.main.activity_z0200_sign_in.*
+import kotlinx.android.synthetic.main.z0210_sign_in_content_password.*
 
+@Suppress("UNREACHABLE_CODE")
 class SignInViewModel (var signInDataModel: SignInDataModel, var activity : Z0200SignInActivity) : ViewModel(){
     private val TAG = "SignInViewModel"
     private var verificationId = ""
@@ -56,33 +62,33 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : Z020
         showProgress()
         showP0100ContentPassword()
     }
-    fun handleResetPassword(view : View){
-        if(!validateFormEmail())
-            return
-        alert(activity, activity.getString(R.string.msg_to_send_reset_pass_email),
-        object : OnClickButtonYesNoCallBack{
-            override fun onYesCallBack() {
-                ResetPassword(TAG,
-                    activity.etPhoneNumber.text.toString(),
-                    object : FireBaseListener {
-                        override fun onFailureListener() {
-                            alert(activity, activity.getString(R.string.msg_something_wrong))
-                        }
-
-                        override fun <TResult> onCompleteListener(task: Task<TResult>) {
-                            if (task.isSuccessful)
-                                alert(
-                                    activity,
-                                    activity.getString(R.string.msg_send_reset_pass_email)
-                                )
-                            else if (task.isCanceled)
-                                alert(activity, activity.getString(R.string.msg_cancel))
-                        }
-                    }).execute()
-            }
-            override fun onNoCallBack() {/* Do nothing*/}
-        })
-    }
+//    fun handleResetPassword(view : View){
+//        if(!validateFormEmail())
+//            return
+//        alert(activity, activity.getString(R.string.msg_to_send_reset_pass_email),
+//        object : OnClickButtonYesNoCallBack{
+//            override fun onYesCallBack() {
+//                ResetPassword(TAG,
+//                    activity.etPhoneNumber.text.toString(),
+//                    object : FireBaseListener {
+//                        override fun onFailureListener() {
+//                            alert(activity, activity.getString(R.string.msg_something_wrong))
+//                        }
+//
+//                        override fun <TResult> onCompleteListener(task: Task<TResult>) {
+//                            if (task.isSuccessful)
+//                                alert(
+//                                    activity,
+//                                    activity.getString(R.string.msg_send_reset_pass_email)
+//                                )
+//                            else if (task.isCanceled)
+//                                alert(activity, activity.getString(R.string.msg_cancel))
+//                        }
+//                    }).execute()
+//            }
+//            override fun onNoCallBack() {/* Do nothing*/}
+//        })
+//    }
     private fun showProgress(){
         signInDataModel.showProgress = true
     }
@@ -91,35 +97,33 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : Z020
             signInDataModel.showProgress = false
         },500)
     }
-//    fun handleSignIn(view: View){
-//        if(!validateFormPassword()) return
-//        showProgress()
-//        SignIn(
-//            TAG,
-//            activity.etEmail.text.toString(),
-//            activity.etPassword.text.toString(),
-//            object : FireBaseListener {
-//                override fun onFailureListener() {
-//                    alert(activity, activity.getString(R.string.msg_toast_login_fail))
-//                }
-//
-//                override fun <TResult> onCompleteListener(task: Task<TResult>) {
-//                    if (task.isSuccessful) {
-//                        if (!isEmailVerify()) {
-//                            alert(activity, activity.getString(R.string.msg_to_send_verity_email),
-//                                object : OnClickButtonYesNoCallBack {
-//                                    override fun onYesCallBack() {
-//                                        SendEmailVerification(
-//                                            TAG,
-//                                            object : FireBaseListener {
-//                                                override fun onFailureListener() {
-//                                                    alert(
-//                                                        activity,
-//                                                        activity.getString(R.string.msg_something_wrong)
-//                                                    )
-//                                                }
-//
-//                                                override fun <TResult> onCompleteListener(task: Task<TResult>) {
+    fun handleSignIn(view: View){
+      return
+        showProgress()
+        SignIn(TAG, activity.etPhoneNumber.text.toString(), activity.txt_password.text.toString(),
+            object : FireBaseListener {
+                override fun onFailureListener() {
+                    alert(activity, activity.getString(R.string.msg_toast_login_fail))
+                }
+
+                override fun <TResult> onCompleteListener(task: Task<TResult>) {
+                    if (task.isSuccessful) {
+                        if (!isEmailVerify()) {
+                            alert(activity, activity.getString(R.string.msg_to_send_verity_email),
+                                object : OnClickButtonYesNoCallBack {
+                                    override fun onYesCallBack() {
+                                        SendEmailVerification(
+                                            TAG,
+                                            object : FireBaseListener {
+                                                override fun onFailureListener() {
+                                                    alert(
+                                                        activity,
+                                                        activity.getString(R.string.msg_something_wrong)
+                                                    )
+                                                }
+
+                                                override fun <TResult> onCompleteListener(task: Task<TResult>) {
+                                                    Log.d("TAG","this is result task :$task")
 //                                                    when {
 //                                                        task.isSuccessful -> alert(activity,
 //                                                            activity.getString(R.string.msg_send_verity_email),
@@ -137,21 +141,22 @@ class SignInViewModel (var signInDataModel: SignInDataModel, var activity : Z020
 //                                                            activity.getString(R.string.msg_cancel)
 //                                                        )
 //                                                    }
-//                                                }
-//                                            }).execute()
-//                                    }
-//
-//                                    override fun onNoCallBack() {    /* Do nothing*/
-//                                    }
-//                                })
-//                        } else {
-//                            activity.startActivity(activity, P0200HomeActivity::class.java)
-//                        }
-//                    }
-//                }
-//            }).execute()
-//        hideProgress()
-//    }
+                                                }
+                                            }).execute()
+                                    }
+
+                                    override fun onNoCallBack() {    /* Do nothing*/
+                                    }
+                                })
+                        } else {
+                            activity.startActivity(activity, P0200HomeActivity::class.java)
+                            Log.d("TAG","this is Success :$task")
+                        }
+                    }
+                }
+            }).execute()
+        hideProgress()
+    }
     fun handleSendVerification(view : View){
         SendVerificationCode(PhoneFormat.local(activity.etPhoneNumber.text.toString()))
             .apply {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F3F4FA</color>
+    <color name="colorPrimary">#B41044</color>
     <color name="colorPrimaryDark">#006FC8</color>
     <color name="colorAccent">#006FC8</color>
 
@@ -10,12 +10,12 @@
     <color name="dailyColorPress">#DFAAAA</color>
 
 <!--    <color name="baseColor">#00E5FF</color>-->
-    <color name="baseColor">#F6F6F6</color>
+    <color name="baseColor">#B41044</color>
     <color name="baseLightColor">#40536DFE</color>
     <color name="space_gray">#4D000000</color>
 <!--    Background item-->
-    <color name="defBackground">#FFFFFF</color>
-    <color name="defBackgroundPress">#E4E4E4</color>
+    <color name="defBackground">#e74c3c</color>
+    <color name="defBackgroundPress">#e74c3c</color>
 <!--    test BubbleTab-->
     <color name="home">#e74c3c</color>
     <color name="logger">#673AB7</color>
@@ -23,7 +23,7 @@
     <color name="settings">#2ecc71</color>
     <color name="actTitleColor">#6A6161</color>
     <!--    App Color-->
-    <color name="colorWhit">#FFFFFF</color>
+    <color name="colorWhit">#B41044</color>
     <color name="colorBase">#D2302C</color>
     <color name="colorBlue">#01579B</color>
     <color name="colorGray">#858585</color>

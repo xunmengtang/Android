@@ -23,7 +23,7 @@
             android:layout_marginTop="@dimen/defMargin"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@color/white"
+            android:src="@color/endColor"
             app:civ_border_color="@color/light_gray"
             app:civ_border_width="2dp" />
 

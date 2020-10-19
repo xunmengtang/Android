@@ -22,12 +22,12 @@ class MyTextView : androidx.appcompat.widget.AppCompatTextView {
         setTextColor(textcolor)
         setTextSize(TypedValue.COMPLEX_UNIT_SP,textsize/density)
     }
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(context: Context?) : super(context!!)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {
         init(attrs!!)
     }
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
+        context!!,
         attrs,
         defStyleAttr
     ) {

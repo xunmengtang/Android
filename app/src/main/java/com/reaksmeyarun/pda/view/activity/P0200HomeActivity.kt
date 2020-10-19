@@ -1,7 +1,9 @@
 package com.reaksmeyarun.pda.view.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,6 +39,8 @@ class P0200HomeActivity : BaseActivity(),
         initCategory()
         initClothesRV()
         initShoesRV()
+        initWatch()
+        initPants()
 
 
     }
@@ -48,14 +52,16 @@ class P0200HomeActivity : BaseActivity(),
 
     fun initCategory(){
         val category = CategoryAdapter(this, R.layout.category_layout)
-        binding.rvCategory.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvCategory.adapter = category
+        binding.rvRecentlySearch.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvRecentlySearch.adapter = category
         category.addItem(Category.category)
         category.setItemClickCallBack(object : RVItemClickCallback<RequestCategory.ResponseCategory>{
             override fun onClick(item: RequestCategory.ResponseCategory, pos: Int) {
-                // on Click category
+                Log.d("TAG","Hello activity++++-----")
+                Toast.makeText(this@P0200HomeActivity,"Item",Toast.LENGTH_SHORT).show()
             }
         })
+        homeViewModel.initCategory()
     }
 
     fun initClothesRV(){
@@ -64,7 +70,8 @@ class P0200HomeActivity : BaseActivity(),
         binding.rvClothes.adapter = itemsAdapter
         itemsAdapter.setItemClickCallBack(object : RVItemClickCallback<RequestItem.ResponseItem>{
             override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
-                // on Click clothesAdapter
+                Log.d("TAG","Hello activity++++++++")
+                Toast.makeText(this@P0200HomeActivity,"Item",Toast.LENGTH_SHORT).show()
             }
         })
         homeViewModel.requestClothes(itemsAdapter)
@@ -75,9 +82,36 @@ class P0200HomeActivity : BaseActivity(),
         binding.rvShoes.adapter = itemsAdapter
         itemsAdapter.setItemClickCallBack(object : RVItemClickCallback<RequestItem.ResponseItem>{
             override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
-                // on Click clothesAdapter
+                Log.d("TAG","Hello activity000000")
+                Toast.makeText(this@P0200HomeActivity,"Item",Toast.LENGTH_SHORT).show()
             }
         })
         homeViewModel.requestShoes(itemsAdapter)
+    }
+    fun initWatch(){
+        val itemAdater = ItemsAdapter(this,R.layout.item_layout)
+        binding.rvWatch.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        binding.rvWatch.adapter = itemAdater
+        itemAdater.setItemClickCallBack(object :RVItemClickCallback<RequestItem.ResponseItem>{
+            override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
+                Log.d("TAG","Hello activity_________")
+                Toast.makeText(this@P0200HomeActivity,"Item",Toast.LENGTH_SHORT).show()
+            }
+
+        })
+        homeViewModel.requestWatch(itemAdater)
+    }
+    fun initPants(){
+        val itemAdater = ItemsAdapter(this,R.layout.item_layout)
+        binding.rvPants.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        binding.rvPants.adapter = itemAdater
+        itemAdater.setItemClickCallBack(object :RVItemClickCallback<RequestItem.ResponseItem>{
+            override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
+                Log.d("TAG","Hello activity=========")
+                Toast.makeText(this@P0200HomeActivity,"Item",Toast.LENGTH_SHORT).show()
+            }
+
+        })
+        homeViewModel.requestPants(itemAdater)
     }
 }

@@ -57,6 +57,7 @@
                         android:layout_weight="1"
                         android:text="Recently search"/>
                     <com.reaksmeyarun.pda.customView.MyTextView
+                        android:id="@+id/more_search"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -89,6 +90,7 @@
                         android:layout_weight="1"
                         android:text="Watch"/>
                     <com.reaksmeyarun.pda.customView.MyTextView
+                        android:id="@+id/more_watch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -114,6 +116,7 @@
                         android:layout_weight="1"
                         android:text="Clothes"/>
                     <com.reaksmeyarun.pda.customView.MyTextView
+                        android:id="@+id/more_clothes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -139,6 +142,7 @@
                         android:layout_weight="1"
                         android:text="Pants"/>
                     <com.reaksmeyarun.pda.customView.MyTextView
+                        android:id="@+id/more_pants"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -162,7 +166,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Shoes"/>
+                        android:text="Shoes"
+                        android:id="@+id/more_shoes"/>
                     <com.reaksmeyarun.pda.customView.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -186,6 +191,7 @@
             app:menu="@menu/activity_main_drawer"
             app:itemIconTint="@drawable/drawer_item_color"
             app:itemTextColor="@drawable/drawer_item_color"
-            app:headerLayout="@layout/layout_nav_header_main" />
+            app:headerLayout="@layout/layout_nav_header_main"
+            android:background="@color/colorWhit"/>
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

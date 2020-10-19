@@ -5,21 +5,38 @@
     <group >
         <item
             android:id="@+id/nav_home"
-            android:title="Home"/>
+            android:title="Home"
+            android:icon="@drawable/ic_home"/>
         <item
             android:id="@+id/nav_category"
-            android:title="Category"/>
+            android:title="Clothes"
+            android:icon="@drawable/ic_shirt"/>
         <item
             android:id="@+id/nav_item"
-            android:title="Item"/>
+            android:title="Shoes"
+            android:icon="@drawable/ic_shoes_2"/>
         <item
             android:id="@+id/nav_language"
-            android:title="Setting"/>
+            android:title="Watch"
+            android:icon="@drawable/ic_watch"/>
         <item
             android:id="@+id/nav_aboutUs"
-            android:title="@string/aboutUs"/>
+            android:title="Favorite"
+            android:icon="@drawable/favorite"/>
+    </group>
+    <item android:title="">
+        <menu>
         <item
             android:id="@+id/nav_signOut"
-            android:title="@string/signOut"/>
-    </group>
+            android:title="Setting"
+            android:icon="@drawable/setting"
+            />
+        <item android:id="@+id/contact"
+              android:title="Contact"
+            android:icon="@drawable/support">
+
+        </item>
+        </menu>
+    </item>
+
 </menu>

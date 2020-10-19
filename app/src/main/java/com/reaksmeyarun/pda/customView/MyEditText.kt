@@ -24,12 +24,12 @@ class MyEditText : androidx.appcompat.widget.AppCompatEditText {
         background = ResourcesCompat.getDrawable(resources,btnBG,null)
         setPadding(0,8,0,0)
     }
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(context: Context?) : super(context!!)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {
         init(attrs!!)
     }
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
+        context!!,
         attrs,
         defStyleAttr
     ) {

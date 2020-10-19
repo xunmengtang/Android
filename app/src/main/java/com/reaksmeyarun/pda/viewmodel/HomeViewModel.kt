@@ -1,5 +1,6 @@
 package com.reaksmeyarun.pda.viewmodel
 
+import androidx.annotation.RequiresPermission
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -83,4 +84,55 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
         })
         requestRecentlyItem.execute()
     }
+    fun requestWatch(rvAdaper : ItemsAdapter){
+        val requestRecentlyItem = RequestItem(activity)
+        requestRecentlyItem.onChildListener(object :FirebaseGetChildListener{
+            override fun onCancelledListener(databaseError: DatabaseError) {
+            }
+
+            override fun onChildMoved(dataSnapshot: DataSnapshot) {
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot) {
+            }
+
+            override fun onChildAdded(dataSnapshot: DataSnapshot) {
+                val data = dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)
+                if(data!!.categoryID == FirebaseConstance.ID_WATCH){
+                    rvAdaper.addItem(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
+                }
+            }
+
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+            }
+
+        })
+        requestRecentlyItem.execute()
+    }
+    fun requestPants(rvAdaper : ItemsAdapter){
+        val requestRecentlyItem = RequestItem(activity)
+        requestRecentlyItem.onChildListener(object :FirebaseGetChildListener{
+            override fun onCancelledListener(databaseError: DatabaseError) {
+            }
+
+            override fun onChildMoved(dataSnapshot: DataSnapshot) {
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot) {
+            }
+
+            override fun onChildAdded(dataSnapshot: DataSnapshot) {
+                val data = dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)
+                if(data!!.categoryID == FirebaseConstance.ID_PANTS){
+                    rvAdaper.addItem(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
+                }
+            }
+
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+            }
+
+        })
+        requestRecentlyItem.execute()
+    }
+
 }

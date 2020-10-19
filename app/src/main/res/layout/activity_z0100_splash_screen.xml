@@ -26,26 +26,9 @@
                 android:clickable="false"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/ic_logo"
+                android:src="@drawable/logoo"
                 android:background="@drawable/background_round_base_color_16dp"
-                android:scaleType="center"/>
-            <com.reaksmeyarun.pda.customView.MyTextView
-                android:layout_marginTop="@dimen/fab_margin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Oriented"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="24sp"/>
-            <com.reaksmeyarun.pda.customView.MyTextView
-                android:layout_marginTop="-6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Point of Sales"
-                android:textAlignment="center"
-                android:textColor="@color/hintTextColor"
-                android:textStyle="bold"/>
+                android:scaleType="centerCrop"/>
         </LinearLayout>
     </RelativeLayout>
 </layout>

@@ -11,6 +11,7 @@ import com.reaksmeyarun.pda.listener.FireBaseListener
 
 class SignIn(val TAG: String, val email: String, val pass: String, val listener: FireBaseListener) : BaseFirebase() {
     fun execute(){
+        Log.d("TAG","Hello")
         try{
             instanceAuth.signInWithEmailAndPassword(email, pass)
                 .addOnCanceledListener {

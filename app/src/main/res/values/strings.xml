@@ -20,6 +20,7 @@
     <string name="bod">Birth of date</string>
     <string name="bop">Birth of place</string>
     <string name="phoneNumber">Phone number</string>
+    <string name="passwordSingIn">Password</string>
     <string name="address">Address</string>
     <string name="emailAddressOnSignUp">Your email will be verify by confirmed in G-mail address.</string>
 
