@@ -34,7 +34,7 @@ abstract class BaseAdapter<Model>(var context: Context, private val layoutId: In
         items.add(data)
         notifyDataSetChanged()
     }
-    fun addItem(arrayList : ArrayList<Model>){
+    fun addItems(arrayList : ArrayList<Model>){
         for(data in arrayList){
             items.add(data)
         }

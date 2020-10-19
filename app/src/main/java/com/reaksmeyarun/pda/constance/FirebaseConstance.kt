@@ -10,6 +10,7 @@ class FirebaseConstance {
         const val OWNER_NODE = "owner"
         const val STAFF_NODE = "staff"
         const val CATEGORY_NODE = "category"
+        const val CART = "cart"
         const val CATEGORY_INFORMATION_NODE = "categoryInformation"
         const val ITEM_NODE = "item"
         const val ITEM_INFORMATION_NODE = "itemInformation"

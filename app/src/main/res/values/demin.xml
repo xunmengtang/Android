@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="dimen_32">32dp</dimen>
     <!--    Text Size-->
     <dimen name="defTextViewSize">14sp</dimen>
     <dimen name="defEditTextSize">14sp</dimen>

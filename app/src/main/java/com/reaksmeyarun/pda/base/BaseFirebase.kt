@@ -98,11 +98,11 @@ open class BaseFirebase {
             Log.e(TAG, "${FirebaseConstance.EXCEPTION_IN_INITIALIZER_ERROR} : $ex")
         }
     }
-    open fun push(context : Activity, TAG : String? = "", databaseReference : DatabaseReference, map : MutableMap<String, Any>, listener : FireBaseListener){
+    open fun <Any>push(context : Activity, TAG : String? = "", databaseReference : DatabaseReference, map : MutableMap<String, Any>, listener : FireBaseListener){
         try{
             databaseReference.let { it ->
                 map.let { mutableMap ->
-                    it.updateChildren(mutableMap)
+                    it.updateChildren(mutableMap as Map<String, kotlin.Any>)
                         .addOnCanceledListener {
                             Log.e(TAG, FirebaseConstance.ON_CANCEL_LISTENER)
                         }.addOnFailureListener { exception ->

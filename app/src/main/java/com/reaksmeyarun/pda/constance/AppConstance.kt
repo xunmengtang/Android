@@ -4,6 +4,7 @@ class AppConstance {
     companion object{
 //      User session
         const val USER_TOKEN = "userToken"
+        const val USER_ID = "userId"
         const val ACTIVE = "1"
         const val UN_ACTIVE = "0"
         const val OWNER = "1"

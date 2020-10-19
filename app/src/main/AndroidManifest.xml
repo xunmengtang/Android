@@ -14,29 +14,37 @@
         android:theme="@style/AppTheme">
         <activity android:name=".view.activity.ContactActivity"></activity>
         <activity android:name=".view.activity.Z0700SettingActivity" />
+        <activity android:name=".view.activity.FavoriteActivity"></activity>
+        <activity android:name=".view.activity.DetailActivity" />
+        <activity android:name=".view.activity.CartActivity" />
+        <activity android:name=".view.activity.SeeMoreActivity" />
         <activity
             android:name=".view.activity.Z0300VerificationActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.Z0400SignUpActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.activity.Z0100SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".view.activity.Z0200SignInActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity
             android:name=".view.activity.P0200HomeActivity"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar"
-            tools:ignore="LockedOrientationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            tools:ignore="LockedOrientationActivity">
+
         </activity>
     </application>
 

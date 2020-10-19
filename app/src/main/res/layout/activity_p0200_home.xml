@@ -14,175 +14,184 @@
         android:layout_height="match_parent"
         android:id="@+id/drawer_layout"
         tools:context=".view.activity.P0200HomeActivity">
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="@dimen/fab_margin"
-            android:fillViewport="true">
-            <LinearLayout
+            android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:theme="@style/ToolBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:elevation="1dp">
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageButton
+                        android:layout_marginStart="@dimen/defMargin"
+                        android:clickable="true"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/background_round_base_color_8dp"
+                        android:elevation="8dp"
+                        android:src="@drawable/ic_menu_black_24dp"/>
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:theme="@style/ToolBarStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:elevation="1dp">
-                    <RelativeLayout
-                        android:gravity="center_vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <ImageButton
-                            android:layout_marginStart="@dimen/defMargin"
-                            android:clickable="true"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:background="@drawable/background_round_base_color_8dp"
-                            android:elevation="8dp"
-                            android:src="@drawable/ic_menu_black_24dp"/>
-                    </RelativeLayout>
-                </androidx.appcompat.widget.Toolbar>
+                android:paddingBottom="@dimen/fab_margin"
+                android:fillViewport="true">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/fab_margin_medium"
-                    android:layout_marginBottom="@dimen/fab_margin"
-                    android:paddingStart="@dimen/fab_margin_medium"
-                    android:paddingEnd="@dimen/fab_margin_medium"
-                    android:orientation="horizontal">
-                    <com.reaksmeyarun.pda.customView.MyTextView
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Recently search"/>
-                    <com.reaksmeyarun.pda.customView.MyTextView
-                        android:id="@+id/more_search"
+                        android:layout_marginTop="@dimen/fab_margin_medium"
+                        android:layout_marginBottom="@dimen/fab_margin"
+                        android:paddingStart="@dimen/fab_margin_medium"
+                        android:paddingEnd="@dimen/fab_margin_medium"
+                        android:orientation="horizontal">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Recently search"
+                            android:textStyle="bold"/>
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textAlignment="textEnd"
+                            android:text="See more..."
+                            android:textStyle="bold|italic"/>
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:textAlignment="textEnd"
-                        android:text="See more..."/>
+                        android:orientation="horizontal"
+                        android:id="@+id/rvRecentlySearch"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_margin="@dimen/defMargin"
+                        android:layout_marginBottom="@dimen/defMargin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rvCategory"
+                        android:orientation="horizontal"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/fab_margin_medium"
+                        android:layout_marginBottom="@dimen/fab_margin"
+                        android:paddingStart="@dimen/fab_margin_medium"
+                        android:paddingEnd="@dimen/fab_margin_medium"
+                        android:orientation="horizontal">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Watch"
+                            android:textStyle="bold"/>
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textAlignment="textEnd"
+                            android:text="See more..."
+                            android:textStyle="italic|bold"/>
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/rvWatch"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/fab_margin_medium"
+                        android:layout_marginBottom="@dimen/fab_margin"
+                        android:paddingStart="@dimen/fab_margin_medium"
+                        android:paddingEnd="@dimen/fab_margin_medium"
+                        android:orientation="horizontal">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Clothes"
+                            android:textStyle="bold"/>
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textAlignment="textEnd"
+                            android:text="See more..."
+                            android:textStyle="italic|bold"/>
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/rvClothes"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/fab_margin_medium"
+                        android:layout_marginBottom="@dimen/fab_margin"
+                        android:paddingStart="@dimen/fab_margin_medium"
+                        android:paddingEnd="@dimen/fab_margin_medium"
+                        android:orientation="horizontal">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Pants"
+                            android:textStyle="bold"/>
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textAlignment="textEnd"
+                            android:text="See more..."
+                            android:textStyle="italic|bold"/>
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/rvPants"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/fab_margin_medium"
+                        android:layout_marginBottom="@dimen/fab_margin"
+                        android:paddingStart="@dimen/fab_margin_medium"
+                        android:paddingEnd="@dimen/fab_margin_medium"
+                        android:orientation="horizontal">
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Shoes"
+                            android:textStyle="bold"/>
+                        <com.reaksmeyarun.pda.customView.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textAlignment="textEnd"
+                            android:text="See more..."
+                            android:textStyle="italic|bold"/>
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/rvShoes"/>
                 </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/rvRecentlySearch"/>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_margin="@dimen/defMargin"
-                    android:layout_marginBottom="@dimen/defMargin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rvCategory"
-                    android:orientation="horizontal"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/fab_margin_medium"
-                    android:layout_marginBottom="@dimen/fab_margin"
-                    android:paddingStart="@dimen/fab_margin_medium"
-                    android:paddingEnd="@dimen/fab_margin_medium"
-                    android:orientation="horizontal">
-                    <com.reaksmeyarun.pda.customView.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Watch"/>
-                    <com.reaksmeyarun.pda.customView.MyTextView
-                        android:id="@+id/more_watch"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:textAlignment="textEnd"
-                        android:text="See more..."/>
-                </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/rvWatch"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/fab_margin_medium"
-                    android:layout_marginBottom="@dimen/fab_margin"
-                    android:paddingStart="@dimen/fab_margin_medium"
-                    android:paddingEnd="@dimen/fab_margin_medium"
-                    android:orientation="horizontal">
-                    <com.reaksmeyarun.pda.customView.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Clothes"/>
-                    <com.reaksmeyarun.pda.customView.MyTextView
-                        android:id="@+id/more_clothes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:textAlignment="textEnd"
-                        android:text="See more..."/>
-                </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/rvClothes"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/fab_margin_medium"
-                    android:layout_marginBottom="@dimen/fab_margin"
-                    android:paddingStart="@dimen/fab_margin_medium"
-                    android:paddingEnd="@dimen/fab_margin_medium"
-                    android:orientation="horizontal">
-                    <com.reaksmeyarun.pda.customView.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Pants"/>
-                    <com.reaksmeyarun.pda.customView.MyTextView
-                        android:id="@+id/more_pants"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:textAlignment="textEnd"
-                        android:text="See more..."/>
-                </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/rvPants"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/fab_margin_medium"
-                    android:layout_marginBottom="@dimen/fab_margin"
-                    android:paddingStart="@dimen/fab_margin_medium"
-                    android:paddingEnd="@dimen/fab_margin_medium"
-                    android:orientation="horizontal">
-                    <com.reaksmeyarun.pda.customView.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Shoes"
-                        android:id="@+id/more_shoes"/>
-                    <com.reaksmeyarun.pda.customView.MyTextView
-                        android:id="@+id/more"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:textAlignment="textEnd"
-                        android:text="See more..."/>
-                </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/rvShoes"/>
-            </LinearLayout>
-        </ScrollView>
+            </ScrollView>
+        </LinearLayout>
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
             android:layout_width="wrap_content"
@@ -192,7 +201,6 @@
             app:menu="@menu/activity_main_drawer"
             app:itemIconTint="@drawable/drawer_item_color"
             app:itemTextColor="@drawable/drawer_item_color"
-            app:headerLayout="@layout/layout_nav_header_main"
-            android:background="@color/colorWhit"/>
+            app:headerLayout="@layout/layout_nav_header_main" />
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

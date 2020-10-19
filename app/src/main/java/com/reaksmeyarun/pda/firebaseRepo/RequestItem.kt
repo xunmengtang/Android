@@ -16,15 +16,9 @@ class RequestItem(var activity : Activity) : BaseFirebase(){
         firebaseGetChildListener = listener
     }
     fun execute(){
-        getChild(activity, TAG, itemRequest(),
-            object : FirebaseGetChildListener{
-                override fun onCancelledListener(databaseError: DatabaseError) { firebaseGetChildListener?.onCancelledListener(databaseError) }
-                override fun onChildMoved(dataSnapshot: DataSnapshot) { firebaseGetChildListener?.onChildMoved(dataSnapshot) }
-                override fun onChildChanged(dataSnapshot: DataSnapshot) {  firebaseGetChildListener?.onChildChanged(dataSnapshot) }
-                override fun onChildAdded(dataSnapshot: DataSnapshot) {  firebaseGetChildListener?.onChildAdded(dataSnapshot) }
-                override fun onChildRemoved(dataSnapshot: DataSnapshot) {  firebaseGetChildListener?.onChildRemoved(dataSnapshot) }
-            }
-        )
+        firebaseGetChildListener?.let {
+            getChild(activity, TAG, itemRequest(), it)
+        }
     }
 
     private fun itemRequest() : DatabaseReference {

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="@dimen/alert_width"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+    <TextView
+        android:id="@+id/alertTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:gravity="center"
+        android:textSize="@dimen/bigTitleSize"/>
+<!--        android:textSize="@dimen/titleTextSize"/>-->
+    <com.reaksmeyarun.pda.customView.MyTextView
+        android:id="@+id/txtMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="start"
+        android:text="message" />
+    <LinearLayout
+        android:layout_gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+<!--        android:textSize="@dimen/EdtTextSize"-->
+        <com.reaksmeyarun.pda.customView.ButtonPositive
+            android:id="@+id/popupBtnYes"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:layout_marginRight="8dp"
+            android:layout_height="44dp"
+            android:text="Confirm"/>
+        <com.reaksmeyarun.pda.customView.ButtonNegative
+            android:id="@+id/popupBtnNo"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_negative_background"
+            android:layout_height="44dp"
+            android:textAllCaps="false"
+            android:layout_marginLeft="8dp"
+            android:text="Cancel"/>
+    </LinearLayout>
+
+</LinearLayout>
