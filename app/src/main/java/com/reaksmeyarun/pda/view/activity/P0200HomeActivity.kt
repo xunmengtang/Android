@@ -42,31 +42,12 @@ class P0200HomeActivity : BaseActivity(),
         initShoesRV()
         initWatch()
         initPants()
-        onClickMoreItem()
 
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
-    }
-    private fun onClickMoreItem(){
-        more_search.setOnClickListener {
-            startActivity(Intent(this,Z0600MoreItemsActivity::class.java))
-        }
-        more_watch.setOnClickListener {
-            startActivity(Intent(this,Z0600MoreItemsActivity::class.java))
-        }
-        more_clothes.setOnClickListener {
-            startActivity(Intent(this,Z0600MoreItemsActivity::class.java))
-        }
-        more_pants.setOnClickListener {
-            startActivity(Intent(this,Z0600MoreItemsActivity::class.java))
-        }
-        more.setOnClickListener {
-            startActivity(Intent(this,Z0600MoreItemsActivity::class.java))
-        }
-
     }
      fun initCategory(){
         val category = CategoryAdapter(this, R.layout.category_layout)

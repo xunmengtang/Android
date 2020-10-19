@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.reaksmeyarun.pda.R
 
-class Z0600MoreItemsActivity : AppCompatActivity() {
+class ContactActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_z0600_more_items)
+        setContentView(R.layout.activity_contact)
     }
 }

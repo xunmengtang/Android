@@ -12,16 +12,8 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.Z0700SettingActivity"></activity>
-        <activity
-            android:name=".view.activity.Z0600MoreItemsActivity"
-            android:screenOrientation="sensorPortrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            tools:ignore="LockedOrientationActivity"></activity>
-        <activity
-            android:name=".view.activity.Z0500DetailActivity"
-            android:screenOrientation="sensorPortrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".view.activity.ContactActivity"></activity>
+        <activity android:name=".view.activity.Z0700SettingActivity" />
         <activity
             android:name=".view.activity.Z0300VerificationActivity"
             android:theme="@style/AppTheme.NoActionBar" />
