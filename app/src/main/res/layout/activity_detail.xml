@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="vmDetail"
+            type="com.reaksmeyarun.pda.viewmodel.DetailViewModel" />
     </data>
 
     <LinearLayout
@@ -40,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
+                    android:id="@+id/icon"
                     android:layout_width="262dp"
                     android:layout_height="314dp"
                     android:src="@mipmap/watches_banner"
@@ -51,9 +54,10 @@
                     android:layout_marginStart="@dimen/fab_margin_high"
                     android:orientation="horizontal">
                     <com.reaksmeyarun.pda.customView.MyTextView
+                        android:id="@+id/itemName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Commission Pant"
+                        android:text="@{vmDetail.detailData.itemName}"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/bigTitleSize"/>
                     <ImageView
@@ -68,10 +72,11 @@
                     android:paddingStart="@dimen/fab_margin_high"
                     android:orientation="horizontal">
                     <com.reaksmeyarun.pda.customView.MyTextView
+                        android:id="@+id/itemPrice"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="$ 39.99"
+                        android:text="@{vmDetail.detailData.itemPrice}"
                         android:textColor="@color/colorBase"
                         android:layout_gravity="center_vertical"
                         android:textSize="32dp"/>
@@ -115,12 +120,13 @@
                     android:layout_gravity="center_vertical"
                     android:textSize="@dimen/bigTitleSize"/>
                 <EditText
+                    android:id="@+id/itemDesc"
                     android:layout_marginTop="@dimen/defMargin"
                     android:layout_marginStart="@dimen/fab_margin_high"
                     android:layout_marginEnd="@dimen/fab_margin_high"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Why we made this Inspired by chinos, these slim-fit pants are made for all-day comfort."
+                    android:text="@{vmDetail.detailData.itemDesc}"
                     android:textColor="#707070"
                     android:padding="@dimen/fab_margin_medium"
                     android:background="@drawable/background_round_space_gray_16dp"/>

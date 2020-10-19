@@ -7,7 +7,6 @@ import androidx.databinding.DataBindingUtil
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.base.BaseActivity
 import com.reaksmeyarun.pda.databinding.ActivityZ0200SignInBinding
-import com.reaksmeyarun.pda.datamodel.SignInDataModel
 import com.reaksmeyarun.pda.datamodel.SignInDataModel.Companion.SIGN_IN_0100_CONTENT_PASSWORD
 import com.reaksmeyarun.pda.utils.PopupMsg
 import com.reaksmeyarun.pda.viewmodel.SignInViewModel

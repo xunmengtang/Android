@@ -12,14 +12,6 @@ import com.reaksmeyarun.pda.view.activity.P0200HomeActivity
 class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
 
     private val TAG = "HomeViewModel"
-    fun initCategory() : ArrayList<String>{
-        return ArrayList<String>().apply {
-            this.add("Watch")
-            this.add("Clothes")
-            this.add("Shoes")
-            this.add("Pants")
-        }
-    }
 
     fun requestClothes(rvAdaper : ItemsAdapter){
         val requestRecentlyItem = RequestItem(activity)
@@ -40,7 +32,7 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
                 val data = dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)
                 if(data != null){
                     if(data.categoryID == FirebaseConstance.ID_CLOTHES){
-                        rvAdaper.addItem(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
+                        rvAdaper.addItems(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
                     }
                 }
             }
@@ -71,7 +63,7 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
                 val data = dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)
                 if(data != null){
                     if(data.categoryID == FirebaseConstance.ID_SHOES){
-                        rvAdaper.addItem(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
+                        rvAdaper.addItems(dataSnapshot.getValue(RequestItem.ResponseItem().javaClass)!!)
                     }
                 }
             }

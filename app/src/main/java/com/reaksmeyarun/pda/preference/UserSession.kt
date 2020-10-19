@@ -26,6 +26,14 @@ class UserSession(context: Context) : BasePreference(context) {
         save(AppConstance.USER_TOKEN,lang)
     }
 
+    fun getUserId():String{
+        return get(AppConstance.USER_ID,"").toString()
+    }
+
+    fun setUserId(lang:String){
+        save(AppConstance.USER_ID,lang)
+    }
+
     fun saveFirebaseToken(value: String){
         save(AppConstance.FIREBASE_TOKEN,value)
     }

@@ -1,5 +1,6 @@
 package com.reaksmeyarun.pda.view.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
@@ -10,11 +11,13 @@ import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.adapter.CategoryAdapter
 import com.reaksmeyarun.pda.adapter.ItemsAdapter
 import com.reaksmeyarun.pda.base.BaseActivity
+import com.reaksmeyarun.pda.constance.AppConstance
 import com.reaksmeyarun.pda.dataObject.Category
 import com.reaksmeyarun.pda.databinding.ActivityP0200HomeBinding
 import com.reaksmeyarun.pda.firebaseRepo.RequestCategory
 import com.reaksmeyarun.pda.firebaseRepo.RequestItem
 import com.reaksmeyarun.pda.listener.RVItemClickCallback
+import com.reaksmeyarun.pda.utils.ConvertUtils
 import com.reaksmeyarun.pda.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.activity_p0200_home.*
 
@@ -50,7 +53,7 @@ class P0200HomeActivity : BaseActivity(),
         val category = CategoryAdapter(this, R.layout.category_layout)
         binding.rvCategory.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvCategory.adapter = category
-        category.addItem(Category.category)
+        category.addItems(Category.category)
         category.setItemClickCallBack(object : RVItemClickCallback<RequestCategory.ResponseCategory>{
             override fun onClick(item: RequestCategory.ResponseCategory, pos: Int) {
                 // on Click category
@@ -64,18 +67,27 @@ class P0200HomeActivity : BaseActivity(),
         binding.rvClothes.adapter = itemsAdapter
         itemsAdapter.setItemClickCallBack(object : RVItemClickCallback<RequestItem.ResponseItem>{
             override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
-                // on Click clothesAdapter
+                val stringData = ConvertUtils.init().objectToJson(item)
+                val intent = Intent(this@P0200HomeActivity, DetailActivity::class.java)
+                intent.putExtra(AppConstance.ITEM_NODE, stringData.toString())
+                intent.flags =Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(intent)
             }
         })
         homeViewModel.requestClothes(itemsAdapter)
     }
+
     fun initShoesRV(){
         val itemsAdapter = ItemsAdapter(this, R.layout.item_layout)
         binding.rvShoes.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvShoes.adapter = itemsAdapter
         itemsAdapter.setItemClickCallBack(object : RVItemClickCallback<RequestItem.ResponseItem>{
             override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
-                // on Click clothesAdapter
+                val stringData = ConvertUtils.init().objectToJson(item)
+                val intent = Intent(this@P0200HomeActivity, DetailActivity::class.java)
+                intent.putExtra(AppConstance.ITEM_NODE, stringData.toString())
+                intent.flags =Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(intent)
             }
         })
         homeViewModel.requestShoes(itemsAdapter)

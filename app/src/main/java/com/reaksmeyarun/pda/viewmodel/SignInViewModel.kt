@@ -13,7 +13,6 @@ import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.constance.CodeConstance
 import com.reaksmeyarun.pda.customclass.MyMutableLiveData
 import com.reaksmeyarun.pda.datamodel.CodeSentDataModel
-import com.reaksmeyarun.pda.datamodel.SignInDataModel
 import com.reaksmeyarun.pda.datamodel.SignInDataModel.Companion.SIGN_IN_0100_CONTENT_EMAIL
 import com.reaksmeyarun.pda.datamodel.SignInDataModel.Companion.SIGN_IN_0100_CONTENT_PASSWORD
 import com.reaksmeyarun.pda.firebaseRepo.email.ResetPassword
