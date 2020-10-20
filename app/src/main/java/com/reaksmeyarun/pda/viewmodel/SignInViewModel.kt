@@ -1,5 +1,8 @@
 package com.reaksmeyarun.pda.viewmodel
 
+import android.app.Activity
+import android.app.Dialog
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModel
@@ -35,47 +38,16 @@ class SignInViewModel (var activity : Z0200SignInActivity) : ViewModel(){
             activity.etPassword.text.toString(),
             object : FireBaseListener {
                 override fun onFailureListener() {
-                    AlertUtil.init(activity, R.layout.alert, activity.getString(R.string.msg_toast_login_fail))
+                    AlertUtil.init(activity, activity.getString(R.string.msg_toast_login_fail))
                 }
 
                 override fun <TResult> onCompleteListener(task: Task<TResult>) {
                     if (task.isSuccessful) {
-                        if (!isEmailVerify()) {
-                            alert(activity,
-                                activity.getString(R.string.msg_to_send_verity_email),
-                                object : OnClickButtonYesNoCallBack {
-                                    override fun onYesCallBack() {
-                                        SendEmailVerification(
-                                            TAG,
-                                            object : FireBaseListener {
-                                                override fun onFailureListener() {
-                                                    AlertUtil.init(activity, R.layout.alert, activity.getString(R.string.msg_something_wrong))
-                                                }
-
-                                                override fun <TResult> onCompleteListener(task: Task<TResult>) {
-                                                    Log.d("TAG", "this is result task :$task")
-                                                    when {
-                                                        task.isSuccessful ->{
-                                                            AlertUtil.init(activity, R.layout.alert, activity.getString(R.string.msg_send_verity_email))
-                                                            FirebaseAuth.getInstance().signOut()
-                                                        }
-                                                        task.isCanceled -> alert(
-                                                            activity,
-                                                            activity.getString(R.string.msg_cancel)
-                                                        )
-                                                    }
-                                                }
-                                            }).execute()
-                                    }
-
-                                    override fun onNoCallBack() {    /* Do nothing*/
-                                    }
-                                })
-                        } else {
-                            UserSession.getInstance(activity).setUserId(FirebaseAuth.getInstance().uid ?:"")
-                            activity.startActivity(activity, P0200HomeActivity::class.java)
-                            activity.finish()
-                        }
+                        UserSession.getInstance(activity).setUserId(FirebaseAuth.getInstance().uid ?:"")
+                        val intent = Intent(activity, P0200HomeActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                        activity.startActivity(intent)
+                        activity.finish()
                     }
                 }
             }
@@ -101,21 +73,7 @@ class SignInViewModel (var activity : Z0200SignInActivity) : ViewModel(){
         }
     }
 
-    fun textClear(){
-        activity.etEmail.text?.clear()
-        activity.etPassword.text?.clear()
-    }
-
-    private fun isEmailVerify(): Boolean = when {
-        FirebaseAuth.getInstance().currentUser!!.isEmailVerified -> true
-        else -> false
-    }
-
     fun handleSignUp(view: View) {
-        activity.startActivityForResult(
-            activity,
-            Z0400SignUpActivity::class.java,
-            CodeConstance.SIGN_UP_REQUEST_CODE
-        )
+        activity.startActivity(Intent(activity, Z0400SignUpActivity::class.java))
     }
 }

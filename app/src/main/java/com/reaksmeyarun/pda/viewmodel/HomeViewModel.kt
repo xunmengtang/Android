@@ -1,5 +1,6 @@
 package com.reaksmeyarun.pda.viewmodel
 
+import android.app.Activity
 import android.content.Intent
 import android.view.View
 import androidx.annotation.RequiresPermission
@@ -11,6 +12,7 @@ import com.reaksmeyarun.pda.constance.AppConstance
 import com.reaksmeyarun.pda.constance.FirebaseConstance
 import com.reaksmeyarun.pda.firebaseRepo.RequestItem
 import com.reaksmeyarun.pda.listener.FirebaseGetChildListener
+import com.reaksmeyarun.pda.view.activity.CartActivity
 import com.reaksmeyarun.pda.view.activity.DetailActivity
 import com.reaksmeyarun.pda.view.activity.P0200HomeActivity
 import com.reaksmeyarun.pda.view.activity.SeeMoreActivity
@@ -158,11 +160,17 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
 
     fun intentTo(node : String?, data : String?){
         if(data != null && node != null){
-            val intent = Intent(activity, DetailActivity::class.java)
+            val intent = Intent(activity, SeeMoreActivity::class.java)
             intent.putExtra(AppConstance.CATEGORY_NODE, node)
             intent.putExtra(AppConstance.SEE_MORE, data)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             activity.startActivity(intent)
         }
+    }
+
+    fun handleCart(view : View){
+        val intent = Intent(activity, CartActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+        activity.startActivity(intent)
     }
 }

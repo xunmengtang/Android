@@ -3,6 +3,7 @@ package com.reaksmeyarun.pda.viewmodel
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModel
+import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.Task
 import com.reaksmeyarun.pda.customclass.MyMutableLiveData
 import com.reaksmeyarun.pda.datamodel.DetailDataModel
@@ -19,6 +20,7 @@ class DetailViewModel(var detailDataModel : DetailDataModel, var activity : Deta
 
     var detailData = MyMutableLiveData<DetailDataModel>()
     var data = RequestItem.ResponseItem()
+    var key : String ?= ""
 
     init {
         detailData.setValue(detailDataModel)
@@ -31,6 +33,9 @@ class DetailViewModel(var detailDataModel : DetailDataModel, var activity : Deta
             detailDataModel.itemPrice = data.price.toString()
             detailDataModel.itemDesc = data.desc
             Log.d("TAG","Hello price ${detailDataModel.itemPrice}")
+
+            //Glide.with(activity).load(data.image?.url).into(activity.binding.icon)
+
         }
     }
 
@@ -45,10 +50,12 @@ class DetailViewModel(var detailDataModel : DetailDataModel, var activity : Deta
     fun requestAddToCart(){
         val requestAddToCart = RequestAddToCart(activity)
         requestAddToCart.model = RequestAddToCart.RequestClearCartModel()
+        key = requestAddToCart.key()
         requestAddToCart.model.orderId = UserSession.getInstance(activity).getUserId()
         requestAddToCart.model.mutable = MapDataUtils.objectToMap(
-            requestAddToCart.key(),
+            key ?: "",
             RequestCart.ResponseCart(
+                key ?: "",
                 data,
                 (activity.binding.quanitites.text.toString()).toInt()
             )
@@ -67,11 +74,16 @@ class DetailViewModel(var detailDataModel : DetailDataModel, var activity : Deta
 
     fun handleAddQuanitties(view : View){
         activity.binding.quanitites.text = (activity.binding.quanitites.text.toString().toInt() + 1).toString()
+
         Log.d("TAG","this is price ${activity.binding.quanitites.text}")
+
+        activity.binding.itemPrice.text = "$ ${activity.binding.quanitites.text.toString().toFloat() * data.price!!}"
     }
 
     fun handleRemoveQuanitties(view : View){
-        if(activity.binding.quanitites.text.toString().toInt() > 1)
+        if(activity.binding.quanitites.text.toString().toInt() > 1){
             activity.binding.quanitites.text = (activity.binding.quanitites.text.toString().toInt() - 1).toString()
+            activity.binding.itemPrice.text = "$ ${activity.binding.quanitites.text.toString().toFloat() * data.price!!}"
+        }
     }
 }

@@ -28,13 +28,17 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
-                    android:id="@+id/icon"
+                    android:scaleType="fitCenter"
+
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:src="@mipmap/watches_banner"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="12dp"/>
+                    android:layout_width="222dp"
+                    android:layout_height="284dp"
+                    android:layout_gravity="center_horizontal"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -84,8 +88,9 @@
                         <com.reaksmeyarun.pda.customView.MyTextView
                             android:id="@+id/quanitites"
                             android:layout_marginStart="@dimen/defMargin"
+                            android:textAlignment="center"
                             android:layout_marginEnd="@dimen/defMargin"
-                            android:layout_width="wrap_content"
+                            android:layout_width="44dp"
                             android:layout_height="wrap_content"
                             android:text="1"
                             android:textColor="@color/black"
@@ -110,7 +115,7 @@
                     android:layout_marginStart="@dimen/fab_margin_high"
                     android:layout_gravity="center_vertical"
                     android:textSize="@dimen/bigTitleSize"/>
-                <EditText
+                <com.reaksmeyarun.pda.customView.MyTextView
                     android:id="@+id/itemDesc"
                     android:layout_marginTop="@dimen/defMargin"
                     android:layout_marginStart="@dimen/fab_margin_high"

@@ -31,8 +31,8 @@
                         android:onClick="@{vmSignUp::handleBackPress}"
                         android:id="@+id/back_login"
                         android:background="@drawable/background_round_base_color_8dp"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
                         android:elevation="10dp"
                         android:src="@drawable/ic_arrow_left_white"/>
                 </androidx.appcompat.widget.Toolbar>
@@ -60,7 +60,7 @@
                     android:textColor="@color/baseColor"
                     android:textSize="@dimen/largeTitleSize"/>
                 <com.reaksmeyarun.pda.customView.MyEditText
-                    android:id="@+id/etPhoneNumber"
+                    android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/email"

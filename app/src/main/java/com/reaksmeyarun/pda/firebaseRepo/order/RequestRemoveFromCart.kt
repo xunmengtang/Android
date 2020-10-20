@@ -5,11 +5,12 @@ import com.google.firebase.database.DatabaseReference
 import com.reaksmeyarun.pda.base.BaseFirebase
 import com.reaksmeyarun.pda.constance.FirebaseConstance
 import com.reaksmeyarun.pda.listener.FireBaseListener
+import com.reaksmeyarun.pda.preference.UserSession
 
 class RequestRemoveFromCart(var activity : Activity) : BaseFirebase() {
     private val TAG = "RequestRemoveFromCart"
     private var fireBaseListener : FireBaseListener ?= null
-    var model : RequestRemoveFromCartModel ?= null
+    lateinit var model : RequestRemoveFromCartModel
 
     fun listener(listener: FireBaseListener){
         this.fireBaseListener = listener
@@ -22,9 +23,9 @@ class RequestRemoveFromCart(var activity : Activity) : BaseFirebase() {
     }
 
     private fun deleteCartQueryRequest() : DatabaseReference{
-        return databaseReference(FirebaseConstance.CART).child(model?.orderId!!).child(model?.itemID!!)
+        return databaseReference(FirebaseConstance.CART).child(UserSession.getInstance(activity).getUserId()).child(model.itemID!!)
     }
 
-    class RequestRemoveFromCartModel(var orderId : String?= "", var itemID : String ?= "")
+    class RequestRemoveFromCartModel(var itemID : String ?= "")
 
 }

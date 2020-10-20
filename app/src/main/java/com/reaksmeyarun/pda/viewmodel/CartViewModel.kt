@@ -13,7 +13,6 @@ import com.reaksmeyarun.pda.firebaseRepo.order.RequestClearAllCarts
 import com.reaksmeyarun.pda.firebaseRepo.order.RequestRemoveFromCart
 import com.reaksmeyarun.pda.listener.FireBaseListener
 import com.reaksmeyarun.pda.listener.FirebaseGetListener
-import com.reaksmeyarun.pda.listener.RVItemClickCallback
 import com.reaksmeyarun.pda.preference.UserSession
 import com.reaksmeyarun.pda.utils.AlertUtil
 import com.reaksmeyarun.pda.utils.DataSnapShotConvertUtils
@@ -56,6 +55,7 @@ class CartViewModel (var activity : CartActivity) : ViewModel(){
 
                         override fun <TResult> onCompleteListener(task: Task<TResult>) {
                             activity.cartAdapter.clearAll()
+                            activity.binding.totalPrice.text = "$ 0.0"
                         }
 
                     })
@@ -70,21 +70,24 @@ class CartViewModel (var activity : CartActivity) : ViewModel(){
         }
     }
 
-    fun requestRemoveItemFromCart(cartAdapter: CartAdapter){
+    fun requestRemoveItemFromCart(cartAdapter: CartAdapter, position:Int){
         if(cartAdapter.items.size > 0){
             AlertUtil.alertConfirm(activity, "Khmer2020", "Are you sure to clear all the cart?", object : AlertUtil.DecisionCallback {
                 override fun onConfirm(dialog: Dialog) {
                     val requestRemoveItemFromCart = RequestRemoveFromCart(activity)
                     requestRemoveItemFromCart.model = RequestRemoveFromCart.RequestRemoveFromCartModel()
-                    requestRemoveItemFromCart.model?.orderId = UserSession.getInstance(activity).getUserId()
-                    requestRemoveItemFromCart.model?.itemID = cartAdapter.itemSelected.item?.id
+                    requestRemoveItemFromCart.model.itemID = cartAdapter.itemSelected.id
                     requestRemoveItemFromCart.listener(object : FireBaseListener{
                         override fun onFailureListener() {
 
                         }
 
                         override fun <TResult> onCompleteListener(task: Task<TResult>) {
-                            cartAdapter.removeItem(cartAdapter.itemSelected)
+                            if(task.isSuccessful){
+                                cartAdapter.arrayListOfTotal.removeAt(position)
+                                cartAdapter.removeItem(cartAdapter.itemSelected)
+                                activity.calculateSubTotal(cartAdapter.arrayListOfTotal)
+                            }
                         }
                     })
                     requestRemoveItemFromCart.execute()

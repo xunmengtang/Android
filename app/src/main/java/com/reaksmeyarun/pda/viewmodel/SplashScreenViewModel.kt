@@ -18,7 +18,18 @@ import com.reaksmeyarun.pda.view.activity.Z0100SplashScreenActivity
 class SplashScreenViewModel (var activity : Z0100SplashScreenActivity) : ViewModel(){
     private val TAG = "SplashScreenViewModel"
     init {
-        requestCategory()
+        FirebaseAuth.getInstance().addAuthStateListener {
+            if (FirebaseAuth.getInstance().currentUser == null) {
+                val intent = Intent(activity, Z0200SignInActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                activity.startActivity(intent)
+            }else {
+                val intent = Intent(activity, P0200HomeActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                activity.startActivity(intent)
+            }
+            activity.finish()
+        }
     }
 
     fun requestCategory(){

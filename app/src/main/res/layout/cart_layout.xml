@@ -7,26 +7,41 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:paddingStart="@dimen/fab_margin_medium"
         android:paddingEnd="@dimen/fab_margin_medium"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_round_white_8dp"
+            android:layout_marginStart="@dimen/fab_margin_medium"
             android:layout_marginTop="@dimen/defMargin"
             android:layout_marginBottom="@dimen/defMargin"
-            android:layout_width="67dp"
-            android:layout_height="80dp"
-            android:src="@mipmap/pant_banner"
-            android:background="@drawable/background_round_white_8dp"
-            android:elevation="2dp"
             android:layout_marginEnd="@dimen/fab_margin"
-            android:scaleType="centerInside"/>
+            android:elevation="2dp"
+            android:padding="@dimen/defMargin"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/iconCart"
+                android:layout_width="67dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/pant_banner"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_gravity="end"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_baseline_delete_forever_24"
+                android:background="@drawable/btn_negative_background"/>
             <com.reaksmeyarun.pda.customView.MyTextView
+                android:id="@+id/itemName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Commission Pant"
@@ -37,6 +52,7 @@
                 android:orientation="horizontal">
 
                 <com.reaksmeyarun.pda.customView.MyTextView
+                    android:id="@+id/itemPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$ 39.99"
@@ -44,7 +60,6 @@
                     android:textColor="@color/colorBase"
                     android:textSize="@dimen/largeTitleSize"/>
                 <LinearLayout
-                    android:paddingEnd="@dimen/fab_margin_high"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|end"
@@ -52,25 +67,27 @@
                     android:orientation="horizontal">
                     <ImageView
                         android:id="@+id/btnRemove"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
                         android:background="@drawable/btn_white_round_background"
                         android:elevation="2dp"
                         android:src="@drawable/ic_baseline_remove_24"/>
                     <com.reaksmeyarun.pda.customView.MyTextView
                         android:id="@+id/quanitites"
-                        android:layout_marginStart="@dimen/defMargin"
-                        android:layout_marginEnd="@dimen/defMargin"
-                        android:layout_width="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_width="@dimen/dimen_32"
+                        android:gravity="center"
                         android:layout_height="wrap_content"
                         android:text="1"
                         android:textColor="@color/black"
                         android:layout_gravity="center_vertical"
-                        android:textSize="32dp"/>
+                        android:textSize="24dp"/>
                     <ImageView
+                        android:layout_marginEnd="@dimen/fab_margin"
                         android:id="@+id/btnAdd"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="24sp"
+                        android:layout_height="24dp"
                         android:background="@drawable/btn_white_round_background"
                         android:elevation="2dp"
                         android:src="@drawable/ic_add_black_24dp"/>

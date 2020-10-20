@@ -15,35 +15,6 @@
         android:orientation="vertical"
         tools:context=".view.activity.SeeMoreActivity">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:theme="@style/ToolBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:elevation="1dp">
-            <RelativeLayout
-                android:gravity="center_vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageButton
-                    android:layout_marginStart="@dimen/defMargin"
-                    android:clickable="true"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/background_round_base_color_8dp"
-                    android:elevation="8dp"
-                    android:src="@drawable/ic_arrow_left_basecolor"/>
-                <ImageButton
-                    android:layout_marginEnd="@dimen/fab_margin_medium"
-                    android:clickable="true"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/background_round_base_color_8dp"
-                    android:elevation="8dp"
-                    android:src="@drawable/ic_shopping_cart_basecolor"/>
-            </RelativeLayout>
-        </androidx.appcompat.widget.Toolbar>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

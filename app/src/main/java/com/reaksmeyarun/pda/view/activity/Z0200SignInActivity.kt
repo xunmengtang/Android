@@ -29,15 +29,4 @@ class Z0200SignInActivity : BaseActivity() {
         binding.vmSignIn = vmSignIn
         binding.lifecycleOwner = this
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when(requestCode){
-            CodeConstance.SIGN_UP_REQUEST_CODE ->{
-                if(resultCode== Activity.RESULT_OK){
-                    vmSignIn.textClear()
-                }
-            }
-        }
-    }
 }
