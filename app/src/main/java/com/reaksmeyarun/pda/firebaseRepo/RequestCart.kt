@@ -7,6 +7,7 @@ import com.google.firebase.database.DatabaseReference
 import com.reaksmeyarun.pda.base.BaseFirebase
 import com.reaksmeyarun.pda.constance.FirebaseConstance
 import com.reaksmeyarun.pda.listener.FirebaseGetListener
+import com.reaksmeyarun.pda.preference.UserSession
 
 class RequestCart(var activity : Activity) : BaseFirebase() {
     private val TAG = "RequestCart"
@@ -21,10 +22,11 @@ class RequestCart(var activity : Activity) : BaseFirebase() {
     }
 
     private fun cartQueryRequest() : DatabaseReference{
-        return databaseReference(FirebaseConstance.CART)
+        return databaseReference(FirebaseConstance.CART).child(UserSession.getInstance(activity).getUserId())
     }
 
     class ResponseCart(
+        var id : String?= "",
         var item : RequestItem.ResponseItem ?= null,
         var quanities : Int ?= 0,
         var timestamp : String ?= ""

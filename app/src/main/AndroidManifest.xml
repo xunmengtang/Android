@@ -21,16 +21,17 @@
         <activity
             android:name=".view.activity.Z0400SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".view.activity.Z0100SplashScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.activity.Z0100SplashScreenActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".view.activity.Z0200SignInActivity"
             android:theme="@style/AppTheme.NoActionBar">

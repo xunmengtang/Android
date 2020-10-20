@@ -14,27 +14,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".view.activity.CartActivity">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:theme="@style/ToolBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:elevation="1dp">
-            <RelativeLayout
-                android:gravity="center_vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageButton
-                    android:layout_marginStart="@dimen/defMargin"
-                    android:clickable="true"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/background_round_base_color_8dp"
-                    android:elevation="8dp"
-                    android:src="@drawable/ic_arrow_left_basecolor"/>
-            </RelativeLayout>
-        </androidx.appcompat.widget.Toolbar>
         <com.reaksmeyarun.pda.customView.MyTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,6 +23,7 @@
             android:layout_marginTop="@dimen/fab_margin"
             android:textSize="@dimen/bigTitleSize"/>
         <com.reaksmeyarun.pda.customView.MyTextView
+            android:onClick="@{vmCart::handleClearAll}"
             android:layout_gravity="end"
             android:layout_width="75dp"
             android:layout_height="wrap_content"
@@ -81,7 +61,7 @@
                 <com.reaksmeyarun.pda.customView.MyTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="$ 120"
+                    android:text="$ 0.0"
                     android:id="@+id/totalPrice"
                     android:textAlignment="textEnd"
                     android:layout_weight="1"

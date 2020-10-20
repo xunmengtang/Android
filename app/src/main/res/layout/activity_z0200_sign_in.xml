@@ -30,7 +30,6 @@
                     android:layout_height="100dp"
                     android:src="@drawable/logoo"
                     android:elevation="8dp"
-                    android:background="@drawable/background_round_base_color_16dp"
                     android:scaleType="centerCrop"/>
             </RelativeLayout>
             <LinearLayout

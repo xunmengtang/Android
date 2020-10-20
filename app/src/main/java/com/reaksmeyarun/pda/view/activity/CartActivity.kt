@@ -1,6 +1,6 @@
 package com.reaksmeyarun.pda.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Dialog
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +9,7 @@ import com.reaksmeyarun.pda.adapter.CartAdapter
 import com.reaksmeyarun.pda.base.BaseActivity
 import com.reaksmeyarun.pda.databinding.ActivityCartBinding
 import com.reaksmeyarun.pda.firebaseRepo.RequestCart
+import com.reaksmeyarun.pda.utils.AlertUtil
 import com.reaksmeyarun.pda.viewmodel.CartViewModel
 
 class CartActivity : BaseActivity() {
@@ -30,6 +31,27 @@ class CartActivity : BaseActivity() {
     fun initRVCart(){
         binding.rvCart.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rvCart.adapter = cartAdapter
+        cartAdapter.setAddRemoveCallBack(object : CartAdapter.AddRemoveCallBack{
+            override fun add(item: RequestCart.ResponseCart) {
+                calculateSubTotal(cartAdapter.arrayListOfTotal)
+            }
+
+            override fun remove(item: RequestCart.ResponseCart) {
+                calculateSubTotal(cartAdapter.arrayListOfTotal)
+            }
+        })
+        cartAdapter.setRemoveItemCallBack(object : CartAdapter.RemoveItem {
+            override fun onDelete(item: RequestCart.ResponseCart, position: Int) {
+                vmCart.requestRemoveItemFromCart(cartAdapter, position)
+            }
+        })
         vmCart.requestCart(cartAdapter)
+    }
+    fun calculateSubTotal(totalList : ArrayList<Double>){
+        var total : Double ?= 0.0
+        for(i in totalList){
+            total = total?.plus(i)
+        }
+        binding.totalPrice.text = "$ $total"
     }
 }

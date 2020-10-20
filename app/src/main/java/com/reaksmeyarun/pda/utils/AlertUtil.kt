@@ -20,10 +20,14 @@ object AlertUtil {
         fun onConfirm(dialog: Dialog)
         fun onReject(dialog: Dialog)
     }
-    fun init(context: Context, layoutId : Int, msg : String) : Dialog {
+    fun init(context: Context, msg : String) : Dialog {
         val dialog = Dialog(context, R.style.RoundedCornersDialog)
+        dialog.setContentView(R.layout.alert)
         dialog.txtAlertMsg.text = msg
-        dialog.setContentView(layoutId)
+        dialog.popupBtnNo.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
         return dialog
     }
     fun alertConfirm(context: Context?, title: String, msg: String, callBack: DecisionCallback){

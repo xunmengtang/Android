@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
+import com.google.firebase.auth.FirebaseAuth
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.adapter.CategoryAdapter
 import com.reaksmeyarun.pda.adapter.ItemsAdapter
@@ -38,7 +39,6 @@ class P0200HomeActivity : BaseActivity(),
         setSupportActionBar(binding.toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         nav_view.setNavigationItemSelectedListener(this)
-
         initCategory()
         initClothesRV()
         initShoesRV()
@@ -91,7 +91,6 @@ class P0200HomeActivity : BaseActivity(),
              itemsAdapter.setItemClickCallBack(object :
                  RVItemClickCallback<RequestItem.ResponseItem> {
                  override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
-                     Toast.makeText(this@P0200HomeActivity, "Item", Toast.LENGTH_SHORT).show()
                      val stringData = ConvertUtils.init().objectToJson(item)
                      val intent = Intent(this@P0200HomeActivity, DetailActivity::class.java)
                      intent.putExtra(AppConstance.ITEM_NODE, stringData.toString())
