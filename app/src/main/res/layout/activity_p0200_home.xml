@@ -29,6 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <ImageButton
+                        android:onClick="@{vmHome::handleOpenDrawer}"
                         android:layout_marginStart="@dimen/defMargin"
                         android:clickable="true"
                         android:layout_width="44dp"

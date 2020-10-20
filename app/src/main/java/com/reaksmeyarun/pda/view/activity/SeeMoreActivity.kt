@@ -31,7 +31,7 @@ class SeeMoreActivity : BaseActivity() {
 
     fun initItemAdapter(){
         val itemAdaper = ItemsAdapter(this, R.layout.item_layout)
-        binding.rvFeature.layoutManager = LinearLayoutManager(this, LinearLayout.HORIZONTAL, false)
+        binding.rvFeature.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvFeature.adapter = itemAdaper
         itemAdaper.setItemClickCallBack(object : RVItemClickCallback<RequestItem.ResponseItem>{
             override fun onClick(item: RequestItem.ResponseItem, pos: Int) {

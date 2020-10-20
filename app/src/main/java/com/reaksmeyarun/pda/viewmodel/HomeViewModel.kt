@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.view.View
 import androidx.annotation.RequiresPermission
+import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -16,6 +17,7 @@ import com.reaksmeyarun.pda.view.activity.CartActivity
 import com.reaksmeyarun.pda.view.activity.DetailActivity
 import com.reaksmeyarun.pda.view.activity.P0200HomeActivity
 import com.reaksmeyarun.pda.view.activity.SeeMoreActivity
+import kotlinx.android.synthetic.main.activity_p0200_home.*
 
 class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
 
@@ -28,7 +30,9 @@ class HomeViewModel(var activity : P0200HomeActivity) : ViewModel() {
             this.add("Pants")
         }
     }
-
+    fun handleOpenDrawer(view : View){
+        activity.binding.drawerLayout.openDrawer(GravityCompat.START)
+    }
     fun requestClothes(rvAdaper : ItemsAdapter){
         val requestRecentlyItem = RequestItem(activity)
         requestRecentlyItem.onChildListener(object : FirebaseGetChildListener{
