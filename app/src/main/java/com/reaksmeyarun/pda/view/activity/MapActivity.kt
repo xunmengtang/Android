@@ -1,6 +1,7 @@
 package com.reaksmeyarun.pda.view.activity
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +14,9 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.reaksmeyarun.pda.R
+import kotlinx.android.synthetic.main.activity_map.*
 
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS", "DEPRECATION")
@@ -24,7 +27,15 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
         checkPermission()
+        onLogout()
 
+    }
+    private fun onLogout(){
+        btn_logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            finish()
+            startActivity(Intent(this,Z0200SignInActivity::class.java))
+        }
     }
     private fun checkPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)

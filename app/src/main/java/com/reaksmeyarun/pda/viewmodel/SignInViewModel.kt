@@ -28,13 +28,13 @@ import kotlinx.android.synthetic.main.activity_z0200_sign_in.*
 
 class SignInViewModel (var activity : Z0200SignInActivity) : ViewModel(){
     private val TAG = "SignInViewModel"
-
+    val email:String = ""
     fun handleSignIn(view: View) {
         if(!validateFormEmail())
             return
         SignIn(
             TAG,
-            activity.etEmail.text.toString(),
+           email =  activity.etEmail.text.toString(),
             activity.etPassword.text.toString(),
             object : FireBaseListener {
                 override fun onFailureListener() {

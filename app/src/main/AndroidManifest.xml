@@ -9,43 +9,39 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_logo"
-        android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_logo"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Khmer2090"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".firebaseRepo.fav.RequestFav"></activity>
+        <activity android:name=".view.activity.FavActivity"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDYoQybddM6c-Daz0bHVe7h2tuyzxHmW1k" />
-        <activity android:name=".view.activity.SettingActivity"
+
+        <activity
+            android:name=".view.activity.SettingActivity"
             android:screenOrientation="sensorPortrait"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".view.activity.MapActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".view.activity.MapActivity"
             android:screenOrientation="sensorPortrait"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".view.activity.ContactActivity" />
         <activity android:name=".view.activity.Z0700SettingActivity" />
         <activity android:name=".view.activity.FavoriteActivity" />
-
         <activity android:name=".view.activity.DetailActivity" />
         <activity android:name=".view.activity.CartActivity" />
         <activity android:name=".view.activity.SeeMoreActivity" />
         <activity
             android:name=".view.activity.Z0400SignUpActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".view.activity.Z0100SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            tools:ignore="LockedOrientationActivity" >
-
-        </activity>
-        <activity
-            android:name=".view.activity.Z0200SignInActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,11 +49,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".view.activity.Z0200SignInActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".view.activity.P0200HomeActivity"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar"
-            tools:ignore="LockedOrientationActivity">
-
-        </activity>
+            tools:ignore="LockedOrientationActivity"></activity>
     </application>
+
 </manifest>

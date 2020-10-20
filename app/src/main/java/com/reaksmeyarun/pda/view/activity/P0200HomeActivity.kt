@@ -62,13 +62,13 @@ class P0200HomeActivity : BaseActivity(),
                 homeViewModel.intentTo(AppConstance.WATCHES, FirebaseConstance.ID_WATCH)
             }
             R.id.nav_favorite ->{
-
+               startActivity(Intent(this,CartActivity::class.java))
             }
             R.id.nav_setting ->{
-
+                startActivity(Intent(this,MapActivity::class.java))
             }
             R.id.nav_contact ->{
-
+                startActivity(Intent(this,SettingActivity::class.java))
             }
         }
         drawer_layout.closeDrawer(GravityCompat.START)

@@ -5,9 +5,7 @@ import android.content.Intent
 import android.view.View
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.FirebaseAuth
 import com.reaksmeyarun.pda.R
-import com.reaksmeyarun.pda.firebaseRepo.email.SendEmailVerification
 import com.reaksmeyarun.pda.firebaseRepo.email.SignUp
 import com.reaksmeyarun.pda.listener.FireBaseListener
 import com.reaksmeyarun.pda.utils.AlertUtil

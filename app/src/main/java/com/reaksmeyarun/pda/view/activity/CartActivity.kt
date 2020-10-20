@@ -1,7 +1,7 @@
 package com.reaksmeyarun.pda.view.activity
 
-import android.app.Dialog
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reaksmeyarun.pda.R
@@ -9,8 +9,8 @@ import com.reaksmeyarun.pda.adapter.CartAdapter
 import com.reaksmeyarun.pda.base.BaseActivity
 import com.reaksmeyarun.pda.databinding.ActivityCartBinding
 import com.reaksmeyarun.pda.firebaseRepo.RequestCart
-import com.reaksmeyarun.pda.utils.AlertUtil
 import com.reaksmeyarun.pda.viewmodel.CartViewModel
+import kotlinx.android.synthetic.main.activity_cart.*
 
 class CartActivity : BaseActivity() {
 
@@ -26,8 +26,13 @@ class CartActivity : BaseActivity() {
         binding.vmCart = vmCart
         binding.lifecycleOwner = this
         initRVCart()
+        onCheckout()
     }
-
+    private fun onCheckout(){
+        checkout.setOnClickListener {
+            Toast.makeText(this,"Will be coming soon...",Toast.LENGTH_SHORT).show()
+        }
+    }
     fun initRVCart(){
         binding.rvCart.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rvCart.adapter = cartAdapter

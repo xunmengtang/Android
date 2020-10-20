@@ -85,7 +85,7 @@
                     android:onClick="@{vmSignIn::handleSignUp}"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/defButtonHeight"
-                    android:text="Are you have or not? Sign Up"
+                    android:text="Don't have an account? Sign Up"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textColor="@color/endColor"/>
