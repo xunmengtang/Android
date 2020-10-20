@@ -1,13 +1,17 @@
 package com.reaksmeyarun.pda.viewmodel
 
+import android.app.Activity
+import android.app.Dialog
 import android.view.View
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.reaksmeyarun.pda.BuildConfig
 import com.reaksmeyarun.pda.R
 import com.reaksmeyarun.pda.firebaseRepo.email.SendEmailVerification
 import com.reaksmeyarun.pda.firebaseRepo.email.SignUp
 import com.reaksmeyarun.pda.listener.FireBaseListener
+import com.reaksmeyarun.pda.utils.AlertUtil
 import com.reaksmeyarun.pda.utils.EmailValidator
 import com.reaksmeyarun.pda.utils.PopupMsg
 import com.reaksmeyarun.pda.view.activity.Z0400SignUpActivity
@@ -17,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_z0400_sign_up.etPhoneNumber
 class SignUpViewModel(val activity : Z0400SignUpActivity) : ViewModel() {
     private val TAG = "SignUpViewModel"
     fun handleBackPress(view : View){
-        activity.finish()
+        activity.onBackPressed()
     }
     fun handleSignUp(view : View){
         if(!isValidation())
@@ -38,36 +42,23 @@ class SignUpViewModel(val activity : Z0400SignUpActivity) : ViewModel() {
                                 TAG,
                                 object : FireBaseListener {
                                     override fun onFailureListener() {
-                                        PopupMsg.alert(
-                                            activity,
-                                            activity.getString(R.string.msg_cant_send_email_verification)
-                                        )
+                                        AlertUtil.init(activity, R.layout.alert, activity.getString(R.string.msg_cant_send_email_verification))
                                     }
 
                                     override fun <TResult> onCompleteListener(task: Task<TResult>) {
                                         when {
                                             task.isSuccessful -> {
-                                                PopupMsg.alert(activity,
-                                                    activity.getString(R.string.msg_send_verity_email),
-                                                    object : PopupMsg.OnClickButtonCloseCallBack {
-                                                        override fun onCloseCallBack() {
-                                                            FirebaseAuth.getInstance().signOut()
-                                                                .run { activity.finish() }
-                                                        }
-                                                    })
+                                                AlertUtil.init(activity, R.layout.alert, activity.getString(R.string.msg_send_verity_email))
+                                                FirebaseAuth.getInstance().signOut()
+                                                activity.setResult(Activity.RESULT_OK)
+                                                activity.finish()
                                             }
-                                            task.isCanceled -> PopupMsg.alert(
-                                                activity,
-                                                activity.getString(R.string.msg_something_wrong)
-                                            )
+                                            task.isCanceled -> AlertUtil.init(activity, R.layout.alert, activity.getString(R.string.msg_something_wrong))
                                         }
                                     }
                                 }).execute()
                         }
-                        task.isCanceled -> PopupMsg.alert(
-                            activity,
-                            activity.getString(R.string.msg_something_wrong)
-                        )
+                        task.isCanceled -> AlertUtil.init(activity, R.layout.alert, activity.getString(R.string.msg_something_wrong))
                     }
                 }
             }).execute()

@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.view.Gravity
 import com.reaksmeyarun.pda.R
+import kotlinx.android.synthetic.main.alert.*
 import kotlinx.android.synthetic.main.alert_confirm.*
 import kotlinx.android.synthetic.main.alert_confirm.alertTitle
 import kotlinx.android.synthetic.main.alert_confirm.layout
@@ -19,8 +20,9 @@ object AlertUtil {
         fun onConfirm(dialog: Dialog)
         fun onReject(dialog: Dialog)
     }
-    fun init(context: Context, layoutId : Int) : Dialog {
+    fun init(context: Context, layoutId : Int, msg : String) : Dialog {
         val dialog = Dialog(context, R.style.RoundedCornersDialog)
+        dialog.txtAlertMsg.text = msg
         dialog.setContentView(layoutId)
         return dialog
     }

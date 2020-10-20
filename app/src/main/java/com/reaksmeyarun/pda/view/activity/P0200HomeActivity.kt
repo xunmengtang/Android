@@ -39,7 +39,6 @@ class P0200HomeActivity : BaseActivity(),
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         nav_view.setNavigationItemSelectedListener(this)
 
-
         initCategory()
         initClothesRV()
         initShoesRV()
@@ -58,8 +57,11 @@ class P0200HomeActivity : BaseActivity(),
         binding.rvRecentlySearch.adapter = category
         category.setItemClickCallBack(object : RVItemClickCallback<RequestCategory.ResponseCategory>{
             override fun onClick(item: RequestCategory.ResponseCategory, pos: Int) {
-                Log.d("TAG","Hello activity++++-----")
-                Toast.makeText(this@P0200HomeActivity,"Item",Toast.LENGTH_SHORT).show()
+                val stringData = ConvertUtils.init().objectToJson(item)
+                val intent = Intent(this@P0200HomeActivity, DetailActivity::class.java)
+                intent.putExtra(AppConstance.ITEM_NODE, stringData.toString())
+                intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(intent)
             }
         })
         homeViewModel.initCategory()
@@ -71,7 +73,6 @@ class P0200HomeActivity : BaseActivity(),
         binding.rvClothes.adapter = itemsAdapter
         itemsAdapter.setItemClickCallBack(object : RVItemClickCallback<RequestItem.ResponseItem>{
             override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
-                Log.d("TAG","Hello activity++++++++")
                 val stringData = ConvertUtils.init().objectToJson(item)
                 val intent = Intent(this@P0200HomeActivity, DetailActivity::class.java)
                 intent.putExtra(AppConstance.ITEM_NODE, stringData.toString())
@@ -90,7 +91,6 @@ class P0200HomeActivity : BaseActivity(),
              itemsAdapter.setItemClickCallBack(object :
                  RVItemClickCallback<RequestItem.ResponseItem> {
                  override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
-                     Log.d("TAG", "Hello activity000000")
                      Toast.makeText(this@P0200HomeActivity, "Item", Toast.LENGTH_SHORT).show()
                      val stringData = ConvertUtils.init().objectToJson(item)
                      val intent = Intent(this@P0200HomeActivity, DetailActivity::class.java)
@@ -103,16 +103,18 @@ class P0200HomeActivity : BaseActivity(),
          }
 
     private fun initWatch(){
-        val itemAdater = ItemsAdapter(this,R.layout.item_layout,)
+        val itemAdater = ItemsAdapter(this,R.layout.item_layout)
         binding.rvWatch.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         binding.rvWatch.adapter = itemAdater
-//        itemAdater.setItemClickCallBack(object :RVItemClickCallback<RequestItem.ResponseItem>{
-//            override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
-//                Log.d("TAG","Hello activity_________")
-//                Toast.makeText(this@P0200HomeActivity,"Item",Toast.LENGTH_SHORT).show()
-//            }
-//
-//        })
+        itemAdater.setItemClickCallBack(object :RVItemClickCallback<RequestItem.ResponseItem>{
+            override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
+                val stringData = ConvertUtils.init().objectToJson(item)
+                val intent = Intent(this@P0200HomeActivity, DetailActivity::class.java)
+                intent.putExtra(AppConstance.ITEM_NODE, stringData.toString())
+                intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(intent)
+            }
+        })
         homeViewModel.requestWatch(itemAdater)
     }
     private fun initPants(){
@@ -121,8 +123,11 @@ class P0200HomeActivity : BaseActivity(),
         binding.rvPants.adapter = itemAdater
         itemAdater.setItemClickCallBack(object :RVItemClickCallback<RequestItem.ResponseItem>{
             override fun onClick(item: RequestItem.ResponseItem, pos: Int) {
-                Log.d("TAG","Hello activity=========")
-                Toast.makeText(this@P0200HomeActivity,"Item",Toast.LENGTH_SHORT).show()
+                val stringData = ConvertUtils.init().objectToJson(item)
+                val intent = Intent(this@P0200HomeActivity, DetailActivity::class.java)
+                intent.putExtra(AppConstance.ITEM_NODE, stringData.toString())
+                intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(intent)
             }
 
         })

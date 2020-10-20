@@ -20,8 +20,8 @@ import kotlinx.android.synthetic.main.item_layout.view.*
         holder.itemView.title.text = items[position].itemName
         holder.itemView.price.text = "$ "+items[position].price.toString()
         Glide.with(context).load(items[position].image?.url).placeholder(R.color.space_gray).into(holder.itemView.icon)
-        holder.itemView.setOnClickListener {
-
+        holder.itemView.setOnClickListener{
+            itemClickCallback?.onClick(items[position], position)
         }
     }
 

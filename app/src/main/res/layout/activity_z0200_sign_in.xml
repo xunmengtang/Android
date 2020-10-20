@@ -50,13 +50,13 @@
                     android:textSize="@dimen/largeTitleSize"/>
 
                 <com.reaksmeyarun.pda.customView.MyEditText
-                    android:id="@+id/etPhoneNumber"
+                    android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/fab_margin_very_ultra"
                     android:layout_marginTop="@dimen/fab_margin_medium"
                     android:layout_marginEnd="@dimen/fab_margin_very_ultra"
-                    android:hint="@string/phoneNumber"
+                    android:hint="@string/email"
                     android:inputType="textEmailAddress"
                     android:textAlignment="textStart" />
 
@@ -67,7 +67,7 @@
                     android:layout_marginEnd="@dimen/fab_margin_very_ultra"
                     android:background="@color/baseColor"/>
                 <com.reaksmeyarun.pda.customView.MyEditText
-                    android:id="@+id/txt_password"
+                    android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/passwordSingIn"
@@ -82,28 +82,14 @@
                     android:layout_marginStart="@dimen/fab_margin_very_ultra"
                     android:layout_marginEnd="@dimen/fab_margin_very_ultra"
                     android:background="@color/baseColor"/>
-                <LinearLayout
+                <TextView
+                    android:onClick="@{vmSignIn::handleSignUp}"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_height="@dimen/defButtonHeight"
+                    android:text="Are you have or not? Sign Up"
+                    android:layout_gravity="center"
                     android:gravity="center"
-                    android:layout_marginTop="@dimen/fab_margin"
-                    android:layout_marginStart="@dimen/fab_margin_high"
-                    android:layout_marginEnd="@dimen/fab_margin_high">
-                    <LinearLayout
-                        android:id="@+id/gotoSingIn"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Are you have or not? Sing Up"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textColor="@color/endColor"/>
-                    </LinearLayout>
-                </LinearLayout>
+                    android:textColor="@color/endColor"/>
                 <Button
                     android:elevation="8dp"
                     android:background="@drawable/background_round_base_color_8dp"
@@ -119,7 +105,7 @@
                     android:textAlignment="textStart"
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
-                    android:text="@string/next"
+                    android:text="@string/signIn"
                     android:onClick="@{vmSignIn::handleSignIn}"
 
                     android:drawableRight="@drawable/ic_arrow_forward_24dp"/>

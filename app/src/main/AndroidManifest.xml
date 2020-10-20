@@ -24,15 +24,11 @@
         <activity android:name=".view.activity.MapActivity"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".view.activity.ContactActivity" />
         <activity android:name=".view.activity.Z0700SettingActivity" />
         <activity android:name=".view.activity.FavoriteActivity" />
+
         <activity android:name=".view.activity.DetailActivity" />
         <activity android:name=".view.activity.CartActivity" />
         <activity android:name=".view.activity.SeeMoreActivity" />
@@ -52,7 +48,12 @@
             android:name=".view.activity.P0200HomeActivity"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar"
-            tools:ignore="LockedOrientationActivity" />
-    </application>
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>

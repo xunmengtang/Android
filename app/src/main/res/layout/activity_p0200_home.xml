@@ -48,6 +48,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
                     <LinearLayout
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fab_margin_medium"
@@ -70,11 +71,13 @@
                             android:textStyle="bold|italic"/>
                     </LinearLayout>
                     <androidx.recyclerview.widget.RecyclerView
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:id="@+id/rvRecentlySearch"/>
                     <androidx.recyclerview.widget.RecyclerView
+                        android:visibility="gone"
                         android:layout_margin="@dimen/defMargin"
                         android:layout_marginBottom="@dimen/defMargin"
                         android:layout_width="match_parent"
@@ -96,6 +99,7 @@
                             android:text="Watch"
                             android:textStyle="bold"/>
                         <com.reaksmeyarun.pda.customView.MyTextView
+                            android:onClick="@{vmHome::handleSeeMoreWatches}"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
@@ -123,6 +127,7 @@
                             android:text="Clothes"
                             android:textStyle="bold"/>
                         <com.reaksmeyarun.pda.customView.MyTextView
+                            android:onClick="@{vmHome::handleSeeMoreClothes}"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
@@ -150,6 +155,7 @@
                             android:text="Pants"
                             android:textStyle="bold"/>
                         <com.reaksmeyarun.pda.customView.MyTextView
+                            android:onClick="@{vmHome::handleSeeMorePants}"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
@@ -177,6 +183,7 @@
                             android:text="Shoes"
                             android:textStyle="bold"/>
                         <com.reaksmeyarun.pda.customView.MyTextView
+                            android:onClick="@{vmHome::handleSeeMoreShoes}"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"

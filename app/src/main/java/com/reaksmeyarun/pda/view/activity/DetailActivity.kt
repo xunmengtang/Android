@@ -1,6 +1,5 @@
 package com.reaksmeyarun.pda.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.reaksmeyarun.pda.R
@@ -9,12 +8,13 @@ import com.reaksmeyarun.pda.constance.AppConstance
 import com.reaksmeyarun.pda.databinding.ActivityDetailBinding
 import com.reaksmeyarun.pda.datamodel.DetailDataModel
 import com.reaksmeyarun.pda.viewmodel.DetailViewModel
+import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : BaseActivity() {
 
     lateinit var binding : ActivityDetailBinding
     lateinit var vmDetail : DetailViewModel
-
+    var number =2
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
