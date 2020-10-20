@@ -6,6 +6,7 @@ import com.reaksmeyarun.pda.base.BaseAdapter
 import com.reaksmeyarun.pda.base.BaseViewHolder
 import com.reaksmeyarun.pda.firebaseRepo.RequestCart
 import kotlinx.android.synthetic.main.cart_layout.view.*
+import kotlinx.android.synthetic.main.item_layout.view.*
 
 class CartAdapter(context : Context, val layoutId : Int) : BaseAdapter<RequestCart.ResponseCart>(context, layoutId){
     var itemSelected = RequestCart.ResponseCart()
@@ -29,7 +30,9 @@ class CartAdapter(context : Context, val layoutId : Int) : BaseAdapter<RequestCa
         holder.itemView.btnAdd.setOnClickListener {
             items[position].quanities = items[position].quanities!!.plus(1)
             holder.itemView.quanitites.text = items[position].quanities.toString()
-            arrayListOfTotal[position] = items[position].quanities!!.toDouble() * items[position].item?.price!!.toDouble()
+            val price = items[position].quanities!!.toDouble() * items[position].item?.price!!.toDouble()
+            holder.itemView.itemPrice.text = "$ $price"
+            arrayListOfTotal[position] = price
             addRemoveCallBack?.add(items[position])
         }
 
@@ -37,7 +40,9 @@ class CartAdapter(context : Context, val layoutId : Int) : BaseAdapter<RequestCa
             if(items[position].quanities?:1 > 1){
                 items[position].quanities = items[position].quanities!!.minus(1)
                 holder.itemView.quanitites.text = items[position].quanities.toString()
-                arrayListOfTotal[position] = items[position].quanities!!.toDouble() * items[position].item?.price!!.toDouble()
+                val price = items[position].quanities!!.toDouble() * items[position].item?.price!!.toDouble()
+                holder.itemView.itemPrice.text = "$ $price"
+                arrayListOfTotal[position] = price
                 addRemoveCallBack?.remove(items[position])
             }
         }

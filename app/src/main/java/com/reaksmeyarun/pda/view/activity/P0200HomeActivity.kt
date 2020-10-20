@@ -16,6 +16,7 @@ import com.reaksmeyarun.pda.adapter.CategoryAdapter
 import com.reaksmeyarun.pda.adapter.ItemsAdapter
 import com.reaksmeyarun.pda.base.BaseActivity
 import com.reaksmeyarun.pda.constance.AppConstance
+import com.reaksmeyarun.pda.constance.FirebaseConstance
 import com.reaksmeyarun.pda.dataObject.Category
 import com.reaksmeyarun.pda.databinding.ActivityP0200HomeBinding
 import com.reaksmeyarun.pda.firebaseRepo.RequestCategory
@@ -44,10 +45,32 @@ class P0200HomeActivity : BaseActivity(),
         initShoesRV()
         initWatch()
         initPants()
-
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.nav_home ->{
+
+            }
+            R.id.nav_clothes ->{
+                homeViewModel.intentTo(AppConstance.CLOTHES, FirebaseConstance.ID_CLOTHES)
+            }
+            R.id.nav_shoes ->{
+                homeViewModel.intentTo(AppConstance.SHOES, FirebaseConstance.ID_SHOES)
+            }
+            R.id.nav_watches ->{
+                homeViewModel.intentTo(AppConstance.WATCHES, FirebaseConstance.ID_WATCH)
+            }
+            R.id.nav_favorite ->{
+
+            }
+            R.id.nav_setting ->{
+
+            }
+            R.id.nav_contact ->{
+
+            }
+        }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }

@@ -13,22 +13,18 @@ import com.reaksmeyarun.pda.view.activity.SeeMoreActivity
 
 class SeeMoreViewModel(var activity : SeeMoreActivity) : ViewModel(){
 
+    init {
+        initInformation(activity.intent.getStringExtra(AppConstance.CATEGORY_NODE))
+    }
+
     fun initInformation(node : String?){
         if(node!=null){
-            activity.binding.title.text == node
+            activity.binding.categoryName.text = node
             when(node){
-                AppConstance.CLOTHES ->{
-                    activity.binding.banner.setImageResource(R.mipmap.clothes_banner)
-                }
-                AppConstance.SHOES ->{
-                    activity.binding.banner.setImageResource(R.mipmap.shoes_banner)
-                }
-                AppConstance.PANTS ->{
-                    activity.binding.banner.setImageResource(R.mipmap.pant_banner)
-                }
-                AppConstance.WATCHES ->{
-                    activity.binding.banner.setImageResource(R.mipmap.watches_banner)
-                }
+                AppConstance.CLOTHES -> activity.binding.banner.setImageResource(R.mipmap.clothes_banner)
+                AppConstance.SHOES -> activity.binding.banner.setImageResource(R.mipmap.shoes_banner)
+                AppConstance.PANTS -> activity.binding.banner.setImageResource(R.mipmap.pant_banner)
+                AppConstance.WATCHES -> activity.binding.banner.setImageResource(R.mipmap.watches_banner)
             }
         }
     }
